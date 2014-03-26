@@ -176,7 +176,7 @@ result with the authorized OSClient.  OSClient allows you to invoke Compute, Ide
 <p><strong>Server Actions</strong></p>
 
 <p>Simple Actions are a single command giving the Server ID and desired Action.  The available simple actions
-are PAUSE, UNPAUSE, STOP, START, LOCK, UNLOCK, SUSPEND, RESUMT, RESCUE, UNRESCUE, SHELVE, SHELVE_OFFLOAD, UNSHELVE.</p>
+are PAUSE, UNPAUSE, STOP, START, LOCK, UNLOCK, SUSPEND, RESUME, RESCUE, UNRESCUE, SHELVE, SHELVE_OFFLOAD, UNSHELVE.</p>
 
 <p>Extended actions are handled via direct API calls.  </p>
 
@@ -273,10 +273,10 @@ specification which is why the information is variable and in map form (key and 
 <p><strong>Images</strong></p>
 
 <div class="highlight highlight-java"><pre><span class="c1">// List all Images (detailed @see #list(boolean detailed) for brief)</span>
-<span class="n">List</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">&gt;</span> <span class="n">images</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">compute</span><span class="o">().</span><span class="na">images</span><span class="o">().</span><span class="na">list</span><span class="o">();</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">ComputeImage</span><span class="o">&gt;</span> <span class="n">images</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">compute</span><span class="o">().</span><span class="na">images</span><span class="o">().</span><span class="na">list</span><span class="o">();</span>
 
 <span class="c1">// Get an Image by ID</span>
-<span class="n">Image</span> <span class="n">img</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">compute</span><span class="o">().</span><span class="na">images</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">);</span>
+<span class="n">ComputeImage</span> <span class="n">img</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">compute</span><span class="o">().</span><span class="na">images</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">);</span>
 
 <span class="c1">// Delete an Image</span>
 <span class="n">os</span><span class="o">.</span><span class="na">compute</span><span class="o">().</span><span class="na">images</span><span class="o">().</span><span class="na">delete</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">);</span>
@@ -384,7 +384,26 @@ specification which is why the information is variable and in map form (key and 
 <h2>
 <a name="image-operations-glance" class="anchor" href="#image-operations-glance"><span class="octicon octicon-link"></span></a>Image Operations (Glance)</h2>
 
-<p>Documenation coming soon...</p>
+<div class="highlight highlight-java"><pre><span class="c1">// List all Images</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">&gt;</span> <span class="n">images</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">list</span><span class="o">();</span>
+
+<span class="c1">// Get an Image by ID</span>
+<span class="n">Image</span> <span class="n">image</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">);</span>
+
+<span class="c1">// Delete a Image</span>
+<span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">delete</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">);</span>
+
+<span class="c1">// Update a Image</span>
+<span class="n">Image</span> <span class="n">image</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">);</span>
+
+<span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">update</span><span class="o">(</span><span class="n">image</span><span class="o">.</span><span class="na">toBuilder</span><span class="o">()</span>
+           <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"New VM Image Name"</span><span class="o">).</span><span class="na">minDisk</span><span class="o">(</span><span class="mi">1024</span><span class="o">).</span><span class="na">property</span><span class="o">(</span><span class="s">"personal-distro"</span><span class="o">,</span> <span class="s">"true"</span><span class="o">));</span>
+
+
+<span class="c1">// Download the Image Data (VM)</span>
+<span class="n">InputStream</span> <span class="n">is</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">getAsStream</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">);</span> 
+
+</pre></div>
 
 <h2>
 <a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
