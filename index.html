@@ -384,6 +384,8 @@ specification which is why the information is variable and in map form (key and 
 <h2>
 <a name="image-operations-glance" class="anchor" href="#image-operations-glance"><span class="octicon octicon-link"></span></a>Image Operations (Glance)</h2>
 
+<p><strong>Basic Operations</strong></p>
+
 <div class="highlight highlight-java"><pre><span class="c1">// List all Images</span>
 <span class="n">List</span><span class="o">&lt;</span><span class="n">Image</span><span class="o">&gt;</span> <span class="n">images</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">list</span><span class="o">();</span>
 
@@ -398,11 +400,49 @@ specification which is why the information is variable and in map form (key and 
 
 <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">update</span><span class="o">(</span><span class="n">image</span><span class="o">.</span><span class="na">toBuilder</span><span class="o">()</span>
            <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"New VM Image Name"</span><span class="o">).</span><span class="na">minDisk</span><span class="o">(</span><span class="mi">1024</span><span class="o">).</span><span class="na">property</span><span class="o">(</span><span class="s">"personal-distro"</span><span class="o">,</span> <span class="s">"true"</span><span class="o">));</span>
+</pre></div>
 
+<p><strong>Download the Image Data</strong></p>
 
-<span class="c1">// Download the Image Data (VM)</span>
-<span class="n">InputStream</span> <span class="n">is</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">getAsStream</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">);</span> 
+<div class="highlight highlight-java"><pre><span class="n">InputStream</span> <span class="n">is</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">getAsStream</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">);</span> 
+</pre></div>
 
+<p><strong>Create a Server</strong></p>
+
+<div class="highlight highlight-java"><pre><span class="c1">// (URL Payload in this example, File, InputStream are other payloads available)</span>
+<span class="n">Image</span> <span class="n">image</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">create</span><span class="o">(</span><span class="n">Builders</span><span class="o">.</span><span class="na">image</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"Cirros 0.3.0 x64"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">isPublic</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">containerFormat</span><span class="o">(</span><span class="n">ContainerFormat</span><span class="o">.</span><span class="na">BARE</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">diskFormat</span><span class="o">(</span><span class="n">DiskFormat</span><span class="o">.</span><span class="na">QCOW2</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">()</span>
+                <span class="o">),</span> <span class="n">Payloads</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img"</span><span class="o">)));</span>
+</pre></div>
+
+<p><strong>Reserve and Upload a Server</strong></p>
+
+<div class="highlight highlight-java"><pre><span class="n">Image</span> <span class="n">image</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">reserve</span><span class="o">(</span><span class="n">Builders</span><span class="o">.</span><span class="na">image</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"Cirros 0.3.0 x64"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">isPublic</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">());</span>
+
+<span class="c1">// Passing the image is optional and can be null but in this example we want to make sure </span>
+<span class="c1">// the ContainerFormat and DiskFormat are correct</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">upload</span><span class="o">(</span><span class="n">image</span><span class="o">.</span><span class="na">getId</span><span class="o">(),</span> 
+                           <span class="n">Payloads</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"/path/to/vmimage.img"</span><span class="o">)),</span> 
+                           <span class="n">image</span><span class="o">.</span><span class="na">builder</span><span class="o">().</span><span class="na">containerFormat</span><span class="o">(</span><span class="n">ContainerFormat</span><span class="o">.</span><span class="na">BARE</span><span class="o">).</span><span class="na">diskFormat</span><span class="o">(</span><span class="n">DiskFormat</span><span class="o">.</span><span class="na">QCOW2</span><span class="o">));</span>
+</pre></div>
+
+<p><strong>Image Membership Operations</strong></p>
+
+<div class="highlight highlight-java"><pre><span class="c1">// List Members who have access to a private image</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">ImageMember</span><span class="o">&gt;</span> <span class="n">members</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">listMembers</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">);</span>
+
+<span class="c1">// Add a Member (give a Tenant access to a private image) - returns true for success</span>
+<span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">addMember</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">,</span> <span class="s">"tenantId"</span><span class="o">);</span>
+
+<span class="c1">// Remove a Member (revoke a Tenant access to a private image) - returns true for success</span>
+<span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">removeMember</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">,</span> <span class="s">"tenantId"</span><span class="o">);</span>
 </pre></div>
 
 <h2>
