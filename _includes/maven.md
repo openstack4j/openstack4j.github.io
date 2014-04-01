@@ -1,12 +1,24 @@
 
 If you are a Maven user just add the library as a dependency:
 
+**Latest Release**
+
 {:.prettyprint .lang-xml}
 	<dependency>
 	  <groupId>org.pacesys</groupId>
 	  <artifactId>openstack4j</artifactId>
 	  <version>{{ site.version }}</version>
 	</dependency>
+
+**Current Development Snapshot**
+
+{:.prettyprint .lang-xml}
+	<dependency>
+	  <groupId>org.pacesys</groupId>
+	  <artifactId>openstack4j</artifactId>
+	  <version>{{ site.snapshot-version }}</version>
+	</dependency>
+
 	
 **Example Maven project setup**
 
