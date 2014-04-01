@@ -1,0 +1,7 @@
+# Jekyll
+permalink: pretty
+paginate: 10 
+name: OpenStack4j
+baseurl: 
+markdown: kramdown
+version: 1.0.0-SNAPSHOT

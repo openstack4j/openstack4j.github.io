@@ -1,0 +1,44 @@
+      <div class="span3">
+        <ul class="sidenav">
+{% if page.menu == "learn" %}
+          <li><a href="/learn">What is OpenStack4j</li>
+	      <li><a href="/learn/getting-started">Getting Started</a></li>
+		  <li><a href="/learn/model-objects">Working with Model Objects</a></li>
+		  <li><a href="/learn/getting-started/#authenticate">Authenticate with a Deployment</a></li>
+		  <li><a href="/learn/identity">Identity (Keystone)</a>
+                <ul>
+                  <li><a href="/learn/identity/#tenants">Tenants</a></li>
+                  <li><a href="/learn/identity/#user-and-role-management">User & Role Management</a></li>
+                  <li><a href="/learn/identity/#services-and-endpoints">Services & Endpoints</a></li>
+                  <li><a href="/learn/identity/#extensions">Extensions</a></li>
+                  <li><a href="/learn/identity/#token-endpoints">Token Endpoints</a></li>
+                </ul>
+              </li>
+			  <li><a href="/learn/compute">Compute (Nova)</a>
+				<ul>
+                  <li><a href="/learn/compute/#flavors">Flavors</a></li>
+                  <li><a href="/learn/compute/#images-via-nova">Images</a></li>
+                  <li><a href="/learn/compute/#servers">Servers</a></li>
+                  <li><a href="/learn/compute/#quota-sets-and-limits">Quota-Sets and Limits</a></li>
+                  <li><a href="/learn/compute/#simple-tenant-usage-os-simple-tenant-usage">Simple Tenant Usage</a></li>
+                  <li><a href="/learn/compute/#extensions">Extensions</a></li>
+				</ul>
+			  </li>
+			  <li><a href="/learn/networks">Network (Neutron)</a>
+			  <ul>
+				  <li><a href="/learn/networks/#networks">Networks</a></li>
+                  <li><a href="/learn/networks/#subnets">Subnets</a></li>
+				  <li><a href="/learn/networks/#ports">Ports</a></li>
+				  <li><a href="/learn/networks/#routers">Routers</a></li>
+			  </ul>
+			  </li>
+			  <li><a href="/learn/image">Images (Glance)</a>
+			  <ul>
+				<li><a href="/learn/image/#creating-reserving-and-uploading-images">Create, Reserve & Upload</a></li>
+				<li><a href="/learn/image/#updating-deleting-and-querying">Update, Delete & Queries</a></li>
+				<li><a href="/learn/image/#image-memberships">Memberships</a></li>
+			  </ul>
+			 </li>
+{% endif %}
+        </ul>
+      </div>
