@@ -102,6 +102,23 @@ Booting a new Server is simple with OpenStack4j.  The two requirements are speci
 
 	// Boot the Server
 	Server server = os.compute().servers().boot(server);
+	
+**Personalities**
+
+When you create a new VM/Server you can also override various files or lay down additional files that will be available when the VM is running.  For example you may want to override the `/etc/passwd` file with a default set of users and passwords. Below takes the example above but overrides the `/etc/motd`
+
+{:.prettyprint .lang-java}
+	// Create a Server Model Object
+	Server server = Builders.server()
+	                        .name("Ubuntu 2")
+	                        .flavor("flavorId")
+	                        .image("imageId")
+	                        .addPersonality("/etc/motd", "Welcome to the new VM! Restricted access only")
+	                        .build();
+
+	// Boot the Server
+	Server server = os.compute().servers().boot(server);
+	
 
 #### Server Actions
 
@@ -155,12 +172,33 @@ Revert a Resize
 
 #### Create a new Server Snapshot
 
+A snapshot is merely a pointer to a point in time.  This can be handy if you are doing a risky upgrade or migration and need a quick way to revert back.  You can take a snapshot and then proceed with your migrations.  If the migrations fail you can quickly revert back to created snapshot.
+
 {:.prettyprint .lang-java}
 	String imageId = os.compute().servers().createSnapshot(server.getId(), "Clean State Snapshot");
+
+
+#### VNC and Console Output
+
+OpenStack provides the ability to grab the tail of the console log based on the specified `number of lines`. See the example below on grabbing the last 50 lines of a running servers console.
+
+**Console Output**
+
+{:.prettyprint .lang-java}
+	String consoleOutput = os.compute().servers().getConsoleOutput("serverId", 50);
+
+You can also grab the VNC connection URL based on two VNC types that OpenStack offers, `novnc` and `xvpvnc`.  See the example below on obtaining the connection information for VNC.  The returned class contains the request `type` and the `url` used to connect.
+
+**VNC Console**
+
+{:.prettyprint .lang-java}
+	VNCConsole console = os.compute().servers().getVNCConsole("serverId", Type.NOVNC);
+
+
 	
 #### Diagnostics
 
-Diagnostics are usage information about the server. Usage includes CPU, Memory and IO. Information is dependant on the hypervisor used by the OpenStack installation. As of right now there is no concrete diagnostic specification which is why the information is variable and in map form (key and value)
+Diagnostics are usage information about the server. Usage includes CPU, Memory and IO. Information is dependent on the hypervisor used by the OpenStack installation. As of right now there is no concrete diagnostic specification which is why the information is variable and in map form (key and value)
 
 {:.prettyprint .lang-java}
 	Map<String, ? extends Number> diagnostics = os.compute().servers().diagnostics("serverId");

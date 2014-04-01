@@ -19,7 +19,13 @@ This chapter will guide you through setup and some basic examples to get you goi
 
 ### Non-Maven Users
 
-If you do not use Maven you can <a href="/downloads/openstack4j-1.0.0.jar" target="_blank">download</a> the latest OpenStack4j jar.<br>
+If you do not use Maven you can download from one of the links below and add the library to your class path.
+
+<table class="table table-striped">
+  <tr><th><strong>Version</strong></th><th><strong>Type</strong></th><th><strong>Link</strong></th></tr>
+  <tr><td>{{ site.version }}</td><td>Stable/Release</td><td><a class="btn btn-success btn-small" href="/downloads/openstack4j-{{ site.version }}.jar" target="_blank">Download</a></td></tr>
+  <tr><td>{{ site.snapshot-version }}</td><td>Development</td><td><a class="btn btn-warning btn-small" href="/downloads/openstack4j-{{ site.snapshot-version }}.jar" target="_blank">Download</a></td></tr>
+</table>
 <br>
 
 ## Lets Play!
