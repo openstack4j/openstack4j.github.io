@@ -4,6 +4,7 @@ org.openstack4j.api.exceptions
 org.openstack4j.api.identity
 org.openstack4j.api.image
 org.openstack4j.api.networking
+org.openstack4j.api.storage
 org.openstack4j.api.types
 org.openstack4j.common
 org.openstack4j.core.transport
@@ -19,6 +20,8 @@ org.openstack4j.model.image
 org.openstack4j.model.image.builder
 org.openstack4j.model.network
 org.openstack4j.model.network.builder
+org.openstack4j.model.storage.block
+org.openstack4j.model.storage.block.builder
 org.openstack4j.openstack
 org.openstack4j.openstack.common
 org.openstack4j.openstack.compute.domain
@@ -28,3 +31,4 @@ org.openstack4j.openstack.image.domain
 org.openstack4j.openstack.image.domain.functions
 org.openstack4j.openstack.networking.domain
 org.openstack4j.openstack.provider
+org.openstack4j.openstack.storage.block.domain
