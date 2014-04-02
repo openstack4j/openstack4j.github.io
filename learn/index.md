@@ -17,6 +17,7 @@ OpenStack4j is broken out into several major API abstractions as Java libraries.
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-cog"></span> Compute</div></td><td>The Compute (Nova) service provides management to Servers (running virtual machines), VM Management, Flavors and diagnostics.  The API streamlines day to day management tasks and makes managing your cloud straight forward with the fluent design.</td></tr>
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-cloud-upload"></span> Image</div></td><td>The Image (Glance) service provides discovery, registration and delivery services for disk and server images.  Stored images can be used as a template for quickly booting new running instances via the Compute service.</td></tr>
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-signal"></span> Network</div></td><td>The Network (Neutron) service provides "network connectivity as a service" between interface devices managed by other OpenStack service, mainly Nova.  The API allows users to create their own networks and then attach interfaces to them.  The OpenStack4j implementation supports Routers, Ports, Subnets and Interface management.</td></tr>
+<tr><td><div class="imageLabel"><span class="glyphicon glyphicon-hdd"></span> Block Storage</div></td><td>The Block Storage (Cinder) Service is a block-level storage solution that enables you to mount drives to scale storage.  OpenStack4j implementation fully supports all major operations.</td></tr>
 </table>
 
 # Why should I use OpenStack4j?

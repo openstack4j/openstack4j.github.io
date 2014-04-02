@@ -177,6 +177,35 @@ A snapshot is merely a pointer to a point in time.  This can be handy if you are
 {:.prettyprint .lang-java}
 	String imageId = os.compute().servers().createSnapshot(server.getId(), "Clean State Snapshot");
 
+#### Floating IP Addresses
+
+A floating Ip address is an address that is part of a pool.  Compute allows you to allocate or deallocate address from a pool against a server instance.  Below are the operational examples for floating ip addresses.
+
+**List floating IP addresses**
+
+{:.prettyprint .lang-java}
+	List<FloatingIP> ips = os.compute().floatingIps().list();
+	
+**Allocate a floating IP address from a pool**
+
+{:.prettyprint .lang-java}
+	FloatingIP ip = os.compute().floatingIps().allocateIP("pool");
+
+**Deallocate a floating IP address**
+
+{:.prettyprint .lang-java}
+	os.compute().floatingIps().deallocateIP("floatingIp_id");
+	
+**Add a floating IP address to a server**
+
+{:.prettyprint .lang-java}
+	ActionResponse r = os.compute().floatingIps().addFloatingIP(server, "192.168.0.250", "50.50.2.3");
+	
+**Remove a floating IP address from a server**
+
+{:.prettyprint .lang-java}
+	ActionResponse r = os.compute().floatingIps().removeFloatingIP(server, "50.50.2.3");
+	
 
 #### VNC and Console Output
 
