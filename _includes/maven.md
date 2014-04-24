@@ -10,7 +10,7 @@ If you are a Maven user just add the library as a dependency:
 	  <version>{{ site.version }}</version>
 	</dependency>
 
-**Current Development Snapshot**
+**Current Beta Snapshot**
 
 {:.prettyprint .lang-xml}
 	<dependency>
@@ -19,6 +19,14 @@ If you are a Maven user just add the library as a dependency:
 	  <version>{{ site.snapshot-version }}</version>
 	</dependency>
 
+**Snapshot with Dependencies (all in one jar)**
+{:.prettyprint .lang-xml}
+	<dependency>
+	  <groupId>org.pacesys</groupId>
+	  <artifactId>openstack4j</artifactId>
+	  <version>{{ site.snapshot-version }}</version>
+	  <classifier>withdeps</classifier>
+	</dependency>
 	
 **Example Maven project setup**
 
@@ -33,7 +41,7 @@ If you are a Maven user just add the library as a dependency:
 	    <dependency>
 	        <groupId>org.pacesys</groupId>
 	        <artifactId>openstack4j</artifactId>
-		    <version>{{ site.version }}</version>
+		    <version>{{ site.snapshot-version }}</version>
 	      </dependency>
 	  </dependencies>
 	</project>

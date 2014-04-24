@@ -2,6 +2,7 @@
 layout: content
 menu: learn
 title: Getting Started
+description: Learn how to setup and use OpenStack4j within 5 minutes
 ---
 
 # Getting Started
@@ -24,7 +25,9 @@ If you do not use Maven you can download from one of the links below and add the
 <table class="table table-striped">
   <tr><th><strong>Version</strong></th><th><strong>Type</strong></th><th><strong>Link</strong></th></tr>
   <tr><td>{{ site.version }}</td><td>Stable/Release</td><td><a class="btn btn-success btn-small" href="/downloads/openstack4j-{{ site.version }}.jar" target="_blank">Download</a></td></tr>
-  <tr><td>{{ site.snapshot-version }}</td><td>Development</td><td><a class="btn btn-warning btn-small" href="/downloads/openstack4j-{{ site.snapshot-version }}.jar" target="_blank">Download</a></td></tr>
+  <tr><td>{{ site.snapshot-version }}</td><td>Beta/Latest Features</td><td><a class="btn btn-warning btn-small" href="/downloads/openstack4j-{{ site.snapshot-version }}.jar" target="_blank">Download</a></td></tr>
+  <tr><td>{{ site.withdeps-version }}</td><td>Single Jar (With Dependencies)</td><td><a class="btn btn-warning btn-small" href="/downloads/openstack4j-{{ site.withdeps-version }}.jar" target="_blank">Download</a></td></tr>
+
 </table>
 <br>
 
