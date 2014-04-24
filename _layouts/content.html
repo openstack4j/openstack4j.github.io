@@ -4,9 +4,9 @@
 	<meta name="msvalidate.01" content="7241C7220434CF221FAA89EEBBCA488F" />
     <meta charset="utf-8">
     <title>OpenStack4j - {{ page.title }}</title>
-    <meta name="description" content="OpenStack4j is a fluent Java OpenStack client SDK which allows provisioning and control of an OpenStack deployment. ">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}OpenStack4j is a fluent Java OpenStack client SDK which allows provisioning and control of an OpenStack deployment.{% endif %}">
     <meta name="author" content="Jeremy Unruh">
-    <meta name="keywords" content="OpenStack, Java, SDK, Orchestration Java, Pacesys, Fluent, Compute, Identity, Network, Image, Maangement">
+    <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}OpenStack, Java, SDK, Orchestration Java, Pacesys, Fluent, Compute, Identity, Network, Image, Maangement{% endif %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Styles and icons -->

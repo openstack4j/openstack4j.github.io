@@ -6,3 +6,4 @@ baseurl:
 markdown: kramdown
 version: 1.0.0
 snapshot-version: 1.0.1-SNAPSHOT
+withdeps-version: 1.0.1-withdeps
