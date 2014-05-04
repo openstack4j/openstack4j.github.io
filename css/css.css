@@ -47,6 +47,13 @@ span.green {
   color: #08c;
 }
 
+.header-bottom {
+background: url(http://www.pacesys.org/assets/img/cloud-bottom.png) 5% 40% repeat-x;
+position: relative;
+bottom: 62px;
+height: 62px;
+}
+
 #content h3 {
   font-size: 23px;
   font-weight:bold;
