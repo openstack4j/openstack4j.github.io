@@ -8,6 +8,8 @@ title: Images (Glance)
 
 If you are unfamiliar with an OpenStack image then you can think of it as a "virtual machine template".  Images can also be standard installation media such as ISO images.  
 
+<div class="alert alert-danger"><strong>NOTE:</strong> The <b><i>Image</i></b> objects shown in these examples are not from the "compute" model package but referenced from the <b>org.openstack4j.model.image</b> package.</div>
+
 ## Creating, Reserving and Uploading Images
 
 If an image (template) is created without uploading the media then it is what is known as a reserved state. A reserved state means we have reserved a placeholder but it contains no image data (uploaded media).  The status will be marked as `Queued` when in a reserve state.   OpenStack4j will automatically change a create operation into a reserve operation if the image data/media is not defined.
@@ -77,7 +79,7 @@ To permanently delete an image see the example below.
 
 {:.prettyprint .lang-java}
 	// List all Images
-	List<Image> images = os.images().list();
+	List<? extends Image> images = os.images().list();
 		
 	// Get an Image by ID
 	Image image = os.images().get("imageId");
@@ -91,7 +93,7 @@ Image memberships are a way to share a private image with other tenants.  Those 
 **Finding all Memberships for an Image**
 
 {:.prettyprint .lang-java}
-	List<ImageMember> members = os.images().listMembers("imageId");
+	List<? extends ImageMember> members = os.images().listMembers("imageId");
 		
 **Adding a Member (authorizing a tenant for a private image)**
 

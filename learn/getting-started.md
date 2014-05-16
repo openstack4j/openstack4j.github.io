@@ -31,6 +31,18 @@ If you do not use Maven you can download from one of the links below and add the
 </table>
 <br>
 
+#### Required Runtime Dependencies
+
+OpenStack4j requires some runtime dependencies in order to run.  The easiest is to use the "-withdeps" version which has everything included.  Otherwise refer to pom for most recent changes. In a later release we will be adding a slight modular approach allowing options to use Jersey 1 vs 2 and possibly another popular connector.  For now refer to the needed dependencies for runtime if your not using the "-withdeps" jar.
+
+<table class="table table-striped">
+  <tr><th><strong>Name</strong></th><th><strong>Version</strong></th></tr>
+  <tr><td>Jersey</td><td>2.0</td></tr>
+  <tr><td>Jackson</td><td>1.9.13</td></tr>
+  <tr><td>Gauva</td><td>14.01+</td></tr>
+  <tr><td>JSR-305</td><td>NA</td></tr>
+</table>
+
 ## Lets Play!
 
 Let's test your OpenStack deployment with the API.  For advance coverage of the API please refer to the service of interest on the left navigation pane.
@@ -57,31 +69,31 @@ Now that we have successfully authenticated and have a client we will show you a
 
 {:.prettyprint .lang-java}
 	// Find all Users
-	List<User> users = os.identity().users().list();
+	List<? extends User> users = os.identity().users().list();
 	
 	// List all Tenants
-	List<Tenant> tenants = os.identity().tenants().list();
+	List<? extends Tenant> tenants = os.identity().tenants().list();
 	
 	// Find all Compute Flavors
-	List<Flavor> flavors = os.compute().flavors().list();
+	List<? extends Flavor> flavors = os.compute().flavors().list();
 	
 	// Find all running Servers
-	List<Server> servers = os.compute().servers().list();
+	List<? extends Server> servers = os.compute().servers().list();
 	
 	// Suspend a Server
 	os.compute().servers().action("serverId", Action.SUSPEND);
 	
 	// List all Networks
-	List<Network> networks = os.networking().network().list();
+	List<? extends Network> networks = os.networking().network().list();
 	
 	// List all Subnets
-	List<Subnet> subnets = os.networking().subnet().list();
+	List<? extends Subnet> subnets = os.networking().subnet().list();
 	
 	// List all Routers
-	List<Router> routers = os.networking().router().list();
+	List<? extends Router> routers = os.networking().router().list();
 	
 	// List all Images (Glance)
-	List<Image> images = os.images().list();
+	List<? extends Image> images = os.images().list();
 	
 	// Download the Image Data
 	InputStream is = os.images().getAsStream("imageId");

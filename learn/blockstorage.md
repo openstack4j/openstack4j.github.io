@@ -19,7 +19,7 @@ A volume type is a descriptor for a block storage volume. You can define whateve
 To retrieve available volume types see the example below:
 
 {:.prettyprint .lang-java}
-	List<VolumeType> types = os.blockStorage().volumes().listVolumeTypes();
+	List<? extends VolumeType> types = os.blockStorage().volumes().listVolumeTypes();
 
 
 ## Volumes
@@ -31,7 +31,7 @@ A volume is a detachable block storage device. You can think of it as an externa
 **Listing all Volumes the current tenant making the request has access to**
 
 {:.prettyprint .lang-java}
-	List<Volume> volumes = os.blockStorage().volumes().list();
+	List<? extends Volume> volumes = os.blockStorage().volumes().list();
 
 **Getting a Volume by ID**
 
@@ -82,7 +82,7 @@ A snapshot is a point in time copy of the data that is contained in a volume.  S
 **Listing all Snapshots the current tenant making the request has access to**
 
 {:.prettyprint .lang-java}
-	List<VolumeSnapshot> snapshots = os.blockStorage().snapshots().list();
+	List<? extends VolumeSnapshot> snapshots = os.blockStorage().snapshots().list();
 
 **Getting a Snapshot by ID**
 

@@ -35,11 +35,13 @@ focussed on to make your experience with OpenStack easy with less boiler-plate c
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-warning-sign"></span> Exception Handling</div></td>
 <td>
 Exceptions will never be thrown for <strong><font color="red">404 (Not Found)</font></strong> See above for standards. Based on the OpenStack specifications of errors all exceptions extends a common unchecked ResponseException. Server and Client exceptions also have an enumerated type fully classifying the exact reason for failure. 
-<p>
-All Exceptions are unchecked and are broken up into 3 categories:
+<p><br>
+All Exceptions are unchecked and are broken up into 5 categories (All extend ResponseException):
 <ul>
 <li><strong>ServerResponseException</strong> - thrown if error codes are between 500 and 600.</li>
 <li><strong>ClientResponseException</strong> - thrown if error codes are between 400 and 499 excluding 404.</li>
+<li><strong>AuthenticationException</strong> - Credentials or initial login failure</li>
+<li><strong>ConnectionException</strong> - I/O or HTTP based communication failure</li>
 <li><strong>ResponseException</strong> - Base exception is for all other failures (communication).</li>
 </ul>
 </p>
