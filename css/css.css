@@ -26,12 +26,14 @@ span.green {
 	color: green;
 }
 
-#wrapper-inner { /* Needed since we can't place padding directly on the body or the #wrapper */
-  padding-top: 40px;
-}
 
 #docs {
   padding-top: 20px;
+}
+
+div.twitter-link {
+	float: left;
+	margin: 8px 0px 0px 7px;
 }
 
 #content {

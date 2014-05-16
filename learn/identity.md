@@ -31,7 +31,7 @@ The examples below are ways to find tenants.
 **Find all Tenants**
 
 {:.prettyprint .lang-java}
-	List<Tenant> tenants = os.identity().tenants().list();
+	List<? extends Tenant> tenants = os.identity().tenants().list();
 
 **Find a specific Tenant**
 
@@ -90,19 +90,19 @@ Below are common examples to locate users and roles
 
 {:.prettyprint .lang-java}
 	// Find all Users
-	List<User> users = os.identity().users().list();
+	List<? extends User> users = os.identity().users().list();
 	
 	// Find all Users for a Tenant
-	List<User> users = os.identity().users().listTenantUsers("tenantId");
+	List<? extends User> users = os.identity().users().listTenantUsers("tenantId");
 	
 	// List a Users Global Roles
-	List<Role> roles = os.identity().users().listRoles("userId");
+	List<? extends Role> roles = os.identity().users().listRoles("userId");
 	
 	// List User Roles on a Tenant
-	List<Role> roles = os.identity().users().listRolesOnTenant("userId", "tenantId");
+	List<? extends Role> roles = os.identity().users().listRolesOnTenant("userId", "tenantId");
 	
 	// Find all Global Roles
-	List<Role> roles = os.identity().roles().list();
+	List<? extends Role> roles = os.identity().roles().list();
 	
 	// Get a User by ID
 	User user = os.identity().users().get("userId");
@@ -167,7 +167,7 @@ Below are various examples of Service and Endpoint Management.
 	List<Service> services = sm.list();
 	
 	// List Endpoints
-	List<ServiceEndpoint> ep = sm.listEndpoints();
+	List<? extends ServiceEndpoint> ep = sm.listEndpoints();
 	
 	// Create a Service and Endpoint
 	Service service = sm.create("Name", "Type", "Description");
@@ -188,14 +188,14 @@ Below are various examples of Service and Endpoint Management.
 Extensions are add-ons to the core OpenStack deployment.  Sometimes it is important to determine if the deployment has an enhanced feature set available.  To get a list of installed extensions see the example below.
 
 {:.prettyprint .lang-java}
-	List<Extension> extensions = os.identity().listExtensions();
+	List<? extends Extension> extensions = os.identity().listExtensions();
 		
 ## Token Endpoints
 
 Token Endpoints are authorized accessible endpoints through the Identity service.  For example Compute (Nova) is an endpoint. The example below will return a list of all the authorized endpoints for the current authorized user.
 
 {:.prettyprint .lang-java}
-	List<Endpoint> endpoints = os.identity().listTokenEndpoints();
+	List<? extends Endpoint> endpoints = os.identity().listTokenEndpoints();
 		
 
 

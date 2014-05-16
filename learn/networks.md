@@ -26,7 +26,7 @@ A network represents a slice of the outside network.  Networks contain subnets, 
 
 {:.prettyprint .lang-java}
 	// List the networks which the current tenant has access to
-	List<Network> networks = os.networking().network().list();
+	List<? extends Network> networks = os.networking().network().list();
 		
 	// Get a network by ID
 	Network network = os.networking().network().get("networkId");
@@ -59,7 +59,7 @@ A subnet is a subdivision of an IP Network. The examples below will cover basic 
 
 {:.prettyprint .lang-java}
 	// List all subnets which the current authorized tenant has access to
-	List<Subnet> subnets = os.networking().subnet().list();
+	List<? extends Subnet> subnets = os.networking().subnet().list();
 
 	// Get a Subnet by ID
 	Subnet subnet = os.networking().subnet().get("subnetId");
@@ -96,7 +96,7 @@ In the example below we will create a new port and assign it a fixed IP Address 
 
 {:.prettyprint .lang-java}
 	// List all Ports which the current authorized tenant has access to
-	List<Port> ports = os.networking().port().list();
+	List<? extends Port> ports = os.networking().port().list();
 
 	// Get a Port by ID
 	Port port = os.networking().port().get("portId");

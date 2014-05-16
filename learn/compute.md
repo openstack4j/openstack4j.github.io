@@ -64,10 +64,10 @@ Compute supports basic Image operations which is mainly read only lookups and me
 
 {:.prettyprint .lang-java}
 	// List all Images (detailed @see #list(boolean detailed) for brief)
-	List<ComputeImage> images = os.compute().images().list();
+	List<? extends Image> images = os.compute().images().list();
 		
 	// Get an Image by ID
-	ComputeImage img = os.compute().images().get("imageId");
+	Image img = os.compute().images().get("imageId");
 
 #### Deleting an Image
 
@@ -98,10 +98,10 @@ Booting a new Server is simple with OpenStack4j.  The two requirements are speci
 
 {:.prettyprint .lang-java}
 	// Create a Server Model Object
-	Server server = Builders.server().name("Ubuntu 2").flavor("flavorId").image("imageId").build();
+	ServerCreate sc = Builders.server().name("Ubuntu 2").flavor("flavorId").image("imageId").build();
 
 	// Boot the Server
-	Server server = os.compute().servers().boot(server);
+	Server server = os.compute().servers().boot(sc);
 	
 **Personalities**
 
@@ -109,15 +109,15 @@ When you create a new VM/Server you can also override various files or lay down 
 
 {:.prettyprint .lang-java}
 	// Create a Server Model Object
-	Server server = Builders.server()
-	                        .name("Ubuntu 2")
-	                        .flavor("flavorId")
-	                        .image("imageId")
-	                        .addPersonality("/etc/motd", "Welcome to the new VM! Restricted access only")
-	                        .build();
+	ServerCreate sc = Builders.server()
+	                          .name("Ubuntu 2")
+	                          .flavor("flavorId")
+	                          .image("imageId")
+	                          .addPersonality("/etc/motd", "Welcome to the new VM! Restricted access only")
+	                          .build();
 
 	// Boot the Server
-	Server server = os.compute().servers().boot(server);
+	Server server = os.compute().servers().boot(sc);
 	
 
 #### Server Actions
@@ -242,10 +242,10 @@ Diagnostics are usage information about the server. Usage includes CPU, Memory a
 
 {:.prettyprint .lang-java}
 	// List all Servers
-	List<Server> servers = os.compute().servers().list();
+	List<? extends Server> servers = os.compute().servers().list();
 
 	// List all servers (light) ID, Name and Links populated
-	List<Server> servers = os.compute().servers().list(false);
+	List<? extends Server> servers = os.compute().servers().list(false);
 
 	// Get a specific Server by ID
 	Server server = os.compute().servers().get("serverId");
@@ -307,12 +307,12 @@ Below are examples on querying for security groups as well as finding groups ass
 **Listing all Security Groups that the tenant has access to**
 
 {:.prettyprint .lang-java}
-	List<SecGroupExtension> sg = os.compute().securityGroups().list();
+	List<? extends SecGroupExtension> sg = os.compute().securityGroups().list();
 		
 **Finding all Security Groups assigned to a server instance**
 
 {:.prettyprint .lang-java}
-	List<SecGroupExtension> sg = os.compute().securityGroups().listServerGroups("serverId");
+	List<? extends SecGroupExtension> sg = os.compute().securityGroups().listServerGroups("serverId");
 
 **Get a Security Group by ID**
 
@@ -390,5 +390,5 @@ A security group rule is the actual filter which is associated to a security gro
 Extensions are add-ons to the core OpenStack deployment. Sometimes it is important to determine if the deployment has an enhanced feature set available. To get a list of installed extensions against Nova see the example below.
 
 {:.prettyprint .lang-java}
-	List<Extension> extensions = os.compute().listExtensions();
+	List<? extends Extension> extensions = os.compute().listExtensions();
 
