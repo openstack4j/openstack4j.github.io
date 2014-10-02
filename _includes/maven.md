@@ -1,7 +1,7 @@
 
 If you are a Maven user just add the library as a dependency:
 
-**Latest Release**
+#### Latest Release (Stable)
 
 {:.prettyprint .lang-xml}
 	<dependency>
@@ -9,6 +9,8 @@ If you are a Maven user just add the library as a dependency:
 	  <artifactId>openstack4j</artifactId>
 	  <version>{{ site.version }}</version>
 	</dependency>
+
+#### Snapshots (Current Development)
 
 **Current Beta Snapshot**
 
@@ -20,6 +22,7 @@ If you are a Maven user just add the library as a dependency:
 	</dependency>
 
 **Snapshot with Dependencies (all in one jar)**
+
 {:.prettyprint .lang-xml}
 	<dependency>
 	  <groupId>org.pacesys</groupId>
@@ -27,7 +30,20 @@ If you are a Maven user just add the library as a dependency:
 	  <version>{{ site.snapshot-version }}</version>
 	  <classifier>withdeps</classifier>
 	</dependency>
+
+<br>
+<b>NOTE:</b> Snapshots are not sync'd with maven central.  To allow Maven to properly resolve the latest snapshot you will need to add the sonatype repository:
 	
+{:.prettyprint .lang-xml}
+	<repositories>
+	    <repository>
+	      <id>st-snapshots</id>
+	      <name>sonatype-snapshots</name>
+	      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+	    </repository>
+	</repositories>
+	
+
 **Example Maven project setup**
 
 {:.prettyprint .lang-xml}

@@ -1,5 +1,5 @@
       <div class="span3">
-        <ul class="sidenav">
+        <ul class="sidenav navbar-full">
 {% if page.menu == "learn" %}
           <li><a href="/learn">What is OpenStack4j</li>
 	      <li><a href="/learn/getting-started">Getting Started</a></li>
@@ -7,6 +7,7 @@
 		  <li><a href="/learn/getting-started/#authenticate">Authenticate with a Deployment</a></li>
 		  <li><a href="/learn/identity">Identity (Keystone)</a>
                 <ul>
+	              <li><a href="/learn/identity/#regions">Regions</a></li>
                   <li><a href="/learn/identity/#tenants">Tenants</a></li>
                   <li><a href="/learn/identity/#user-and-role-management">User & Role Management</a></li>
                   <li><a href="/learn/identity/#services-and-endpoints">Services & Endpoints</a></li>
@@ -64,7 +65,15 @@
 				<li><a href="/learn/telemetry/#samples">Samples</a></li>
 				<li><a href="/learn/telemetry/#statistics">Statistics</a></li>
 			  </ul>
-			  </li>
+			</li>
+			<li><a href="/learn/orchestration">Orchestration (Heat)</a>
+			  <ul>
+				<li><a href="/learn/orchestration/#stacks">Stacks</a></li>
+				<li><a href="/learn/orchestration/#templates">Templates</a></li>
+				<li><a href="/learn/orchestration/#resources">Resources</a></li>
+				<li><a href="/learn/orchestration/#events">Events</a></li>
+			  </ul>
+			</li>
 {% endif %}
         </ul>
       </div>
