@@ -6,7 +6,7 @@ title: Telemetry (Ceilometer)
 
 # Telemetry (Ceilometer)
 
-Telemetry (Ceilometer) provides metering and statistics.  It is proficient in collecting of metering data, in terms of CPU and network costs.  Ceilometer can establish metering across all the curren OpenStack core components.  
+Telemetry (Ceilometer) provides metering and statistics.  It is proficient in collecting of metering data, in terms of CPU and network costs.  Ceilometer can establish metering across all the current OpenStack core components.  
 
 ## Meters
 

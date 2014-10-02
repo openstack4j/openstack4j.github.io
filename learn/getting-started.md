@@ -25,8 +25,8 @@ If you do not use Maven you can download from one of the links below and add the
 <table class="table table-striped">
   <tr><th><strong>Version</strong></th><th><strong>Type</strong></th><th><strong>Link</strong></th></tr>
   <tr><td>{{ site.version }}</td><td>Stable/Release</td><td><a class="btn btn-success btn-small" href="/downloads/openstack4j-{{ site.version }}.jar" target="_blank">Download</a></td></tr>
-  <tr><td>{{ site.snapshot-version }}</td><td>Beta/Latest Features</td><td><a class="btn btn-warning btn-small" href="/downloads/openstack4j-{{ site.snapshot-version }}.jar" target="_blank">Download</a></td></tr>
-  <tr><td>{{ site.withdeps-version }}</td><td>Single Jar (With Dependencies)</td><td><a class="btn btn-warning btn-small" href="/downloads/openstack4j-{{ site.withdeps-version }}.jar" target="_blank">Download</a></td></tr>
+  <tr><td>{{ site.snapshot-version }}</td><td>Beta/Latest Features</td><td><a class="btn btn-warning btn-small" href="https://oss.sonatype.org/content/repositories/snapshots/org/pacesys/openstack4j/{{ site.snapshot-version }}/" target="_blank">Download</a></td></tr>
+  <tr><td>{{ site.withdeps-version }}</td><td>Single Jar (With Dependencies)</td><td><a class="btn btn-warning btn-small" href="https://oss.sonatype.org/content/repositories/snapshots/org/pacesys/openstack4j/{{ site.snapshot-version }}/" target="_blank">Download</a></td></tr>
 
 </table>
 <br>
@@ -55,6 +55,8 @@ Creating and authenticating against OpenStack is extremely simple. Below is an e
 In the example below we are specifying the OpenStack deployment endpoint to connect to, user credentials to authenticate and the default tenant we would like to be in context of.
 <br>
 
+#### Version 2 Authentication
+
 {:.prettyprint .lang-java}
 	OSClient os = OSFactory.builder()
 	                       .endpoint("http://127.0.0.1:5000/v2.0")
@@ -62,6 +64,15 @@ In the example below we are specifying the OpenStack deployment endpoint to conn
 	                       .tenantName("admin")
 	                       .authenticate();
 						
+
+#### Version 3 Authentication
+
+{:.prettyprint .lang-java}
+	OSClient os = OSFactory.builderV3()
+	                       .endpoint("http://127.0.0.1:5000/v3")
+	                       .credentials("admin","sample")
+	                       .domainName("example-domain")
+	                       .authenticate();
 
 ### Run some Queries
 

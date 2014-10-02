@@ -20,6 +20,7 @@ OpenStack4j is broken out into several major API abstractions as Java libraries.
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-signal"></span> Network</div></td><td>The Network (Neutron) service provides "network connectivity as a service" between interface devices managed by other OpenStack service, mainly Nova.  The API allows users to create their own networks and then attach interfaces to them.  The OpenStack4j implementation supports Routers, Ports, Subnets and Interface management.</td></tr>
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-hdd"></span> Block Storage</div></td><td>The Block Storage (Cinder) Service is a block-level storage solution that enables you to mount drives to scale storage.  OpenStack4j implementation fully supports all major operations.</td></tr>
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-stats"></span> Telemetry</div></td><td>Telemetry (Ceilometer) delivers metering and statistic measurements against OpenStack core components.  This is ideal for customer billing, account and reporting of resources. OpenStack4j implementation fully supports all major operations.</td></tr>
+<tr><td><div class="imageLabel"><span class="glyphicon glyphicon-align-justify"></span> Orchestration</div></td><td>Orchestration (Heat) is a service that you can use to orchestrate multiple composite cloud applications.  Using OpenStack4j you can control Stacks, Templates, Resources and Events.</td></tr>
 </table>
 
 # Why should I use OpenStack4j?
@@ -31,10 +32,10 @@ focussed on to make your experience with OpenStack easy with less boiler-plate c
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-ok"></span> Expected Results</div></td><td>All API calls that return a single object will be null if no data is found. Calls that return a List/Collection will return an empty list if not found.</td></tr>
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-pencil"></span> Fluent Interface</div></td><td>All calls are fluent by nature. To shorten fluent calls an interface can be assigned during the chain to shorten the calls.</td></tr>
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-tower"></span> Concrete API</div></td><td>All APIs are interface defined as well as corresponding models and builders. No need to ever refer to the implementation. Implementations are always defined within an "internal" package.</td></tr>
-<tr><td><div class="imageLabel"><span class="glyphicon glyphicon-list"></span> Deployment Tested</div></td><td>All APIs have been tested and are used in various OpenStack environments.  This includes small and large multi-node deployments.  The main test focus has been around Havana and Grizzly releases of OpenStack.</td></tr>
+<tr><td><div class="imageLabel"><span class="glyphicon glyphicon-list"></span> Deployment Tested</div></td><td>All APIs have been tested and are used in various OpenStack environments.  This includes small and large multi-node deployments.  The main test focus has been around Icehouse, Havana and Grizzly releases of OpenStack.</td></tr>
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-warning-sign"></span> Exception Handling</div></td>
 <td>
-Exceptions will never be thrown for <strong><font color="red">404 (Not Found)</font></strong> See above for standards. Based on the OpenStack specifications of errors all exceptions extends a common unchecked ResponseException. Server and Client exceptions also have an enumerated type fully classifying the exact reason for failure. 
+Checked exceptions will never be thrown for <strong><font color="red">404 (Not Found)</font></strong> See above for standards. Based on the OpenStack specifications of errors all exceptions extend a common unchecked ResponseException. Server and Client exceptions also have an enumerated type fully classifying the exact reason for failure allowing your application to report appropriately. 
 <p><br>
 All Exceptions are unchecked and are broken up into 5 categories (All extend ResponseException):
 <ul>

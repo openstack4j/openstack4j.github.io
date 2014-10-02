@@ -30,6 +30,9 @@ span.green {
 	color: green;
 }
 
+ul.navbar-full {
+	min-height:1060px;
+}
 
 #docs {
   padding-top: 20px;

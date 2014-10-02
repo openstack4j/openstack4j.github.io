@@ -11,6 +11,22 @@ The Identity (Keystone) service provides the central directory of users, tenants
 
 <div class="alert alert-warning"><b>NOTE:</b> the examples in this guide assume <a href="/learn/getting-started/#authenticate" class="alert-link"><b>you have authenticated</b></a></div>
 
+## Regions
+
+OpenStack4j supports the ability to switch from one region to another within the same client.  If you have a regional deployment (example: West and East coast) and would like to target certain calls to specific region see the sample below:
+
+{:.prettyprint .lang-java}
+    // Switch to East Coast
+    os.useRegion("EastRegion");
+    List<? extends Server> eastServers = os.compute().servers().list();
+
+    // Switch to West Coast
+    os.useRegion("WestRegion");
+    List<? extends Server> westServers = os.compute().servers().list();
+    
+    // Switch to Default - No region specified
+    os.removeRegion();
+
 ## Tenants
 
 In OpenStack user interfaces and documentation, a group of users is referred to as a ``project`` or `tenant`. Users must be associated with at least one tenant and can belong to many.  
