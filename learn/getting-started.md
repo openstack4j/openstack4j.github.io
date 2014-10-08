@@ -35,6 +35,8 @@ If you do not use Maven you can download from one of the links below and add the
 
 OpenStack4j requires some runtime dependencies in order to run.  The easiest is to use the "-withdeps" version which has everything included.  Otherwise refer to pom for most recent changes. In a later release we will be adding a slight modular approach allowing options to use Jersey 1 vs 2 and possibly another popular connector.  For now refer to the needed dependencies for runtime if your not using the "-withdeps" jar.
 
+**OpenStack4j 1.0.x Runtime Dependencies**
+
 <table class="table table-striped">
   <tr><th><strong>Name</strong></th><th><strong>Version</strong></th></tr>
   <tr><td>Jersey</td><td>2.0</td></tr>
@@ -42,6 +44,19 @@ OpenStack4j requires some runtime dependencies in order to run.  The easiest is 
   <tr><td>Gauva</td><td>14.01+</td></tr>
   <tr><td>JSR-305</td><td>NA</td></tr>
 </table>
+
+**OpenStack4j 2.0.x Runtime Dependencies**
+
+<table class="table table-striped">
+  <tr><th><strong>Name</strong></th><th><strong>Version</strong></th><th><strong>Comment</strong></th></tr>
+  <tr><td>Jersey</td><td>2.10.1</td><td>Only valid if connector type chosen</td></tr>
+  <tr><td>Resteasy</td><td>2.3.7</td><td>Only valid if connector type chosen</td></tr>
+  <tr><td>HttpClient</td><td>4.3.1</td><td>Only valid if connector type chosen</td></tr>
+  <tr><td>Jackson</td><td>2.4.1</td><td></td></tr>
+  <tr><td>Gauva</td><td>17.0</td><td></td></tr>
+  <tr><td>JSR-305</td><td>NA</td><td></td></tr>
+</table>
+
 
 ## Lets Play!
 

@@ -5,6 +5,6 @@ name: OpenStack4j
 baseurl: 
 markdown: kramdown
 version: 1.0.2
-snapshot-version: 1.0.3-SNAPSHOT
-withdeps-version: 1.0.3-withdeps
+snapshot-version: 2.0.0-SNAPSHOT
+withdeps-version: 2.0.0-withdeps
 url: http://www.openstack4j.com
