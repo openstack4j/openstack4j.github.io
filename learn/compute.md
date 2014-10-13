@@ -119,6 +119,20 @@ When you create a new VM/Server you can also override various files or lay down 
 	// Boot the Server
 	Server server = os.compute().servers().boot(sc);
 	
+**Booting from an existing Volume vs Image**
+
+When creating a server you typically boot from an Image to install the operating system.  There are other scenarios where you may have a volume that you would like attached to the new server and have the boot process use that volume.  See the example below:
+
+{:.prettyprint .lang-java}
+    BlockDeviceMappingBuilder blockDeviceMappingBuilder = Builders.blockDeviceMapping() 
+                                                                  .uuid(volumeId)
+                                                                  .deviceName("/dev/vda")
+                                                                  .bootIndex(0);
+
+    ServerCreate sc = Builders.server().name("Server").blockDevice(blockDeviceMappingBuilder.build());
+    Server server = os.compute().servers().boot(sc);
+
+**Note:** The device name unfortunatelly matters, and even worse - it depends on the hypervisor you use. In our experience - for KVM it is /dev/vda, for Xen it is /dev/xvda.
 
 #### Server Actions
 
@@ -205,6 +219,13 @@ A floating Ip address is an address that is part of a pool.  Compute allows you 
 
 {:.prettyprint .lang-java}
 	ActionResponse r = os.compute().floatingIps().addFloatingIP(server, "192.168.0.250", "50.50.2.3");
+
+**Add a floating IP address to a server if Neutron is installed**
+
+{:.prettyprint .lang-java}
+    NetFloatingIP netFloatingIP = os.networking().floatingip().get(ipId);
+    Server server = os.compute().servers().get(serverId);
+    ActionResponse = osClient.compute().floatingIps().addFloatingIP(server, netFloatingIP.getFloatingIpAddress());	
 	
 **Remove a floating IP address from a server**
 
