@@ -232,7 +232,37 @@ A floating Ip address is an address that is part of a pool.  Compute allows you 
 {:.prettyprint .lang-java}
 	ActionResponse r = os.compute().floatingIps().removeFloatingIP(server, "50.50.2.3");
 
-	
+#### Metadata
+
+**Creating Metadata during Create**	
+
+{:.prettyprint .lang-java}
+     // Can fluently add adhoc items
+     ServerCreate sc = Builders.server()
+                                  .image("0f4a93c6-a08c-4cf3-9fec-abe968f06892")
+                                  .addMetadataItem("Group", "MyGroup")
+                                  .addMetadataItem("Serial", "232432")
+                                  .name("Test Server")
+                                  .build();
+
+     // Or set the actual Map 
+     ServerCreate sc = Builders.server()
+                                  .image("0f4a93c6-a08c-4cf3-9fec-abe968f06892")
+                                  .addMetadata(someMap)
+                                  .name("Test")
+                                  .build();
+
+**Management Examples**
+
+{:.prettyprint .lang-java}
+	// Grabbing just the Metadata
+	Map<String, String> md = os.compute().servers().getMetadata(serverId);
+
+	// Updating or Replace metadata items
+	Map<String, String> md = os.compute().servers().updateMetadata(serverId, inboundMapofMD);
+
+	// Remove a Metadata item
+	os.compute().servers().deleteMetadataItem(serverId, metadataKey);
 
 #### VNC and Console Output
 
