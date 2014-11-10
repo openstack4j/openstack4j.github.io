@@ -31,7 +31,11 @@ span.green {
 }
 
 ul.navbar-full {
-	min-height:1060px;
+	min-height:1160px;
+}
+
+.slideshow {
+	
 }
 
 #docs {
@@ -56,6 +60,35 @@ div.twitter-link {
   color: #08c;
 }
 
+.cloud-img {
+  height: 55px;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align:middle;
+  border: 0;
+}
+
+.cloud-inline {
+  padding-left: 0;
+  list-style:none;
+  margin-top:15px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.cloud-inline>li:first-child {
+ padding-left:0px;
+}
+
+.cloud-inline>li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.cloud-inline li h3 {
+	color: #08c !important;
+}
 .header-bottom {
 background: url(http://www.pacesys.org/assets/img/cloud-bottom.png) 5% 40% repeat-x;
 position: relative;

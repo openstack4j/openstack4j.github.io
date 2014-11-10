@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
     <link rel="stylesheet" href="/css/prettify.css" />
     <link rel="stylesheet" href="/css/css.css">
+    <link rel="stylesheet" type="text/css" href="/assets/js/slick/slick.css"/>
+ 
     <link rel="shortcut icon" href="/assets/img/favicon.ico">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -52,5 +54,15 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/google-code-prettify/prettify.js"></script>
     <script src="/assets/js/application.js"></script>
+    <script type="text/javascript" src="/assets/js/slick/slick.min.js"></script>
+<script>
+$('.slideshow').slick({
+  infinite: true,
+  arrows:true,
+  autoplay:true,
+  slidesToShow: 3,
+  slidesToScroll: 3
+});
+</script>
   </body>
 </html>
