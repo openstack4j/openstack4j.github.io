@@ -1,1 +1,4 @@
 _site
+site.tgz
+sftp.batch
+stage.sh
