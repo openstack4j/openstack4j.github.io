@@ -3,15 +3,6 @@ If you are a Maven user just add the library as a dependency:
 
 ### Latest Release (Stable)
 
-{:.prettyprint .lang-xml}
-	<dependency>
-	  <groupId>org.pacesys</groupId>
-	  <artifactId>openstack4j</artifactId>
-	  <version>{{ site.version }}</version>
-	</dependency>
-
-### Snapshots (Current Development)
-
 Starting with version 2.0.0+ OpenStack4j now has the ability to choose the underlying connection framework.  By default the API's are configured to use the Jersey 2 connector.  See optional configuration scenarios below:
 
 #### Default Setup (Using Jersey2 as the connector choice)
@@ -20,18 +11,20 @@ Starting with version 2.0.0+ OpenStack4j now has the ability to choose the under
 	<dependency>
 	  <groupId>org.pacesys</groupId>
 	  <artifactId>openstack4j</artifactId>
-	  <version>{{ site.snapshot-version }}</version>
+	  <version>{{ site.version }}</version>
 	</dependency>
 
-**Snapshot with Dependencies (all in one jar)**
+**With Dependencies (all in one jar)**
 
 {:.prettyprint .lang-xml}
 	<dependency>
 	  <groupId>org.pacesys</groupId>
 	  <artifactId>openstack4j</artifactId>
-	  <version>{{ site.snapshot-version }}</version>
+	  <version>{{ site.version }}</version>
 	  <classifier>withdeps</classifier>
 	</dependency>
+
+<br>
 
 #### Using a Connector of Your Choice
 
@@ -41,7 +34,7 @@ Starting with version 2.0.0+ OpenStack4j now has the ability to choose the under
 	<dependency>
 	  <groupId>org.pacesys</groupId>
 	  <artifactId>openstack4j</artifactId>
-	  <version>{{ site.snapshot-version }}</version>
+	  <version>{{ site.version }}</version>
 	</dependency>
 
 **2. Declare a connector**
@@ -50,10 +43,15 @@ Starting with version 2.0.0+ OpenStack4j now has the ability to choose the under
 	<dependency>
 	  <groupId>org.pacesys.openstack4j.connectors</groupId>
 	  <artifactId>[ connector artifactId ]</artifactId>
-	  <version>{{ site.snapshot-version }}</version>
+	  <version>{{ site.version }}</version>
 	</dependency>
-    <!-- Valid artifactId's are "openstack4j-jersey2", "openstack4j-resteasy" and "openstack4j-httpclient" -->
-	
+
+<div class="alert alert-info"><b>Valid artifactId's are:</b> openstack4j-jersey2, openstack-jersey2-jdk16, openstack4j-resteasy, openstack-okhttp and openstack4j-httpclient</div>
+ 
+### Snapshots (Current Development)
+
+Usage of snapshots is the same as above except for the `version` tag.  Copy any of the *stable* declarations above that suit your environment and replace the version tag with `{{ site.snapshot-version }}`.
+
 #### Snapshot Dependencies Repository Configuration
 
 Snapshots are not sync'd with maven central.  To allow Maven to properly resolve the latest snapshot you will need to add the sonatype repository:
