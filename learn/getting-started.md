@@ -3,6 +3,7 @@ layout: content
 menu: learn
 title: Getting Started
 description: Learn how to setup and use OpenStack4j within 5 minutes
+nav: getting-started
 ---
 
 # Getting Started

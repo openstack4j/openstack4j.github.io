@@ -33,7 +33,7 @@ Starting with version 2.0.0+ OpenStack4j now has the ability to choose the under
 {:.prettyprint .lang-xml}
 	<dependency>
 	  <groupId>org.pacesys</groupId>
-	  <artifactId>openstack4j</artifactId>
+	  <artifactId>openstack4j-core</artifactId>
 	  <version>{{ site.version }}</version>
 	</dependency>
 

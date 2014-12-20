@@ -2,6 +2,7 @@
 layout: content
 menu: learn
 title: Block Storage (Cinder)
+nav: blockstorage
 ---
 
 # Block Storage (Cinder)

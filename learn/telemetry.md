@@ -2,6 +2,7 @@
 layout: content
 menu: learn
 title: Telemetry (Ceilometer)
+nav: telemetry
 ---
 
 # Telemetry (Ceilometer)
