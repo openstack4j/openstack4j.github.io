@@ -2,6 +2,7 @@
 layout: content
 menu: learn
 title: Images (Glance)
+nav: image
 ---
 
 # Images (Glance)

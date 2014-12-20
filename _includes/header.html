@@ -6,14 +6,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+{% if page.layout == "indexss" %}
           <a class="brand navbar-brand" href="/">OpenStack4j</a>
+{% endif %}
           <div class="collapse navbar-collapse" id="nav-collapse">
             <ul id="navlist" class="nav navbar-nav">
               <li id="navindex"><a href="/">Home</a></li>
-              <li><a href="/learn">Learn</a></li>
-              <li><a href="/javadoc/" target="_blank">JavaDoc</a></li>
+              <li><a href="/learn">Docs</a></li>
               <li><a href="/pages/changelog/">Changelog</a></li>
-
+              <li><a href="/javadoc/" target="_blank">JavaDoc</a></li>
               <li><a href="https://github.com/gondor/openstack4j/issues" target="_blank">Issues</a></li>
             </ul>
 			<ul class="nav navbar-nav navbar-right">

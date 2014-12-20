@@ -2,6 +2,7 @@
 layout: content
 menu: learn
 title: Orchestration (Heat)
+nav: orchestration
 ---
 
 # Orchestration (Heat)

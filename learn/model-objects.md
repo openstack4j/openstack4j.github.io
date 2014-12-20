@@ -2,6 +2,7 @@
 layout: content
 menu: learn
 title: Working with Model Objects
+nav: getting-started
 ---
 
 # Working with Model Objects

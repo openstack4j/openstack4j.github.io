@@ -42,11 +42,12 @@
     <div id="wrapper">
       <div id="wrapper-inner">
         {% include header.html %}
+		{% include pagecrumb.html %}
         <div class="container">
-          <div id="docs" class="row">
+          <div id="docs" class="row affix-row">
             {% include side-menu.html %}
             <div class="col-md-9">
-              <div id="content">
+              <div id="content" class="affix-content">
               {{ content }}
               </div>
             </div>

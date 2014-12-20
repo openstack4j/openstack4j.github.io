@@ -2,6 +2,7 @@
 layout: content
 menu: learn
 title: Object Storage (Swift)
+nav: objectstorage
 ---
 
 # Object Storage (Swift)

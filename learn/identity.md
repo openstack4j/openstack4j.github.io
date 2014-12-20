@@ -3,6 +3,7 @@ layout: content
 menu: learn
 title: Identity (Keystone)
 description: Learn how to authenticate and use Keystone with OpenStack4j Java Library
+nav: identity
 ---
 
 # Identity Service (Keystone)

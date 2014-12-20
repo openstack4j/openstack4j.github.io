@@ -1,12 +1,22 @@
-      <div class="col-md-3">
-        <ul class="sidenav navbar-full">
+      <div class="col-md-3 navbar-full">
+	<div class="affix-sidebar">
+<h4><span class="label label-primary">General</span></h4>
+        <ul class="sidenav">
 {% if page.menu == "learn" %}
           <li><a href="/learn">What is OpenStack4j</li>
 	      <li><a href="/learn/getting-started">Getting Started</a></li>
-		  <li><a href="/learn/model-objects">Working with Model Objects</a></li>
-		  <li><a href="/learn/getting-started/#authenticate">Authenticate with a Deployment</a></li>
-		  <li><a href="/learn/threads/">Singleton Client Between Threads</a></li>
+{% if page.nav == "getting-started" %}
+		  <ul>
+		    <li><a href="/learn/model-objects">Working with Model Objects</a></li>
+		    <li><a href="/learn/getting-started/#authenticate">Authenticate with a Deployment</a></li>
+		    <li><a href="/learn/threads/">Singleton Client Between Threads</a></li>
+		  </ul>
+{% endif %}
+</ul>
+<h4><span class="label label-danger">OpenStack Services</span></h4>
+<ul class="sidenav">
 		  <li><a href="/learn/identity">Identity (Keystone)</a>
+{% if page.nav == "identity" %}
                 <ul>
 	              <li><a href="/learn/identity/#regions">Regions</a></li>
                   <li><a href="/learn/identity/#tenants">Tenants</a></li>
@@ -15,73 +25,92 @@
                   <li><a href="/learn/identity/#extensions">Extensions</a></li>
                   <li><a href="/learn/identity/#token-endpoints">Token Endpoints</a></li>
                 </ul>
+{% endif %}
               </li>
 			  <li><a href="/learn/compute">Compute (Nova)</a>
+{% if page.nav contains "compute" %}
 				<ul>
                   <li><a href="/learn/compute/#flavors">Flavors</a></li>
                   <li><a href="/learn/compute/#images-via-nova">Images</a></li>
-                  <li><a href="/learn/compute/#servers">Servers</a>
+                  <li><a href="/learn/compute/servers/">Servers</a>
+{% if page.nav contains "servers" %}
 				   <ul>
-	                  <li><a href="/learn/compute/#boot-a-server-vm-create">Create (Boot)</a></li>
-	                  <li><a href="/learn/compute/#server-actions">Actions</a></li>
-	                  <li><a href="/learn/compute/#create-a-new-server-snapshot">Snapshots</a></li>
-	                  <li><a href="/learn/compute/#floating-ip-addresses">Floating IP Addresses</a></li>
-	                  <li><a href="/learn/compute/#vnc-and-console-output">VNC & Console Output</a></li>
-		              <li><a href="/learn/compute/#diagnostics">Diagnostics</a></li>
-		              <li><a href="/learn/compute/#querying-for-servers">Queries and Updates</a></li>
+	                  <li><a href="/learn/compute/servers/#boot-a-server-vm-create">Create (Boot)</a></li>
+	                  <li><a href="/learn/compute/servers/#server-actions">Actions</a></li>
+	                  <li><a href="/learn/compute/servers/#create-a-new-server-snapshot">Snapshots</a></li>
+	                  <li><a href="/learn/compute/servers/#floating-ip-addresses">Floating IP Addresses</a></li>
+	                  <li><a href="/learn/compute/servers/#vnc-and-console-output">VNC & Console Output</a></li>
+		              <li><a href="/learn/compute/servers/#diagnostics">Diagnostics</a></li>
+		              <li><a href="/learn/compute/servers/#querying-for-servers">Queries and Updates</a></li>
 				   </ul>
+{% endif %}
 				  </li>
-				  <li><a href="/learn/compute/#keypairs">Keypairs</a></li>
-				  <li><a href="/learn/compute/#security-groups-and-rules">Security Groups and Rules</a></li>
+				  <li><a href="/learn/compute/keypairs">Keypairs</a></li>
+				  <li><a href="/learn/compute/sgrules">Security Groups and Rules</a></li>
                   <li><a href="/learn/compute/#quota-sets-and-limits">Quota-Sets and Limits</a></li>
                   <li><a href="/learn/compute/#simple-tenant-usage-os-simple-tenant-usage">Simple Tenant Usage</a></li>
+                  <li><a href="/learn/compute/floatingipdns">Floating IP DNS</a></li>
                   <li><a href="/learn/compute/#extensions">Extensions</a></li>
 				</ul>
+{% endif %}
 			  </li>
 			  <li><a href="/learn/networks">Network (Neutron)</a>
+{% if page.nav == "network" %}
 			  <ul>
 				  <li><a href="/learn/networks/#networks">Networks</a></li>
                   <li><a href="/learn/networks/#subnets">Subnets</a></li>
 				  <li><a href="/learn/networks/#ports">Ports</a></li>
 				  <li><a href="/learn/networks/#routers">Routers</a></li>
 			  </ul>
+{% endif %}
 			  </li>
 			  <li><a href="/learn/image">Images (Glance)</a>
+{% if page.nav == "image" %}
 			  <ul>
 				<li><a href="/learn/image/#creating-reserving-and-uploading-images">Create, Reserve & Upload</a></li>
 				<li><a href="/learn/image/#updating-deleting-and-querying">Update, Delete & Queries</a></li>
 				<li><a href="/learn/image/#image-memberships">Memberships</a></li>
 			  </ul>
+{% endif %}
 			 </li>
 			  <li><a href="/learn/blockstorage">Block Storage (Cinder)</a>
+{% if page.nav == "blockstorage" %}
 			  <ul>
 				<li><a href="/learn/blockstorage/#volume-types">Volume Types</a></li>
 				<li><a href="/learn/blockstorage/#volumes">Volumes</a></li>
 				<li><a href="/learn/blockstorage/#snapshots">Snapshots</a></li>
 			  </ul>
+{% endif %}
 			  </li>
 			  <li><a href="/learn/objectstorage">Object Storage (Swift)</a>
+{% if page.nav == "objectstorage" %}
 			  <ul>
 				<li><a href="/learn/objectstorage/#account">Account Info</a></li>
 				<li><a href="/learn/objectstorage/#containers">Containers</a></li>
 				<li><a href="/learn/objectstorage/#objects">Objects</a></li>
 			  </ul>
+{% endif %}
 			  </li>
 			<li><a href="/learn/telemetry">Telemetry (Ceilometer)</a>
+{% if page.nav == "telemetry" %}
 			  <ul>
 				<li><a href="/learn/telemetry/#meters">Meters</a></li>
 				<li><a href="/learn/telemetry/#samples">Samples</a></li>
 				<li><a href="/learn/telemetry/#statistics">Statistics</a></li>
 			  </ul>
+{% endif %}
 			</li>
 			<li><a href="/learn/orchestration">Orchestration (Heat)</a>
+{% if page.nav == "orchestration" %}
 			  <ul>
 				<li><a href="/learn/orchestration/#stacks">Stacks</a></li>
 				<li><a href="/learn/orchestration/#templates">Templates</a></li>
 				<li><a href="/learn/orchestration/#resources">Resources</a></li>
 				<li><a href="/learn/orchestration/#events">Events</a></li>
 			  </ul>
+{% endif %}
 			</li>
 {% endif %}
         </ul>
       </div>
+</div>

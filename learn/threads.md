@@ -2,6 +2,7 @@
 layout: content
 menu: learn
 title: Multiple Threads using a single Client
+nav: getting-started
 ---
 
 # Using the Same Client Between Threads

@@ -35,8 +35,23 @@ span.green {
 	color: green;
 }
 
-ul.navbar-full {
+div.navbar-full {
+	margin-top: 10px;
 	margin-bottom:100px;
+}
+
+.affix-sidebar {
+	position: fixed;
+}
+
+.affix-row {
+   overflow: hidden;
+   height: 100%;
+ }
+
+.affix-content {
+   overflow: auto;
+   height: 100%;
 }
 
 .slideshow {
@@ -96,10 +111,11 @@ div.twitter-link {
 	color: #08c !important;
 }
 .header-bottom {
-background: url(http://www.pacesys.org/assets/img/cloud-bottom.png) 5% 40% repeat-x;
-position: relative;
-bottom: 62px;
-height: 62px;
+  background: url(http://www.pacesys.org/assets/img/cloud-bottom.png) 5% 40% repeat-x;
+  position: relative;
+  bottom: 62px;
+  height: 62px;
+  z-index: 10000;
 }
 
 #content h3 {
@@ -126,12 +142,40 @@ height: 62px;
 /* Navbar */
 
 .sidenav {
-  padding: 20px 0px 20px;
+  padding: 0px 20px;
 }
 
 .panel-heading .glyphicon:before
 {
 	margin-right:5px;
+}
+
+/* Header */
+
+div.navbar-inverse .navbar-nav>.active>a,
+div.navbar-inverse .navbar-nav>.active>a:hover {
+	background-color: #2D7ABD;
+}
+
+.pagecrumb-text {
+	margin: 0px;
+	line-height: 1;
+}
+
+.pagecrumb-pre {
+	position: relative;
+	height:65px;
+}
+
+.pagecrumb-text small {
+	color: #eee;
+	vertical-align: middle;
+	font-size: 60%;
+}
+
+div.pagecrumb {
+	position: fixed;
+	width:100%;
 }
 
 /* Jumbotron */
@@ -150,6 +194,8 @@ height: 62px;
 	background-image: -ms-linear-gradient(top, #0F5999 0%, #2D7ABD 62%);
 	background-image: linear-gradient(to top, #0F5999 0%, #2D7ABD 62%);
 	margin-bottom:0px;
+	margin-top:10px;
+	z-index:10000;
 }
 
 .jumbotron .container h1 {
