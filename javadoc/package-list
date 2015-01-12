@@ -15,6 +15,7 @@ org.openstack4j.common
 org.openstack4j.core.transport
 org.openstack4j.core.transport.functions
 org.openstack4j.core.transport.internal
+org.openstack4j.core.transport.propagation
 org.openstack4j.model
 org.openstack4j.model.common
 org.openstack4j.model.common.builder
@@ -52,6 +53,7 @@ org.openstack4j.openstack.compute.internal
 org.openstack4j.openstack.compute.internal.ext
 org.openstack4j.openstack.heat.domain
 org.openstack4j.openstack.heat.internal
+org.openstack4j.openstack.heat.utils
 org.openstack4j.openstack.identity.domain
 org.openstack4j.openstack.identity.domain.v3
 org.openstack4j.openstack.identity.functions

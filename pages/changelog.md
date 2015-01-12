@@ -2,11 +2,32 @@
 layout: pages
 menu: changelog
 title: Changelog
-description: Release Changelog
+description: OpenStack4j Java based OpenStack SDK - Release Changelog
 ---
+### 2.0.1
+
+#### Enhancements/Improvements
+
+* [Issue #182](https://github.com/gondor/openstack4j/issues/182) - os-availability-zone support
+* [Issue #175](https://github.com/gondor/openstack4j/issues/175) - Implement os-floating-ip-dns resource
+* [Issue #174](https://github.com/gondor/openstack4j/issues/174) - Neutron: Ability to set DNS Nameserver and Host Route within SubnetBuilder  
+* [Issue #173](https://github.com/gondor/openstack4j/issues/173) - Ceilometer: Ability to specify 'project' in obtaining samples using SampleCriteria
+* [Issue #171](https://github.com/gondor/openstack4j/issues/171) - Upload volume to image  
+* [Issue #169](https://github.com/gondor/openstack4j/issues/169) - Update a neutron network
+* [Issue #165](https://github.com/gondor/openstack4j/issues/165) - volume migrate and force delete support  
+* [Issue #164](https://github.com/gondor/openstack4j/issues/164) - Interface attachment support
+
+#### Fixes
+
+* [Issue #181](https://github.com/gondor/openstack4j/issues/181) - Can't get VNCConsoleURL using RestEasy connector
+* [Issue #172](https://github.com/gondor/openstack4j/issues/172) - ClassCastException with HttpClient-2.0.1 connecter while downloading image
+* [Issue #163](https://github.com/gondor/openstack4j/issues/163)  - State vs Status in the NeutronPort
+* [Issue #161](https://github.com/gondor/openstack4j/issues/161)  - Issue with attaching a Volume
+* [Issue #160](https://github.com/gondor/openstack4j/issues/160) - Adding users to a tenant is not working
+
 ### 2.0.0
 
-##### Enhancements/Improvements
+#### Enhancements/Improvements
 
 * [Issue #155](https://github.com/gondor/openstack4j/issues/155) - Add flag to allow for Legacy endpoint handling (has broken some users)
 * [Issue #154](https://github.com/gondor/openstack4j/issues/154) - Ceilometer - Support query criteria when retrieving samples
@@ -33,7 +54,7 @@ description: Release Changelog
 * [Issue #67](https://github.com/gondor/openstack4j/issues/67) - Upgrade Jackson 1 to Jackson 2
 * [Issue #33](https://github.com/gondor/openstack4j/issues/33) - Ability to specify a custom socket factory and host name verifier
 
-##### Fixes
+#### Fixes
 
 * [Issue #148](https://github.com/gondor/openstack4j/issues/148) - Compute: Creating a keypair without specifying public key does not return auto-created private key
 * [Issue #147](https://github.com/gondor/openstack4j/issues/147) - API version is not set in service URL when using HTTPS
@@ -63,7 +84,7 @@ description: Release Changelog
 
 ### 1.0.2
 
-##### Enhancements/Improvements
+#### Enhancements/Improvements
 
 * Heat Orchestration Support
 * [Issue #65](https://github.com/gondor/openstack4j/issues/65) - Instance rebuild with options support
@@ -75,7 +96,7 @@ description: Release Changelog
 * [Issue #19](https://github.com/gondor/openstack4j/issues/19) - Boot and Wait for Server to become ACTIVE based upon max wait time
  
 
-##### Fixes
+#### Fixes
 * [Issue #58](https://github.com/gondor/openstack4j/issues/58) - Server status "SHUTOFF" showing as UNRECOGNIZED enum value on query
 * [Issue #50](https://github.com/gondor/openstack4j/issues/50) - List of SecurityGroupRule returns null
 * [Issue #49](https://github.com/gondor/openstack4j/issues/49) - Listing of servers error in some environments
