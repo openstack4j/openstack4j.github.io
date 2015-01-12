@@ -9,6 +9,7 @@ description: OpenStack4j Java based OpenStack SDK - Release Changelog
 #### Enhancements/Improvements
 
 * [Issue #182](https://github.com/gondor/openstack4j/issues/182) - os-availability-zone support
+* [Issue #177](https://github.com/gondor/openstack4j/issues/177) - Heat: Nested template support - Thanks @magixyu
 * [Issue #175](https://github.com/gondor/openstack4j/issues/175) - Implement os-floating-ip-dns resource
 * [Issue #174](https://github.com/gondor/openstack4j/issues/174) - Neutron: Ability to set DNS Nameserver and Host Route within SubnetBuilder  
 * [Issue #173](https://github.com/gondor/openstack4j/issues/173) - Ceilometer: Ability to specify 'project' in obtaining samples using SampleCriteria
