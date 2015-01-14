@@ -57,7 +57,7 @@ description: OpenStack4j Java based OpenStack SDK - Release Changelog
 
 #### Fixes
 
-* [Issue #148](https://github.com/gondor/openstack4j/issues/148) - Compute: Creating a keypair without specifying public key does not return auto-created private key
+* [Issue #148](https://github.com/gondor/openstack4j/issues/148) - Compute: Creating a key-pair without specifying public key does not return auto-created private key
 * [Issue #147](https://github.com/gondor/openstack4j/issues/147) - API version is not set in service URL when using HTTPS
 * [Issue #146](https://github.com/gondor/openstack4j/issues/146) - Bad request when using HTTPS
 * [Issue #142](https://github.com/gondor/openstack4j/issues/142) - Creating a volume from ImageRef returns volume object without populating original reference
@@ -79,7 +79,7 @@ description: OpenStack4j Java based OpenStack SDK - Release Changelog
 * [Issue #93](https://github.com/gondor/openstack4j/issues/93) - Error listing images (Error reading entity from input stream)
 * [Issue #92](https://github.com/gondor/openstack4j/issues/92) - Problems in deserializing an object (Heat Stack)
 * [Issue #91](https://github.com/gondor/openstack4j/issues/91) - Implementation of the method "getHosts()" in the class availabilityZoneList
-* [Issue #90](https://github.com/gondor/openstack4j/issues/90) - Volume Status "downloading" not regonized
+* [Issue #90](https://github.com/gondor/openstack4j/issues/90) - Volume Status "downloading" not recognized
 * [Issue #75](https://github.com/gondor/openstack4j/issues/75) - NPE in NeutronNetwork
 * [Issue #20](https://github.com/gondor/openstack4j/issues/20) - Glance - creating a large image throws out of memory error
 
