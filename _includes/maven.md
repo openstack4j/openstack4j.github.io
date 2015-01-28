@@ -46,7 +46,7 @@ Starting with version 2.0.0+ OpenStack4j now has the ability to choose the under
 	  <version>{{ site.version }}</version>
 	</dependency>
 
-<div class="alert alert-info"><b>Valid artifactId's are:</b> openstack4j-jersey2, openstack-jersey2-jdk16, openstack4j-resteasy, openstack-okhttp and openstack4j-httpclient</div>
+<div class="alert alert-info connectors"><b>Valid artifactId's are:</b> <code>openstack4j-jersey2</code>, <code>openstack4j-jersey2-jdk16</code>, <code>openstack4j-resteasy</code>, <code>openstack4j-okhttp</code> and <code>openstack4j-httpclient</code></div>
  
 ### Snapshots (Current Development)
 
