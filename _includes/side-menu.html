@@ -54,13 +54,20 @@
 				</ul>
 {% endif %}
 			  </li>
-			  <li><a href="/learn/networks">Network (Neutron)</a>
-{% if page.nav == "network" %}
+			  <li><a href="/learn/network">Network (Neutron)</a>
+{% if page.nav contains "network" %}
 			  <ul>
-				  <li><a href="/learn/networks/#networks">Networks</a></li>
-                  <li><a href="/learn/networks/#subnets">Subnets</a></li>
-				  <li><a href="/learn/networks/#ports">Ports</a></li>
-				  <li><a href="/learn/networks/#routers">Routers</a></li>
+                  <li><a href="/learn/network/#subnets">Subnets</a></li>
+				  <li><a href="/learn/network/#ports">Ports</a></li>
+				  <li><a href="/learn/network/#routers">Routers</a></li>
+				  <li><a href="/learn/network/networks-fwaas">FWaaS</a></li>
+{% if page.nav contains "fwaas" %}
+					<ul>
+						<li><a href="/learn/network/networks-fwaas/#firewalls">Firewalls</a></li>
+						<li><a href="/learn/network/networks-fwaas/#firewall-policies">Polcies</a></li>
+						<li><a href="/learn/network/networks-fwaas/#firewall-rules">Rules</a></li>
+					</ul>
+{% endif %}
 			  </ul>
 {% endif %}
 			  </li>

@@ -2,8 +2,77 @@
 layout: pages
 menu: changelog
 title: Changelog
-description: OpenStack4j Java based OpenStack SDK - Release Changelog
+description: OpenStack4j - Java cloud management for OpenStack - Release Changelog
 ---
+
+### 2.0.3
+
+##### Enhancements/Improvements
+
+* [Issue #322](https://github.com/gondor/openstack4j/issues/322) - Add MIGRATING to the Server Status Enumeration
+* [Issue #321](https://github.com/gondor/openstack4j/issues/321) - Option to add headers in requests, esp. 'X-newest' in GET requests in swift
+* [Issue #316](https://github.com/gondor/openstack4j/issues/316) - Expose error code in ActionResponse
+* [Issue #308](https://github.com/gondor/openstack4j/issues/308) - Add PENDING_CREATE to Neutron Network State Enumeration
+* [Issue #294](https://github.com/gondor/openstack4j/issues/294) - NetQuota : updateForTenant support request
+* [Issue #272](https://github.com/gondor/openstack4j/issues/272) - Quota-Set for Block Storage 
+* [Issue #267](https://github.com/gondor/openstack4j/issues/267) - Configuring connection pooling feature for underlying client connectors
+
+##### Fixes
+
+* [Issue #326](https://github.com/gondor/openstack4j/issues/326) - BlockStorageVolumeBuilder : allow availability_zone to be set
+* [Issue #329](https://github.com/gondor/openstack4j/issues/329) - Update default quotaSet shows exception
+* [Issue #325](https://github.com/gondor/openstack4j/issues/325) - Volumes metadata is not set due to wrong parameter name sent from OS4j 
+* [Issue #323](https://github.com/gondor/openstack4j/issues/323) - Setting external gateway to router in api returns not authorized, but the same is allowed via CLI
+* [Issue #307](https://github.com/gondor/openstack4j/issues/307) - Unable to catch assign floating IP error
+* [Issue #295](https://github.com/gondor/openstack4j/issues/295) - Exception while updating quota for tenant
+* [Issue #292](https://github.com/gondor/openstack4j/issues/292) - CreatePort command not working properly
+
+### 2.0.2
+
+##### Enhancements/Improvements
+
+* [Issue #290](https://github.com/gondor/openstack4j/issues/290) - Update OKHttp Connector to version 2.3.0
+* [Issue #289](https://github.com/gondor/openstack4j/issues/289) - AbsoluteLimit: `maxServerGroups` and `maxServerGroupMembers` are missing
+* [Issue #284](https://github.com/gondor/openstack4j/issues/284) - Extending ceilometer alarms functionality (thank you @e3ky)
+* [Issue #278](https://github.com/gondor/openstack4j/issues/278) - Filtering of Attached Interfaces
+* [Issue #264](https://github.com/gondor/openstack4j/issues/264) - Keystone v3 Authentication for Project Scope
+* [Issue #258](https://github.com/gondor/openstack4j/issues/258) - Reset VM State support
+* [Issue #255](https://github.com/gondor/openstack4j/issues/255) - HttpURLConnection connector option (thank you @krishnabrucelee)
+* [Issue #247](https://github.com/gondor/openstack4j/issues/247) - Support to update Quotas for Tenant and Class
+* [Issue #233](https://github.com/gondor/openstack4j/issues/233) - Ability to set criteria on Ceilometer Statistics
+* [Issue #217](https://github.com/gondor/openstack4j/issues/217) - Support to build a shared network (thank you @octupszhang)
+* [Issue #216](https://github.com/gondor/openstack4j/issues/216) - Telemetry API doesn't support alarms (thank you @e3ky)
+* [Issue #216](https://github.com/gondor/openstack4j/issues/216) - Add support for Sahara data processing (thank you @ekasitk)
+* [Issue #208](https://github.com/gondor/openstack4j/issues/208) - Support for LBaaS (Load-balancer as a service) (thank you @liujunpengwork)
+* [Issue #203](https://github.com/gondor/openstack4j/issues/203) - Support Host aggregates (thank you @liujunpengwork)
+* [Issue #187](https://github.com/gondor/openstack4j/issues/187) - Support for Volume Transfer
+* [Issue #183](https://github.com/gondor/openstack4j/issues/183) - Heat: Nested templates (Files & Env) support for a Stack (thank you @magixyu)
+
+##### Fixes
+
+* [Issue #286](https://github.com/gondor/openstack4j/issues/286) - Error while downloading the object from container
+* [Issue #285](https://github.com/gondor/openstack4j/issues/285) - ResetAction not working against a Server
+* [Issue #282](https://github.com/gondor/openstack4j/issues/282) - Quota set volume & gigabytes is always 0 and instances and do not update
+* [Issue #281](https://github.com/gondor/openstack4j/issues/281) - NeutronError while detaching interface is not caught
+* [Issue #277](https://github.com/gondor/openstack4j/issues/277) - Option to clear gateway once set
+* [Issue #268](https://github.com/gondor/openstack4j/issues/268) - RouterExternal flag missing in NetworkBuilder interface
+* [Issue #263](https://github.com/gondor/openstack4j/issues/263) - Not closing response when 404 happens
+* [Issue #262](https://github.com/gondor/openstack4j/issues/262) - Creating a Port by using an existing as a template (cloning) fails
+* [Issue #261](https://github.com/gondor/openstack4j/issues/261) - Unable to pass SampleCriteria as a parameter in sample() method
+* [Issue #257](https://github.com/gondor/openstack4j/issues/257) - VM Migration Exception (ActionResponse fault)
+* [Issue #249](https://github.com/gondor/openstack4j/issues/249) - Unable to capture Create Subnet Error
+* [Issue #241](https://github.com/gondor/openstack4j/issues/241) - HttpClient Connector: Assign/Remove floating IP to the server throws JsonMappingException
+* [Issue #237](https://github.com/gondor/openstack4j/issues/237) - Rackspace URL for images are incorrectly determined
+* [Issue #236](https://github.com/gondor/openstack4j/issues/236) - HP Cloud: Failed to create network port
+* [Issue #234](https://github.com/gondor/openstack4j/issues/234) - Volumes cannot be used on HP Cloud
+* [Issue #227](https://github.com/gondor/openstack4j/issues/227) - OSFactory.clientFromAccess(access) doesn't fetch admin scoped tenant/users
+* [Issue #226](https://github.com/gondor/openstack4j/issues/226) - Creating Network on HP Cloud fails
+* [Issue #225](https://github.com/gondor/openstack4j/issues/225) - NullPointerException in HttpExecutor when ServiceLoader finds no HttpExecutorService
+* [Issue #222](https://github.com/gondor/openstack4j/issues/222) - ObjectStorage: file download
+* [Issue #220](https://github.com/gondor/openstack4j/issues/220) - NetworkType enum doesn't support "vxlan" value
+* [Issue #211](https://github.com/gondor/openstack4j/issues/211) - NullPointerException: Find Tenant By Name
+* [Issue #201](https://github.com/gondor/openstack4j/issues/201) - Find a specific Tenant using getByName function raise exception
+
 ### 2.0.1
 
 #### Enhancements/Improvements
