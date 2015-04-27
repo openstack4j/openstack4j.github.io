@@ -195,7 +195,11 @@ denied.
 
 {:.prettyprint .lang-java}
 	ActionResponse resp = os.networking().firewalls().firewallrule().delete(ruleId);
+
 <br>
+
+<div class="alert alert-info" style="margin-top:20px;"><b>Special Thanks:</b> to <a href="https://github.com/vishvesh" class="alert-link" target="_blank">Vishvesh Deshmukh</a> for contributing this extension to OpenStack4j</div>
+
 
 
 
