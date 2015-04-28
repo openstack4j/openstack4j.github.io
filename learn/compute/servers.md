@@ -8,7 +8,7 @@ nav: compute/servers
 
 A server is a running VM instance.  The OpenStack4j supports all major server based operations and actions.  The examples below will cover all the major scenarios that are commonly utilized to manage running servers within the cloud.
 
-#### Boot a Server VM (Create)
+### Boot a Server VM (Create)
 
 Booting a new Server is simple with OpenStack4j.  The two requirements are specifying a [flavor](#flavors) and an [image](#images-via-nova).
 
@@ -50,7 +50,7 @@ When creating a server you typically boot from an Image to install the operating
 
 **Note:** The device name unfortunatelly matters, and even worse - it depends on the hypervisor you use. In our experience - for KVM it is /dev/vda, for Xen it is /dev/xvda.
 
-#### Server Actions
+### Server Actions
 
 Server actions provide realtime management of a live server.
 
@@ -100,14 +100,14 @@ Revert a Resize
 	os.compute().servers().revertResize(server.getId());
 	
 
-#### Create a new Server Snapshot
+### Create a new Server Snapshot
 
 A snapshot is merely a pointer to a point in time.  This can be handy if you are doing a risky upgrade or migration and need a quick way to revert back.  You can take a snapshot and then proceed with your migrations.  If the migrations fail you can quickly revert back to created snapshot.
 
 {:.prettyprint .lang-java}
 	String imageId = os.compute().servers().createSnapshot(server.getId(), "Clean State Snapshot");
 
-#### Floating IP Addresses
+### Floating IP Addresses
 
 A floating Ip address is an address that is part of a pool.  Compute allows you to allocate or deallocate address from a pool against a server instance.  Below are the operational examples for floating ip addresses.
 
@@ -148,7 +148,7 @@ A floating Ip address is an address that is part of a pool.  Compute allows you 
 {:.prettyprint .lang-java}
 	ActionResponse r = os.compute().floatingIps().removeFloatingIP(server, "50.50.2.3");
 
-#### Metadata
+### Metadata
 
 **Creating Metadata during Create**	
 
@@ -180,7 +180,7 @@ A floating Ip address is an address that is part of a pool.  Compute allows you 
 	// Remove a Metadata item
 	os.compute().servers().deleteMetadataItem(serverId, metadataKey);
 
-#### VNC and Console Output
+### VNC and Console Output
 
 OpenStack provides the ability to grab the tail of the console log based on the specified `number of lines`. See the example below on grabbing the last 50 lines of a running servers console.
 
@@ -198,14 +198,14 @@ You can also grab the VNC connection URL based on two VNC types that OpenStack o
 
 
 	
-#### Diagnostics
+### Diagnostics
 
 Diagnostics are usage information about the server. Usage includes CPU, Memory and IO. Information is dependent on the hypervisor used by the OpenStack installation. As of right now there is no concrete diagnostic specification which is why the information is variable and in map form (key and value)
 
 {:.prettyprint .lang-java}
 	Map<String, ? extends Number> diagnostics = os.compute().servers().diagnostics("serverId");
 	
-#### Querying for Servers
+### Querying for Servers
 
 {:.prettyprint .lang-java}
 	// List all Servers
@@ -217,7 +217,7 @@ Diagnostics are usage information about the server. Usage includes CPU, Memory a
 	// Get a specific Server by ID
 	Server server = os.compute().servers().get("serverId");
 
-#### Delete a Server
+### Delete a Server
 
 {:.prettyprint .lang-java}
 	os.compute().servers().delete("serverId");

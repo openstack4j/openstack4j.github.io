@@ -13,7 +13,9 @@ Security groups are an extension and typically installed by default.  If for som
 <br>
 <br>
 
-#### Querying for Security Groups
+## Security Groups
+
+### Querying for Security Groups
 
 Below are examples on querying for security groups as well as finding groups associated with a particular server instance.
 
@@ -33,7 +35,7 @@ Below are examples on querying for security groups as well as finding groups ass
 	SecGroupExtension group = os.compute().securityGroups().get("securityGroupId");
 	
 
-#### Creating, Updating and Deleting Security Groups
+### Creating, Updating and Deleting Security Groups
 
 A security group is basic by nature so is very easy to create.  Rules are can then be created and then associated with a security group. Below are examples on how to create, update and delete a security group. 
 
@@ -53,11 +55,11 @@ A security group is basic by nature so is very easy to create.  Rules are can th
 {:.prettyprint .lang-java}
 	os.compute().securityGroups().delete("securityGroupId");
 
-#### Security Group Rules
+## Security Group Rules
 
 A security group rule is the actual filter which is associated to a security group.  A security group can have many rules.  A rule defines a protocol, port range, CIDR address and reference to the group. 
 
-**Creating a Security Rule**
+### Creating a Security Rule
 
 {:.prettyprint .lang-java}
 	// Permit Port 80 against an existing Group for anyone
@@ -69,7 +71,7 @@ A security group rule is the actual filter which is associated to a security gro
 					    .range(80, 80).build()
 				       ));
 
-**Deleting a Security Rule**
+### Deleting a Security Rule
 
 {:.prettyprint .lang-java}
 	os.compute().securityGroups().deleteRule("ruleId");
