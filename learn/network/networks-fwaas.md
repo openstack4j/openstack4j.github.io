@@ -15,7 +15,7 @@ Whereas security groups operate at the instance-level, FWaaS operates at the per
 
 To get an idea on how a firewall is created it's best to understand it's associations.  A Firewall is associated to a firewall policy and a policy is associated to rules. 
 
-<img src="https://docs.google.com/drawings/d/sDqBqvZPGu0-OblnGWa9HrQ/image?w=667&h=74&rev=57&ac=1">
+<img src="/assets/img/learn/fwaas.png">
 <br>
 <br>
 
@@ -69,6 +69,7 @@ A firewall represents a logical firewall resource that a tenant can instantiate 
 
 {:.prettyprint .lang-java}
 	ActionResponse resp = os.networking().firewalls().firewall().delete(firewallId);
+
 <br>
 
 ## Firewall Policies
@@ -143,6 +144,7 @@ authorized (and can be different from the tenants which create or use the firewa
 
 {:.prettyprint .lang-java}
 	ActionResponse resp = os().networking().firewalls().firewallpolicy().delete(policyId);
+
 <br>
 
 ## Firewall Rules

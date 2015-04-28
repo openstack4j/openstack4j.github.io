@@ -11,7 +11,7 @@ drive the actual load balancing of requests. Thus, an Openstack operator can cho
 
 **LBaaS System Architecture**
 
-<img src="https://wiki.openstack.org/w/images/2/21/Lbaas_arch.JPG" height="400px">
+<img src="/assets/img/learn/lbaas.jpg" height="400px">
 <p/>
 
 *Source: [https://wiki.openstack.org/wiki/Neutron_LBaaS_Arch](https://wiki.openstack.org/wiki/Neutron_LBaaS_Arch)
@@ -74,6 +74,7 @@ Provides statistics such as `BytesIn`, `BytesOut`, `ActiveConnections` and `Tota
 
 {:.prettyprint .lang-java}
 	LbPoolStats stats = os.networking().loadbalancers().lbPool().stats(poolId);
+
 <br>
 
 ## Members
@@ -133,6 +134,7 @@ Below is an example of creating a new member and adding it to the specified pool
 
 {:.prettyprint .lang-java}
 	ActionResponse resp = os.networking().loadbalancers().member().delete(memberId);
+
 <br>
 
 ## VIP
@@ -192,6 +194,7 @@ LB products under the name of a "virtual server", a "vserver" or a "listener".
 
 {:.prettyprint .lang-java}
 	ActionResponse resp = os.networking().loadbalancers().vip().delete(vipId);
+
 <br>
 
 ## Health Monitors
