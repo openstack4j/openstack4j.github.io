@@ -123,10 +123,10 @@ In the example below we are specifying the OpenStack deployment endpoint to conn
 #### Version 3 Authentication
 
 {:.prettyprint .lang-java}
+	Identifier domainIdentifier = Identifier.byName("example-domain");
 	OSClient os = OSFactory.builderV3()
 	                       .endpoint("http://127.0.0.1:5000/v3")
-	                       .credentials("admin","sample")
-	                       .domainName("example-domain")
+	                       .credentials("admin","sample", domainIdentifier)
 	                       .authenticate();
 
 ### Run some Queries
