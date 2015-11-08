@@ -5,19 +5,72 @@ title: Changelog
 description: OpenStack4j - Java cloud management for OpenStack - Release Changelog
 ---
 
+### 2.0.8
+
+**Released:** Nov 7, 2015 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#208)
+
+##### Enhancements/Improvements
+
+* Issue #492 - Telemetry Events API - Thank you - @iviireczech
+* Issue #500 - Use Enums instead of String for sourceType and destinationType in block mappings
+
+##### Fixes
+
+* Issue #489 - Race Condition in DefaultEndpointURLResolver - Thank you - @rvesselinov
+* Issue #501 - Avoid using printStackTrace() for exception logging
+
+
 ### 2.0.7
 
-See [Changelog on Github](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#207-latest-release--stable)
+**Released:** Oct 28, 2015 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#207)
+
+##### Enhancements/Improvements
+
+* Issue #479 - Support for Identity V3 - Thank you - @auhlig
+* Issue #474 - NetQuotaService does not accept/return security_group and security_group_rule quota - Thank you @abareghi
+* Issue #390 - Support for newest Service Versions
+
+##### Fixes
+
+* Issue #485 - Not returning sub-directories under a directory in Swift - Thank you - @sbcd90
+* Issue #470 - Create (boot) server call fails against DevStack due to optional parameters in JSON payload in the request
+* Issue #458 - java.lang.NullPointerException when getting servers list - Thank you @symcssn
+* Issue #448 - RACKSPACE: Unable to Find Supported Services
 
 ### 2.0.6
 
-See [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#206)
+**Released:** Oct 5, 2015 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#206)
+
+##### Enhancements/Improvements
+
+* Issue #450 - Make configDrive() accessible from Server Create builder - Thank you - @imclem
+
+##### Fixes
+
+* Issue #459 - NPE from keystone v3 re-auths - Thank you - @symcssn
+* Issue #446 - DLPayload does not return proper response to allow proper handling - Thank you @symcssn
+* Issue #444 - OSAuthenticator.authenticateV3 does not reauthenticate properly - Thank you @symcssn
 
 ### 2.0.5
 
-See [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#205)
+**Released:** Aug 23, 2015 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#205)
+
+##### Enhancements/Improvements
+
+* Issue #439 - Add query parameters to delete and put options for large objects - Thank you - @frsyuki
+* Issue #438 - Add support for RAX API key authentication extension - Thank you - @frsyuki
+* Issue #437 - Add support to list available zone list - Thank you - @csm1sh
+* Issue #436 - New commands for blockVolume - Thank you - @pompinis
+* Issue #431 - Added docker container format - Thank you - @maseev
+
+##### Fixes
+
+* Issue #424 - Create server error through blockDeviceMappingBuilder
+* Issue #410 - Create instance boot from image（create a new volume）
 
 ### 2.0.4
+
+**Released:** July 14, 2015 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#204)
 
 ##### Enhancements/Improvements
 
@@ -60,6 +113,8 @@ See [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHAN
 
 ### 2.0.3
 
+**Released:** April 17, 2015 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#203)
+
 ##### Enhancements/Improvements
 
 * [Issue #322](https://github.com/gondor/openstack4j/issues/322) - Add MIGRATING to the Server Status Enumeration
@@ -81,6 +136,8 @@ See [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHAN
 * [Issue #292](https://github.com/gondor/openstack4j/issues/292) - CreatePort command not working properly
 
 ### 2.0.2
+
+**Released:** March 18, 2015 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#202)
 
 ##### Enhancements/Improvements
 
@@ -128,6 +185,8 @@ See [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHAN
 
 ### 2.0.1
 
+**Released:** Jan 11, 2015 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#201)
+
 #### Enhancements/Improvements
 
 * [Issue #182](https://github.com/gondor/openstack4j/issues/182) - os-availability-zone support
@@ -149,6 +208,8 @@ See [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHAN
 * [Issue #160](https://github.com/gondor/openstack4j/issues/160) - Adding users to a tenant is not working
 
 ### 2.0.0
+
+**Released:** Dec 9, 2014 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#200)
 
 #### Enhancements/Improvements
 
@@ -207,6 +268,8 @@ See [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHAN
 
 ### 1.0.2
 
+**Released:** Oct 1, 2014 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#102)
+
 #### Enhancements/Improvements
 
 * Heat Orchestration Support
@@ -228,6 +291,8 @@ See [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHAN
 
 ### 1.0.1
 
+**Released:** June 6, 2014 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#101)
+
 * Block Storage (Cinder) support
 * Floating IP/Pools support in Compute
 * VNC and Console Output support in Compute -> Servers
@@ -239,5 +304,7 @@ See [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHAN
 * Telemetry (Ceilometer) support
 
 ### 1.0.0
+
+**Released:** April 2, 2014 :: [Changelog on GitHub](https://github.com/gondor/openstack4j/blob/master/CHANGELOG.md#100)
 
 * Initial public release
