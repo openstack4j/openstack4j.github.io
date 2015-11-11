@@ -23,6 +23,7 @@ org.openstack4j.model.common.builder
 org.openstack4j.model.common.functions
 org.openstack4j.model.common.header
 org.openstack4j.model.common.payloads
+org.openstack4j.model.common.resolvers
 org.openstack4j.model.compute
 org.openstack4j.model.compute.actions
 org.openstack4j.model.compute.builder
@@ -31,6 +32,7 @@ org.openstack4j.model.heat
 org.openstack4j.model.heat.builder
 org.openstack4j.model.identity
 org.openstack4j.model.identity.builder
+org.openstack4j.model.identity.builder.v3
 org.openstack4j.model.identity.v3
 org.openstack4j.model.image
 org.openstack4j.model.image.builder
