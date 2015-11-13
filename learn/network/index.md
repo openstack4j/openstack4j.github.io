@@ -109,7 +109,7 @@ In the example below we will create a new port and assign it a fixed IP Address 
 	
 ## Routers
 
-For outside networks to access VMs, routers between subnets are needed.  Each router has one gateway that is connected to a network and many interfaces that are connected to various subnets.  Like a real world physical router, subnets can access machines on other subnets that are connected to the same router.  More information about routers can be found at [Neutron Concepts](http://docs.openstack.org/havana/install-guide/install/apt/content/install-neutron.html)
+For outside networks to access VMs, routers between subnets are needed.  Each router has one gateway that is connected to a network and many interfaces that are connected to various subnets.  Like a real world physical router, subnets can access machines on other subnets that are connected to the same router.  More information about routers can be found at [Neutron Concepts](http://docs.openstack.org/kilo/install-guide/install/apt/content/neutron-concepts.html)
 <br>
 <br>
 
