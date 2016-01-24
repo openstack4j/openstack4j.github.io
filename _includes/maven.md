@@ -3,7 +3,7 @@ If you are a Maven user just add the library as a dependency:
 
 ### Latest Release (Stable)
 
-Starting with version 2.0.0+ OpenStack4j now has the ability to choose the underlying connection framework.  By default the API's are configured to use the Jersey 2 connector.  See optional configuration scenarios below:
+Starting with version **3.0.0+** OpenStack4j now has the ability to choose the underlying connection framework.  By default the API's are configured to use the Jersey 2 connector.  See optional configuration scenarios below:
 
 #### Default Setup (Using Jersey2 as the connector choice)
 
@@ -21,6 +21,29 @@ Starting with version 2.0.0+ OpenStack4j now has the ability to choose the under
 	  <groupId>org.pacesys</groupId>
 	  <artifactId>openstack4j</artifactId>
 	  <version>{{ site.version }}</version>
+	  <classifier>withdeps</classifier>
+	</dependency>
+
+<br>
+
+Using version **3.0.0+** of OpenStack4j offers support for the Identity (Keystone) V3 API.
+
+#### Default Setup (Using Jersey2 as the connector choice)
+
+{:.prettyprint .lang-xml}
+	<dependency>
+	  <groupId>org.pacesys</groupId>
+	  <artifactId>openstack4j</artifactId>
+	  <version>3.0.0</version>
+	</dependency>
+
+**With Dependencies (all in one jar)**
+
+{:.prettyprint .lang-xml}
+	<dependency>
+	  <groupId>org.pacesys</groupId>
+	  <artifactId>openstack4j</artifactId>
+	  <version>3.0.0</version>
 	  <classifier>withdeps</classifier>
 	</dependency>
 
