@@ -10,10 +10,9 @@ services:
 install:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t pacesys/openstack4j.com .
-  - docker run -d -p 127.0.0.1:80:80 --name os4j pacesys/openstack4j.com
-
+ 
 script:
-  - docker ps | grep -q os4j
+  - npm version
 
 deploy:
   - docker push pacesys/openstack4j.com
