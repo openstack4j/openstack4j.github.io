@@ -2,9 +2,16 @@
 permalink: pretty
 paginate: 10 
 name: OpenStack4j
-baseurl: 
+baseurl: ''
 markdown: kramdown
-version: 2.0.8
-snapshot-version: 2.0.9-SNAPSHOT
-withdeps-version: 2.0.9-withdeps
+version: 2.11
+snapshot-version: 2.20-SNAPSHOT
+withdeps-version: 2.11-withdeps
 url: http://www.openstack4j.com
+
+gems: [jekyll-paginate]
+
+exclude: [support, Dockerfile]
+pkgs: 
+  all:
+    nginx

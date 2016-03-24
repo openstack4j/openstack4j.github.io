@@ -75,7 +75,7 @@ Provides statistics such as `BytesIn`, `BytesOut`, `ActiveConnections` and `Tota
 {:.prettyprint .lang-java}
 	LbPoolStats stats = os.networking().loadbalancers().lbPool().stats(poolId);
 
-<br>
+
 
 ## Members
 
@@ -135,7 +135,7 @@ Below is an example of creating a new member and adding it to the specified pool
 {:.prettyprint .lang-java}
 	ActionResponse resp = os.networking().loadbalancers().member().delete(memberId);
 
-<br>
+
 
 ## VIP
 
@@ -195,7 +195,6 @@ LB products under the name of a "virtual server", a "vserver" or a "listener".
 {:.prettyprint .lang-java}
 	ActionResponse resp = os.networking().loadbalancers().vip().delete(vipId);
 
-<br>
 
 ## Health Monitors
 
@@ -251,7 +250,7 @@ The PING monitor is the most basic type of health check. The following configura
                              .timeout(10)
                              .maxRetries(3)
                              .build());
-<br>
+
 
 #### **Creating a TCP Monitor**
 
@@ -271,7 +270,7 @@ The following configurable properties can be specified for a TCP monitor:
                              .timeout(10)
                              .maxRetries(3)
                              .build());
-<br>
+
 
 #### **Creating an HTTP or HTTPS Monitor**
 
@@ -295,7 +294,7 @@ attribute of path that is used to evaluate the HTTP response to a monitor probe.
 
 {:.prettyprint .lang-java}
 	ActionResponse resp = os.networking().loadbalancers().healthMonitor().delete(healthMinotirId);
-<br>
+
 
 ### Associating Health Monitors to a Pool
 
@@ -307,4 +306,5 @@ The following examples show how to associate and disassociate health monitors ag
 
 	// Disassociate a health monitor
 	ActionResponse resp = os.networking().loadbalancers().lbPool().disAssociateHealthMonitor(lbPoolId, healthMonitorId);
-<br>
+
+
