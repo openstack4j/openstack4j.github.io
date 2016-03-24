@@ -3,9 +3,11 @@ sudo: required
 services:
   - docker
 
-install:
+script:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t pacesys/openstack4j.com .
+
+deploy:
   - docker push pacesys/openstack4j.com
 
 # whitelist
