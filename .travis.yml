@@ -1,14 +1,19 @@
 sudo: required
 
+language: node_js
+node_js:
+  - "5"
+
 services:
   - docker
 
-script:
+install:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t pacesys/openstack4j.com .
-
-deploy:
   - docker push pacesys/openstack4j.com
+
+script:
+  - npm version
 
 # whitelist
 branches:
