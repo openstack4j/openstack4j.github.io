@@ -1,0 +1,43 @@
+---
+id: /sites/openstack4j
+cpus: 0.5
+mem: 300.0
+instances: 2
+constraints:
+- - hostname
+  - UNIQUE
+container:
+  type: DOCKER
+  docker:
+    image: pacesys/openstack4j.com:latest
+    network: BRIDGE
+    forcePullImage: true
+    parameters:
+    - key: label
+      value: Name=site
+    - key: label
+      value: System=openstack4j
+    portMappings:
+    - containerPort: 80
+      hostPort: 0
+      servicePort: 4000
+      protocol: tcp
+uris:
+- file:///etc/docker.tar.gz
+env:
+  TAGS: website,openstack4j,mesos
+  DEPLOYED_VERSION: 'latest'
+labels:
+  group: site
+  role: openstack4j
+  HAPROXY_GROUP: external
+  HAPROXY_0_VHOST: openstack4j.com
+healthChecks:
+- path: /
+  portIndex: 0
+  protocol: HTTP
+  gracePeriodSeconds: 300
+  intervalSeconds: 30
+  timeoutSeconds: 20
+  maxConsecutiveFailures: 3
+  ignoreHttp1xx: false
