@@ -3,9 +3,6 @@ id: /sites/openstack4j
 cpus: 0.5
 mem: 300.0
 instances: 2
-constraints:
-- - hostname
-  - UNIQUE
 container:
   type: DOCKER
   docker:
@@ -36,7 +33,7 @@ healthChecks:
 - path: /
   portIndex: 0
   protocol: HTTP
-  gracePeriodSeconds: 300
+  gracePeriodSeconds: 120
   intervalSeconds: 30
   timeoutSeconds: 20
   maxConsecutiveFailures: 3
