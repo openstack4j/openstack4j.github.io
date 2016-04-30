@@ -6,7 +6,7 @@ instances: 2
 container:
   type: DOCKER
   docker:
-    image: pacesys/openstack4j.com:latest
+    image: pacesys/openstack4j.com:${VERSION}
     network: BRIDGE
     forcePullImage: true
     parameters:
