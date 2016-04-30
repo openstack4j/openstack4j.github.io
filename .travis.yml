@@ -10,7 +10,7 @@ services:
 install:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t pacesys/openstack4j.com .
-  - docker tag pacesys/openstack4j.com pacesys/openstack4.comj:$TRAVIS_BUILD_NUMBER
+  - docker tag pacesys/openstack4j.com pacesys/openstack4j.com:$TRAVIS_BUILD_NUMBER
   - docker run -d -p 127.0.0.1:80:80 --name os4j pacesys/openstack4j.com
 
 script:
