@@ -14,7 +14,7 @@ title: Fluent OpenStack client for Java
 		<div class="col-md-6" style="margin-top:30px;">
 		<span style="margin-left:30px;">
           <a href="/learn" class="btn btn-default btn-success btn-lg"><span class="glyphicon glyphicon-book"> </span>  Docs</a>
-          <a href="/javadoc" class="btn btn-default btn-info btn-lg" target="_blank"><span class="glyphicon glyphicon-info-sign"> </span>  JavaDoc</a>
+          <a href="/javadoc/" class="btn btn-default btn-info btn-lg" target="_blank"><span class="glyphicon glyphicon-info-sign"> </span>  JavaDoc</a>
           <a href="/learn/getting-started" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-save"> </span>  Install</a>
 		</div>
 		</div>
@@ -22,7 +22,7 @@ title: Fluent OpenStack client for Java
     </div>
 	<div class="header-bottom"></div>
 </div>
-	<!-- Clouds we Support --> 
+	<!-- Clouds we Support -->
 	<div class="container">
 		<div class="row-fluid style="margin: -40px 0px 10px 0px;"">
 			<div class="section-divider">
@@ -119,8 +119,8 @@ title: Fluent OpenStack client for Java
 			     <li><img src="/assets/img/ibm.png" alt="IBM Research Labs" title="IBM Research Labs" class="cloud-img"></li>
 			     <li><img src="/assets/img/dorado.jpg" alt="Dorado Software" title="Dorado Software" class="cloud-img"></li>
 			     <li><img src="/assets/img/oracle.png" alt="Oracle" title="Oracle" class="cloud-img"></li>
-			     <li><img src="/assets/img/Samsung.jpg" alt="Samsung" title="Samsung" class="cloud-img"></li>			
-           <li><img src="/assets/img/sap.png" alt="SAP" title="SAP" class="cloud-img"></li>     
+			     <li><img src="/assets/img/Samsung.jpg" alt="Samsung" title="Samsung" class="cloud-img"></li>
+           <li><img src="/assets/img/sap.png" alt="SAP" title="SAP" class="cloud-img"></li>
 			 </ul>
 			 <ul class="cloud-inline">
 				<li><h3>And More!</h3></li>
@@ -159,7 +159,7 @@ Tenant t = os.identity().tenants()
                      .build());
 			</pre>
 		  </div>
-		</div>	
+		</div>
 	</div>
 	<div class="col-md-6">
     	<div class="panel panel-primary">
@@ -201,14 +201,14 @@ Image image = os.images().create(Builders.image()
                 ), Payloads.create(new File("cirros.img")));
 			</pre>
 		  </div>
-		</div>	
+		</div>
 	</div>
 	<div class="col-md-6">
    	<div class="panel panel-primary">
 		  <div class="panel-heading"><span class="glyphicon glyphicon-signal"/><strong>Network</strong></span></div>
-	
+
 		  <div class="panel-body">
-			<pre class=".prettyprint .lang-java">	
+			<pre class=".prettyprint .lang-java">
 // Create a Port
 Port port = os.networking().port()
               .create(Builders.port()
