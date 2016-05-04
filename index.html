@@ -19,6 +19,7 @@ title: Fluent OpenStack client for Java
                   class="glyphicon glyphicon-info-sign"> </span> JavaDoc</a>
           <a href="/learn/getting-started" class="btn btn-warning btn-lg"><span
                   class="glyphicon glyphicon-save"> </span> Install</a>
+            </span>
                 </div>
             </div>
         </div>
@@ -28,8 +29,7 @@ title: Fluent OpenStack client for Java
 
 <!-- Clouds we Support -->
 <div class="container">
-    <div class="row-fluid style=" margin: -40px 0px 10px 0px;
-    "">
+    <div class="row-fluid style=" margin: -40px 0px 10px 0px; "">
     <div class="section-divider">
         <span class="text">Public/Private OpenStack Cloud Support</span>
     </div>
@@ -65,7 +65,8 @@ title: Fluent OpenStack client for Java
         <div class="slideshow">
             <div class="span4 multi-items">
                 <div class="imageLabel"><span class="glyphicon glyphicon-lock"></span> Identity V2</div>
-                <p>The Identity (Keystone) V2 service provides the central directory of users, tenants, service endpoints
+                <p>The Identity (Keystone) V2 service provides the central directory of users, tenants, service
+                    endpoints
                     and authorization. </p>
                 <p><a href="/learn/identity/identity-v2" class="btn btn-xs btn-inverse"><span
                         class="glyphicon glyphicon-book"> </span> Identity V2 Guide</a></p>
@@ -145,10 +146,8 @@ title: Fluent OpenStack client for Java
     <div class="row-fluid">
         <div class="span12">
             <ul class="cloud-inline">
-                <li><img src="/assets/img/ibm.png" alt="IBM Research Labs" title="IBM Research Labs" class="cloud-img">
-                </li>
-                <li><img src="/assets/img/dorado.jpg" alt="Dorado Software" title="Dorado Software" class="cloud-img">
-                </li>
+                <li><img src="/assets/img/ibm.png" alt="IBM Research Labs" title="IBM Research Labs" class="cloud-img"></li>
+                <li><img src="/assets/img/dorado.jpg" alt="Dorado Software" title="Dorado Software" class="cloud-img"></li>
                 <li><img src="/assets/img/oracle.png" alt="Oracle" title="Oracle" class="cloud-img"></li>
                 <li><img src="/assets/img/Samsung.jpg" alt="Samsung" title="Samsung" class="cloud-img"></li>
                 <li><img src="/assets/img/sap.png" alt="SAP" title="SAP" class="cloud-img"></li>
@@ -160,22 +159,22 @@ title: Fluent OpenStack client for Java
     </div>
 </div>
 
-<!-- Code Examples -->
+    <!-- Code Examples -->
 
-<div class="container">
-    <div class="row-fluid">
-        <div class="section-divider">
-            <span class="text">100% Fluent API</span>
+    <div class="container">
+        <div class="row-fluid">
+            <div class="section-divider">
+                <span class="text">100% Fluent API</span>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
 
-            <div class="panel panel-primary">
-                <div class="panel-heading"><span class="glyphicon glyphicon-lock"/><strong>Identity</strong></span>
-                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-lock"/><strong>Identity</strong></span>
+                    </div>
 
-                <div class="panel-body">
+                    <div class="panel-body">
 			<pre class=".prettyprint .lang-java">
 // V2 authentication
 OSClientV2 os = OSFactory.builderV2()
@@ -191,13 +190,25 @@ OSClientV3 os = OSFactory.builderV3()
                   .scopeToProject(Identifier.byName("admin"))
                   .authenticate();
 			</pre>
+                        <<<<<<< HEAD
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading"><span class="glyphicon glyphicon-cog"/><strong>Compute</strong></span></div>
-                <div class="panel-body">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-cog"/><strong>Compute</strong></span>
+                    </div>
+                    <div class="panel-body">
+                        =======
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-cog"/><strong>Compute</strong></span>
+                    </div>
+                    <div class="panel-body">
+                        >>>>>>> master
 			<pre class=".prettyprint .lang-java">
 // Create a Server Model Object
 Server server = Builders.server()
@@ -212,18 +223,19 @@ Server server = os.compute().servers().boot(server);
 // Create a Snapshot
 os.compute().servers().createSnapshot("id", "name");
 			</pre>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
 
-            <div class="panel panel-primary">
-                <div class="panel-heading"><span class="glyphicon glyphicon-cloud-upload"/><strong>Image</strong></span>
-                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><span
+                            class="glyphicon glyphicon-cloud-upload"/><strong>Image</strong></span>
+                    </div>
 
-                <div class="panel-body">
+                    <div class="panel-body">
 			<pre class=".prettyprint .lang-java">
 // Create an Image
 Image image = os.images().create(Builders.image()
@@ -234,16 +246,15 @@ Image image = os.images().create(Builders.image()
                 .build()
                 ), Payloads.create(new File("cirros.img")));
 			</pre>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading"><span class="glyphicon glyphicon-signal"/><strong>Network</strong></span>
-                </div>
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-signal"/><strong>Network</strong></span></div>
 
-                <div class="panel-body">
-			<pre class=".prettyprint .lang-java">	
+                    <div class="panel-body">
+			<pre class=".prettyprint .lang-java">
 // Create a Port
 Port port = os.networking().port()
               .create(Builders.port()
@@ -252,8 +263,7 @@ Port port = os.networking().port()
               .fixedIp("52.51.1.253", "subnetId")
               .build());
 			</pre>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>

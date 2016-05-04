@@ -1,12 +1,12 @@
 ---
 id: /sites/openstack4j
 cpus: 0.5
-mem: 300.0
-instances: 2
+mem: 400.0
+instances: 1
 container:
   type: DOCKER
   docker:
-    image: pacesys/openstack4j.com:latest
+    image: pacesys/openstack4j.com:${VERSION}
     network: BRIDGE
     forcePullImage: true
     parameters:

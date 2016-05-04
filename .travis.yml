@@ -10,6 +10,7 @@ services:
 install:
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker build -t pacesys/openstack4j.com .
+  - docker tag pacesys/openstack4j.com pacesys/openstack4j.com:$TRAVIS_BUILD_NUMBER
   - docker run -d -p 127.0.0.1:80:80 --name os4j pacesys/openstack4j.com
 
 script:
@@ -17,7 +18,8 @@ script:
 
 after_success:
   - docker push pacesys/openstack4j.com
-  - docker run -e DEPCON_MODE=$DEPCON_MODE -e MARATHON_HOST=$MARATHON_HOST -e MARATHON_USER=$MARATHON_USER -e MARATHON_PASS=$MARATHON_PASS -v $PWD:/data pacesys/depcon app create /data/depcon.yml --wait --force
+  - docker push pacesys/openstack4j.com:$TRAVIS_BUILD_NUMBER
+  - docker run -e DEPCON_MODE=$DEPCON_MODE -e MARATHON_HOST=$MARATHON_HOST -e MARATHON_USER=$MARATHON_USER -e MARATHON_PASS=$MARATHON_PASS -v $PWD:/data containx/depcon app create /data/depcon.yml -p VERSION=$TRAVIS_BUILD_NUMBER --wait --force
 
 # whitelist
 branches:
