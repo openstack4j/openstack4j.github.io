@@ -486,6 +486,49 @@ This example will change the url of the endpoint from `http://devstack.openstack
 #### Deleting a Endpoint
 {:.prettyprint .lang-java}
 	os.identity().serviceEndpoints().deleteEndpoint("endpointId");
+
+
+## Credentials
+
+The examples below will show basic Credential operations
+
+#### Creating a Credential
+{:.prettyprint .lang-java}
+	Credential credential = os.identity().credentials().create(Builders.credential()
+	                                            .blob("{\"access\":\"181920\",\"secret\":\"secretKey\"}")
+	                                            .type("ec2")
+	                                            .projectId("projectId")
+	                                            .userId("userId")
+	                                            .build());
+
+#### Querying for Credentials
+
+**Find all Credentials**
+{:.prettyprint .lang-java}
+	List<? extends Credential> credentialList = os.identity().credentials().list();
+
+**Find a specific Credential**
+{:.prettyprint .lang-java}
+	//Find by ID
+	Credential credential = os.identity().credentials().get("credentialId");
+
+#### Updating a Credential
+
+This example will change the BLOB of the Credential from `{\"access\":\"181920\",\"secret\":\"secretKey\"}` to `{\"access\":\"181920\",\"secret\":\"updatedSecretKey\"}` by looking up the credential and updating it. The example also shows the fluent nature of the API and how easy you can go to and from a mutable state via `builder`
+
+{:.prettyprint .lang-java}
+	Credential credential = os.identity().credentials().get("credential id");
+	if (credential != null)
+	    credential = os.identity().credentials().update(credential.toBuilder()
+	                                .blob("{\"access\":\"181920\",\"secret\":\"updatedSecretKey\"}")
+	                                .build());
+
+#### Deleting a Credential
+
+This example will delete the Credential we have been working with
+
+{:.prettyprint .lang-java}
+	os.identity().credentials().delete("credentialId");
 	
 
 
