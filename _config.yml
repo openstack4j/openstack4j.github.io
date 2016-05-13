@@ -1,17 +1,18 @@
 # Jekyll
 permalink: pretty
-paginate: 10 
+paginate: 10
 name: OpenStack4j
 baseurl: ''
 markdown: kramdown
-version: 2.11
-snapshot-version: 2.20-SNAPSHOT
-withdeps-version: 2.11-withdeps
+version: 3.0.0
+snapshot-version: 3.0.1-SNAPSHOT
+withdeps-version: 3.0.0-withdeps
+maintenance-version: 2.20
 url: http://www.openstack4j.com
 
 gems: [jekyll-paginate]
 
 exclude: [support, Dockerfile]
-pkgs: 
+pkgs:
   all:
     nginx

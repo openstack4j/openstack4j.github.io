@@ -26,7 +26,7 @@ If you do not use Maven you can download from one of the links below and add the
   <tr><td>{{ site.version }}</td><td>Stable/Release</td><td><a class="btn btn-success btn-small" href="http://search.maven.org/#artifactdetails%7Corg.pacesys%7Copenstack4j%7C{{ site.version }}%7Cjar" target="_blank">Download</a></td></tr>
   <tr><td>{{ site.snapshot-version }}</td><td>Beta/Latest Features</td><td><a class="btn btn-warning btn-small" href="https://oss.sonatype.org/content/repositories/snapshots/org/pacesys/openstack4j/{{ site.snapshot-version }}/" target="_blank">Download</a></td></tr>
   <tr><td>{{ site.withdeps-version }}</td><td>Single Jar (With Dependencies)</td><td><a class="btn btn-warning btn-small" href="https://oss.sonatype.org/content/repositories/snapshots/org/pacesys/openstack4j/{{ site.snapshot-version }}/" target="_blank">Download</a></td></tr>
-
+  <tr><td>2.20</td><td>Maintenance</td><td><a class="btn btn-warning btn-small" href="https://oss.sonatype.org/content/repositories/snapshots/org/pacesys/openstack4j/2.20/" target="_blank">Download</a></td></tr>
 </table>
 <br>
 
@@ -142,7 +142,7 @@ V2 authentication in OpenStack4j 3.x is done the following way:
 	                       .credentials("admin","sample")
 	                       .tenantName("admin")
 	                       .authenticate();
-						
+
 
 #### Version 3 Authentication
 <div class="alert alert-warning"><b>NOTE: </b>   OpenStack4j 3.0.0 introduced some breaking changes.
@@ -188,31 +188,31 @@ Now that we have successfully authenticated and have a client we will show you a
 {:.prettyprint .lang-java}
 	// Find all Users
 	List<? extends User> users = os.identity().users().list();
-	
+
 	// List all Tenants
 	List<? extends Tenant> tenants = os.identity().tenants().list();
-	
+
 	// Find all Compute Flavors
 	List<? extends Flavor> flavors = os.compute().flavors().list();
-	
+
 	// Find all running Servers
 	List<? extends Server> servers = os.compute().servers().list();
-	
+
 	// Suspend a Server
 	os.compute().servers().action("serverId", Action.SUSPEND);
-	
+
 	// List all Networks
 	List<? extends Network> networks = os.networking().network().list();
-	
+
 	// List all Subnets
 	List<? extends Subnet> subnets = os.networking().subnet().list();
-	
+
 	// List all Routers
 	List<? extends Router> routers = os.networking().router().list();
-	
+
 	// List all Images (Glance)
 	List<? extends Image> images = os.images().list();
-	
+
 	// Download the Image Data
 	InputStream is = os.images().getAsStream("imageId");
 
