@@ -1,16 +1,22 @@
 ---
 layout: content
 menu: learn
-title: Identity (Keystone)
+title: Identity (Keystone) V2
 description: Learn how to authenticate and use Keystone with OpenStack4j Java Library
-nav: identity
+nav: identity-v2
 ---
 
-# Identity Service (Keystone)
+# Identity Service (Keystone) V2
 
-The Identity (Keystone) service provides the central directory of users, tenants, service endpoints and authorization. This API is responsible for authenticating and providing access to all the other OpenStack services. The API also enables administrators to configured centralized policies, users and tenants.
+<div class="alert alert-warning"><b>NOTE:</b> The examples in this guide assume <a href="/learn/getting-started/#authenticate" class="alert-link"><b>you have authenticated</b></a></div>
 
-<div class="alert alert-warning"><b>NOTE:</b> the examples in this guide assume <a href="/learn/getting-started/#authenticate" class="alert-link"><b>you have authenticated</b></a></div>
+<div class="alert alert-warning"><b>NOTE: </b>   OpenStack4j 3.0.0 introduced some breaking changes.
+<br/> The legacy Identity V2 API now uses the class <b>OSClientV2</b> in place of the class OSClient.<br>
+</b></a></div>
+
+The Identity (Keystone) V2 service provides the central directory of users, tenants, service endpoints and authorization. This API is responsible for authenticating and providing access to all the other OpenStack services. The API also enables administrators to configure centralized access policies, users and tenants.
+
+The ```os``` used in the following examples refers to an instance of ```org.openstack4j.api.OSClient.OSClientV2```.
 
 ## Regions
 

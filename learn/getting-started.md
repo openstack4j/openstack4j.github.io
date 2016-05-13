@@ -34,18 +34,18 @@ If you do not use Maven you can download from one of the links below and add the
 
 OpenStack4j requires some runtime dependencies in order to run.  The easiest is to use the "-withdeps" version which has everything included.  Otherwise refer to pom for most recent changes. In a later release we will be adding a slight modular approach allowing options to use Jersey 1 vs 2 and possibly another popular connector.  For now refer to the needed dependencies for runtime if your not using the "-withdeps" jar.
 
-#### OpenStack4j 2.0.x Global Dependencies
+#### OpenStack4j 3.0.x Global Dependencies
 
 <table class="table table-striped">
   <tr><th><strong>Name</strong></th><th><strong>Version</strong></th></tr>
-  <tr><td>openstack4j-core</td><td>2.0.0</td></tr>
+  <tr><td>openstack4j-core</td><td>3.0.0</td></tr>
   <tr><td>jackson-annotations</td><td>2.4.0</td></tr>
   <tr><td>jackson-core</td><td>2.4.1.1</td></tr>
   <tr><td>jackson-databind</td><td>2.4.1.3</td></tr>
   <tr><td>guava</td><td>17.0</td></tr>
 </table>
 
-#### OpenStack4j 2.0.x Connector Specific Dependencies
+#### OpenStack4j 3.0.x Connector Specific Dependencies
 <br>
 **JERSEY**
 
@@ -63,7 +63,7 @@ OpenStack4j requires some runtime dependencies in order to run.  The easiest is 
   <tr><td>jersey-common</td><td>2.10.1</td></tr>
   <tr><td>jersey-guava</td><td>2.10/1</td></tr>
   <tr><td>jersey-media-json-jackson</td><td>2.11</td></tr>
-  <tr><td>openstack4j-jersey2</td><td>2.0.0</td></tr>
+  <tr><td>openstack4j-jersey2</td><td>3.0.0</td></tr>
 </table>
 
 **HTTPCLIENT**
@@ -73,7 +73,7 @@ OpenStack4j requires some runtime dependencies in order to run.  The easiest is 
   <tr><td>commons-logging</td><td>1.1.3</td></tr>
   <tr><td>httpclient</td><td>4.3.1</td></tr>
   <tr><td>httpcore</td><td>4.3</td></tr>
-  <tr><td>openstack4j-httpclient</td><td>2.0.0</td></tr>
+  <tr><td>openstack4j-httpclient</td><td>3.0.0</td></tr>
 </table>
 
 **OKHTTP**
@@ -82,10 +82,10 @@ OpenStack4j requires some runtime dependencies in order to run.  The easiest is 
   <tr><th><strong>Name</strong></th><th><strong>Version</strong></th></tr>
   <tr><td>okhttp</td><td>2.1.0</td></tr>
   <tr><td>okio</td><td>1.0.1</td></tr>
-  <tr><td>openstack4j-okhttp</td><td>2.0.0</td></tr>
+  <tr><td>openstack4j-okhttp</td><td>3.0.0</td></tr>
 </table>
 
-#### OpenStack4j 1.0.x Runtime Dependencies
+#### OpenStack4j 3.0.x Runtime Dependencies
 
 <table class="table table-striped">
   <tr><th><strong>Name</strong></th><th><strong>Version</strong></th></tr>
@@ -105,15 +105,39 @@ Let's test your OpenStack deployment with the API.  For advance coverage of the 
 
 ### Authenticate
 
-Creating and authenticating against OpenStack is extremely simple. Below is an example of authenticating which will result with the authorized OSClient. OSClient allows you to invoke Compute, Identity, Neutron operations fluently.
+Creating and authenticating against OpenStack is extremely simple. Below is an example of authenticating which will result with the authorized OSClientV2 or OSClientV3 - depending on the Keystone version.
+The OSClientV2/OSClientV3 allows you to invoke Compute, Identity V2/V3, Neutron operations fluently.
 
 In the example below we are specifying the OpenStack deployment endpoint to connect to, user credentials to authenticate and the default tenant we would like to be in context of.
 <br>
 
+Since OpenStack4j both version 3.0.0 version 2 and 3 of the Identity API are supported.
+
 #### Version 2 Authentication
+<div class="alert alert-warning"><b>NOTE: </b>   OpenStack4j 3.0.0 introduced some breaking changes.
+<br/> The Identity V2 API is no longer available with the OSClient but only with the new <b>OSClientV2</b>.<br>
+</b></a></div>
+
+In previous OpenStack4j versions (2.x) V2 authentication was done by:
+{:.prettyprint .lang-java}
+
+    import org.openstack4j.api.OSClient;
+    import org.openstack4j.openstack.OSFactory;
+
+    OSClient os = OSFactory.builder()
+                .endpoint("http://127.0.0.1:5000/v2.0")
+                .credentials("admin", "test")
+                .tenantName("admin")
+                .authenticate();
+
+V2 authentication in OpenStack4j 3.x is done the following way:
 
 {:.prettyprint .lang-java}
-	OSClient os = OSFactory.builder()
+
+    import org.openstack4j.api.OSClient.OSClientV2;
+    import org.openstack4j.openstack.OSFactory;
+
+	OSClientV2 os = OSFactory.builderV2()
 	                       .endpoint("http://127.0.0.1:5000/v2.0")
 	                       .credentials("admin","sample")
 	                       .tenantName("admin")
@@ -121,13 +145,41 @@ In the example below we are specifying the OpenStack deployment endpoint to conn
 						
 
 #### Version 3 Authentication
+<div class="alert alert-warning"><b>NOTE: </b>   OpenStack4j 3.0.0 introduced some breaking changes.
+<br/> The Identity V3 API is only available with the new <b>OSClientV3</b>.<br>
+</b></a></div>
 
 {:.prettyprint .lang-java}
-	Identifier domainIdentifier = Identifier.byName("example-domain");
-	OSClient os = OSFactory.builderV3()
+
+    import org.openstack4j.api.OSClient.OSClientV3;
+    import org.openstack4j.openstack.OSFactory;
+    import org.openstack4j.model.common.Identifier;
+
+    # use Identifier.byId("domainId") or Identifier.byName("example-domain")
+	Identifier domainIdentifier = Identifier.byId("domainId");
+
+    # unscoped authentication
+    # as the username is not unique across domains you need to provide the domainIdentifier
+	OSClientV3 os = OSFactory.builderV3()
 	                       .endpoint("http://127.0.0.1:5000/v3")
 	                       .credentials("admin","sample", domainIdentifier)
 	                       .authenticate();
+
+    # project scoped authentication
+    OSClientV3 os = OSFactory.builderV3()
+                        .endpoint("http://127.0.0.1:5000/v3")
+                        .credentials("admin", "secret", Identifier.byName("example-domain"))
+                        .scopeToProject(Identifier.byId(projectIdentifier))
+                        .authenticate();
+
+    # domain scoped authentication
+    # using the unique userId does not require a domainIdentifier
+    OSClientV3 os = OSFactory.builderV3()
+                        .endpoint("http://127.0.0.1:5000/v3")
+                        .credentials("userId", "secret")
+                        .scopeToDomain(Identifier.byId(domainIdentifier))
+                        .authenticate();
+
 
 ### Run some Queries
 
