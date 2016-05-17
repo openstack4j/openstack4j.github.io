@@ -69,8 +69,8 @@ Using version **3.0.0+** of OpenStack4j offers support for the Identity (Keyston
 	  <version>{{ site.version }}</version>
 	</dependency>
 
-<div class="alert alert-info connectors"><b>Valid artifactId's are:</b> <code>openstack4j-jersey2</code>, <code>openstack4j-jersey2-jdk16</code>, <code>openstack4j-resteasy</code>, <code>openstack4j-okhttp</code> and <code>openstack4j-httpclient</code></div>
- 
+<div class="alert alert-info connectors"><b>Valid artifactId's are:</b> <code>openstack4j-jersey2</code>, <code>openstack4j-jersey2-jdk16 [OS4J 2.0.X Only]</code>, <code>openstack4j-resteasy</code>, <code>openstack4j-okhttp</code> and <code>openstack4j-httpclient</code></div>
+
 ### Snapshots (Current Development)
 
 Usage of snapshots is the same as above except for the `version` tag.  Copy any of the *stable* declarations above that suit your environment and replace the version tag with `{{ site.snapshot-version }}`.
@@ -78,7 +78,7 @@ Usage of snapshots is the same as above except for the `version` tag.  Copy any 
 #### Snapshot Dependencies Repository Configuration
 
 Snapshots are not sync'd with maven central.  To allow Maven to properly resolve the latest snapshot you will need to add the sonatype repository:
-	
+
 {:.prettyprint .lang-xml}
 	<repositories>
 	    <repository>
@@ -87,7 +87,7 @@ Snapshots are not sync'd with maven central.  To allow Maven to properly resolve
 	      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
 	    </repository>
 	</repositories>
-	
+
 
 **Example Maven project setup**
 
