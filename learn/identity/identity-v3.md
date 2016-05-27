@@ -458,7 +458,7 @@ This example will delete the Service we have been working with
 This example will create a Endpoint for a Service specified by its identifier.
 
 {:.prettyprint .lang-java}	
-	Endpoint endpoint = os.identity().serviceEndpoints().createEndpoint(Builder().endpoint()
+	Endpoint endpoint = os.identity().serviceEndpoints().createEndpoint(Builders.endpoint()
 	                                                                        .name("endpointName")
 	                                                                        .url(new URL( "http", "devstack.openstack.stack", 5000, "/v3"))
 	                                                                        .iFace(Facing.ADMIN).regionId("regionId")

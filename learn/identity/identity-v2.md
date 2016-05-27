@@ -45,7 +45,10 @@ This example will create a new Tenant called ABC Corp. Once created the Tenant c
 
 {:.prettyprint .lang-java}
 	Tenant tenant = os.identity().tenants()
-	                  .create(Builders().tenant().name("ABC Corp").description("ABC Corporation Tenant").build());
+	                  .create(Builders.identityV2().tenant()
+	                                .name("ABC Corp")
+	                                .description("ABC Corporation Tenant")
+	                                .build());
 
 #### Querying for Tenants
 
@@ -93,11 +96,11 @@ This example covers the most common use case in user management.  We will create
 
 {:.prettyprint .lang-java}
 	// Create the Tenant
-	Tenant abcTenant = os.identity().tenants().create(Builders.tenant().name("ABC Corporation").build());
+	Tenant abcTenant = os.identity().tenants().create(Builders.identityV2().tenant().name("ABC Corporation").build());
 	
 	// Create a User associated to the ABC Corporation tenant
 	User john = os.identity().users()
-	              .create(Builders().user()
+	              .create(Builders.identityV2().user()
 	                                .name("johndoe")
 	                                .password("password")
 	                                .email("jdoe@abccorp.com")
