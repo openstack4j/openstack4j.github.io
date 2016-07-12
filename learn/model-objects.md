@@ -20,11 +20,11 @@ Here are some examples:
 **Creating a new Model Object**
 
 {:.prettyprint .lang-java}
-	Tenant tenant = Builders().tenant().name("My Tenant").description("low usage tenant").build();
+	Tenant tenant = Builders.identityV2().tenant().name("My Tenant").description("low usage tenant").build();
 	
-	Image image = Builders().image().name("Ubuntu 12.04 LTS").diskFormat(DiskFormat.QCOW2).minDisk(1024).build();
+	Image image = Builders.image().name("Ubuntu 12.04 LTS").diskFormat(DiskFormat.QCOW2).minDisk(1024).build();
 	
-	Router router = Builders().router()
+	Router router = Builders.router()
 	                          .name("ext_net")
 	                          .tenant(tenant)
 	                          .adminStateUp(true)
