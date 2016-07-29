@@ -2,7 +2,7 @@
 layout: content
 menu: learn
 title: LBaaS
-nav: network/lbaas
+nav: network/lbaas-v1
 ---
 
 # LBaaS (Load Balancer as a Service)
@@ -79,7 +79,7 @@ Provides statistics such as `BytesIn`, `BytesOut`, `ActiveConnections` and `Tota
 
 ## Members
 
-The members of a pool are responsible for servicing the requests received through the vip's virtual IP. The load-balancing method 
+The members of a pool are responsible for servicing the requests received through the vip's virtual IP. The load-balancing method
 is used to distribute requests or connections between the pool members.
 
 The weight of a member determines the portion of requests or connections it services compared to the other members of the pool.
@@ -198,8 +198,8 @@ LB products under the name of a "virtual server", a "vserver" or a "listener".
 
 ## Health Monitors
 
-A health monitor is used to determine whether or not back-end members of the VIP's pool are usable for processing a request. A 
-pool can have several health monitors associated with it. There are different types of health monitors supported by the OpenStack 
+A health monitor is used to determine whether or not back-end members of the VIP's pool are usable for processing a request. A
+pool can have several health monitors associated with it. There are different types of health monitors supported by the OpenStack
 LBaaS service:
 
 * **PING:** used to ping the members using ICMP.
@@ -229,7 +229,7 @@ LBaaS service:
 
 ### Creating Health Monitors
 
-The examples below are from the LBaaS WIKI and have been applied to OpenStavk4j format.  
+The examples below are from the LBaaS WIKI and have been applied to OpenStack4j format.  
 <br>
 
 #### **Creating a PING Monitor**
@@ -274,8 +274,8 @@ The following configurable properties can be specified for a TCP monitor:
 
 #### **Creating an HTTP or HTTPS Monitor**
 
-The HTTP and HTTPS monitor is more intelligent than the TCP monitor. It is capable of processing an HTTP or HTTPS response to 
-determine the condition of a node. It supports the same basic properties as the TCP monitor and includes the additional 
+The HTTP and HTTPS monitor is more intelligent than the TCP monitor. It is capable of processing an HTTP or HTTPS response to
+determine the condition of a node. It supports the same basic properties as the TCP monitor and includes the additional
 attribute of path that is used to evaluate the HTTP response to a monitor probe.
 
 * **urlPath:** The HTTP path used in the HTTP request used by the monitor to test a member's health. This must be a string beginning with a / (forward slash). The monitor expects a response from the node with an HTTP status code of 200.
@@ -306,5 +306,3 @@ The following examples show how to associate and disassociate health monitors ag
 
 	// Disassociate a health monitor
 	ActionResponse resp = os.networking().loadbalancers().lbPool().disAssociateHealthMonitor(lbPoolId, healthMonitorId);
-
-
