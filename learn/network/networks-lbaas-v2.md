@@ -7,7 +7,7 @@ nav: network/lbaas-v2
 
 # LBaaS V2 (Load Balancer as a Service)
 
-drive the actual load balancing of requests. Thus, an Openstack operator can choose which back-end technology to use. The long-term vision for the project, however, is to provide a single API that allows a user to seamlessly move between different load balancing technologies should the operator choose to do so.
+Drive the actual load balancing of requests. Thus, an Openstack operator can choose which back-end technology to use. The long-term vision for the project, however, is to provide a single API that allows a user to seamlessly move between different load balancing technologies should the operator choose to do so.
 
 LBaaS v2 was introduced in Kilo. LBaaS v1 was deprecated in Liberty.
 
@@ -20,7 +20,7 @@ Both implementations use agents. The agents handle the HAProxy configuration and
 
 *Source: [http://docs.openstack.org/mitaka/networking-guide/adv-config-lbaas.html](http://docs.openstack.org/mitaka/networking-guide/adv-config-lbaas.html)
 
-## Load balancers
+## Load Balancers
 
 The load balancer occupies a neutron network port and has an IP address assigned from a subnet.
 
@@ -54,7 +54,7 @@ Provides statistics such as `BytesIn`, `BytesOut`, `ActiveConnections` and `Tota
 {:.prettyprint .lang-java}
 	LoadBalancerV2Stats stats = os.networking().lbaasV2().loadbalancer().stats(loadbalancerId));
 
-### Load balancer Status Tree
+### Load Balancer Status Tree
 
 Provides a view of all the objects connected to the loadbalancer, such as `listeners`, `pools`,  `members`, and  `healthmonitor`
 {:.prettyprint .lang-java}
@@ -305,7 +305,7 @@ HealthMonitorV2 hm = os.networking().lbaasV2().healthMonitor()
 
 The monitor pings the member to ensure that the member is alive.
 
-The PING monitor is the most basic type of health check. The following configurable properties can be specified
+The PING monitor is the most basic type of health check. The following configurable properties can be specified:
 
 * **delay:** This is the minimum time in seconds between regular pings of the member.
 * **timeout:** Maximum number of seconds for a monitor to wait for a ping reply before it times out. The value must be less than the delay value.
