@@ -292,7 +292,7 @@ The examples below are from the LBaaS WIKI and have been applied to OpenStack4j 
 <br>
 
 {:.prettyprint .lang-java}
-HealthMonitorV2 hm = os.networking().lbaasV2().healthMonitor()
+	HealthMonitorV2 hm = os.networking().lbaasV2().healthMonitor()
                     .create(Builders.healthmonitorV2()
                        .delay(3)
                        .maxRetries(6)
