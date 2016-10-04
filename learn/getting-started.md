@@ -179,7 +179,21 @@ V2 authentication in OpenStack4j 3.x is done the following way:
                         .credentials("userId", "secret")
                         .scopeToDomain(Identifier.byId(domainIdentifier))
                         .authenticate();
-
+			
+    # Scoping to a project just by name isn't possible as the project name is only unique within a domain. 
+    # You can either use this as the id of the project is unique across domains  			
+    OSClientV3 os = OSFactory.builderV3()
+                        .endpoint("http://127.0.0.1:5000/v3")
+                        .credentials("userId", "secret")
+                        .scopeToProject(Identifier.byName(projectName), Identifier.byName(domainName))
+                        .authenticate();
+    
+    # Or alternatively
+    OSClientV3 os = OSFactory.builderV3()
+                        .endpoint("http://127.0.0.1:5000/v3")
+                        .credentials("userId", "secret")
+                        .scopeToDomain(Identifier.byName(domainName))
+                        .authenticate();
 
 ### Run some Queries
 
