@@ -529,6 +529,46 @@ This example will delete the Credential we have been working with
 
 {:.prettyprint .lang-java}
 	os.identity().credentials().delete("credentialId");
+
 	
+## Tokens
+
+Tokens are obtained during authentication. Please refer to the <a href="/learn/getting-started/#authenticate" class="alert-link"><b>authentication guide</b></a>.
+
+###  Validating another Token
+
+{:.prettyprint .lang-java}
+    
+    // validate and show details for another token
+    Token token = os.identity().tokens().get("USER_TOKEN_ID")
+    
+    // validate another token
+    ActionResponse validateToken = os.identity().tokens().check("USER_TOKEN_ID") 
+
+###  Get service catalog for another Token
+
+{:.prettyprint .lang-java}
+    
+    // get service catalog for 
+    List<? extends Service> serviceCatalog = os.identity().tokens().getServiceCatalog("USER_TOKEN_ID");
+
+###  Get available scopes for another Token
+
+{:.prettyprint .lang-java}
+    
+    // get available project scopes
+    List<? extends Project> availableProjectScopes = os.identity().tokens().getProjectScopes("USER_TOKEN_ID");
+    
+    // get available domain scopes
+    List<? extends Domain> availableDomainScopes = os.identity().tokens().getDomainScopes("USER_TOKEN_ID");
+
+###  Deleting another Token
+
+{:.prettyprint .lang-java}
+
+    ActionResponse deleteToken = os.identity().tokens().delete("USER_TOKEN_ID")
+
+
+
 
 
