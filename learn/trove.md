@@ -1,3 +1,10 @@
+---
+layout: content
+menu: learn
+title: Trove (Database as a service)
+nav: dbaas
+---
+
 # Trove (Database as a service)
 
 ## Databases
