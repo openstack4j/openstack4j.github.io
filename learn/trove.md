@@ -8,7 +8,7 @@ nav: dbaas
 # Trove (Database as a service)
 
 ## Databases
-#### List Instance Databases
+**List Instance Databases**
 
 To list all the databases present on the database instance see the example below:
 
@@ -43,7 +43,7 @@ To delete a database see the example below:
 
 
 ## Database Users
-#### List Database Users
+**List Database Users**
 
 To list all the users for the database see the example below:
 
@@ -79,14 +79,14 @@ To delete the database user see the example below:
 
 
 ## Flavors
-#### List Flavors
+**List Flavors**
 
 To retrieve all the available database instance flavors see the example below:
 
 {:.prettyprint .lang-java}
     List<? extends Flavor> flavors = osv2().trove().flavorService().list();
 
-#### Show Flavor Details
+**Show Flavor Details**
 
 To retrieve details specific to a flavor see the example below:
 
@@ -96,7 +96,7 @@ To retrieve details specific to a flavor see the example below:
 
 
 ## Datastores
-#### List Datastores
+**List Datastores**
 
 To retrieve all the datastores available to the tenant see the example below:
 
@@ -104,14 +104,14 @@ To retrieve all the datastores available to the tenant see the example below:
     List<? extends Datastore> datastores = osv2().trove()
                 .datastoreService().list();
 
-#### Show Datastore Details
+**Show Datastore Details**
 
 To retrieve details specific to a datastore see the example below:
 
 {:.prettyprint .lang-java}
     Datastore datastore = osv2().trove().datastoreService().get(datastoreId);
 
-#### List Datastore Versions
+**List Datastore Versions**
 
 To list all the available datastore versions see the example below:
 
@@ -119,7 +119,7 @@ To list all the available datastore versions see the example below:
     List<? extends DatastoreVersion> datastoreVersions = osv2().trove()
                 .datastoreService().listDatastoreVersions(datastoreId);
 
-#### Show Datastore Version Details
+**Show Datastore Version Details**
 
 To retrieve details specific to a datastore version see the example below:
 
