@@ -13,6 +13,13 @@ Openstack's Trove which is Database as a service on cloud intends to reduce comp
 
 It is the instantiation of a particular datastore image and version.
 
+**List Database Instances**
+
+To retrieve list of database instances see the example below:
+
+{:.prettyprint .lang-java}
+    List<? extends Instance> list = osv2.trove().instanceService().list();
+
 **Create Database Instance**
 
 {:.prettyprint .lang-java}
@@ -20,6 +27,20 @@ It is the instantiation of a particular datastore image and version.
                 .instanceCreate().name("testInstance").flavor("1")
                 .volumeSize(6).build();
     Instance instance = os.trove().instanceService().create(instanceCreate);
+
+**Get Database Instance**
+
+To retrieve details of a specific database instance see the example below:
+
+{:.prettyprint .lang-java}
+    TroveInstance troveInstance = (TroveInstance)os.trove().instanceService().get(dbInstanceId);
+
+**Delete Database Instance**
+
+To delete a database instance see the example below:
+
+{:.prettyprint .lang-java}
+    ActionResponse actionResponse = os.trove().instanceService().delete(dbInstanceId);
 
 
 
