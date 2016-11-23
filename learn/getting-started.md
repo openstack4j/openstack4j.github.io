@@ -231,3 +231,30 @@ Now that we have successfully authenticated and have a client we will show you a
 	InputStream is = os.images().getAsStream("imageId");
 
 As you can see in the examples above we have exercised a small portion of the following services (Identity, Computer, Network and Image).
+
+### FAQ
+
+#### Logging ####
+Logging of HTTP communication can be enabled via
+{:.prettyprint .lang-java}
+
+    OSFactory.enableHttpLoggingFilter(true);
+
+#### Resolver ####
+
+Once authenticated, OpenStack services obtain their respective endpoint from a catalog using a default Resolver.
+This logic can be overridden by defining a custom ServiceVersionResolver
+
+{:.prettyprint .lang-java} 
+    
+    // define custom ServiceVersionResolver
+    final ServiceVersionResolver resolver = new ServiceVersionResolver() {
+        @Override
+        public Service resolve(ServiceType type, SortedSet<? extends Service> services) {
+            // resolver logic; possibly ext. default logic
+            return endpoint;
+        }
+    };
+     
+    // apply resolver to client 
+    OSClient.withConfig(Config.newConfig().withResolver(resolver)) 
