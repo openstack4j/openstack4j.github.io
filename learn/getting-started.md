@@ -282,3 +282,4 @@ Resolving and endpoint URL is by default based on the Service Type and Facing pe
 
     // apply resolver to client
     OSClient.withConfig(Config.newConfig().withEndpointURLResolver(resolver));
+
