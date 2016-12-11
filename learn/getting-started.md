@@ -258,3 +258,27 @@ This logic can be overridden by defining a custom ServiceVersionResolver
      
     // apply resolver to client 
     OSClient.withConfig(Config.newConfig().withResolver(resolver)) 
+
+#### Endpoint URL Resolver ####
+
+Resolving and endpoint URL is by default based on the Service Type and Facing perspecitve. This logic can be changed by overriding a custom EndpointURLResolver
+
+{:.prettyprint .lang-java}
+    
+    // define a custom EndpointURLResolver
+    final EndpointURLResolver endpointUrlResolver = new EndpointURLResolver() {
+      @Override
+      public String findURLV3(URLResolverParams arg0) {
+        // logic for V3
+        return null;
+      }
+
+      @Override
+      public String findURLV2(URLResolverParams arg0) {
+        // logic for V2
+        return null;
+      }
+    };
+
+    // apply resolver to client
+    OSClient.withConfig(Config.newConfig().withEndpointURLResolver(resolver));
