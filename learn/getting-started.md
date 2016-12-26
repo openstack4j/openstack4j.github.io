@@ -261,7 +261,7 @@ This logic can be overridden by defining a custom ServiceVersionResolver
 
 #### Endpoint URL Resolver ####
 
-Resolving and endpoint URL is by default based on the Service Type and Facing perspecitve. This logic can be changed by overriding a custom EndpointURLResolver
+Resolving and endpoint URL is by default based on the Service Type and Facing perspective. The default logic can be overridden by a custom EndpointURLResolver
 
 {:.prettyprint .lang-java}
     
