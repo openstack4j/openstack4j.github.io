@@ -350,7 +350,18 @@
 			</li>
 			<li>
 				<a href="/learn/trove">Database as a Service (Trove)</a>
-			</li>	
+			</li>
+			<li>
+				<a href="/learn/dns-v2">DNS (Designate) V2</a>
+				{% if page.nav == "dns-v2" %}
+				<ul>
+					<li>
+						<a href="/learn/dns-v2/#zones">Zones</a>
+					<li>
+						<a href="/learn/dns-v2/#recordsets">Recordsets</a>
+				</ul>
+				{% endif %}
+			</li>
 			{% endif %}
 		</ul>
 	</div>
