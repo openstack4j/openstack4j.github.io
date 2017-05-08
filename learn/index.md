@@ -22,6 +22,7 @@ OpenStack4j is broken out into several major API abstractions as Java libraries.
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-save"></span> Object Storage</div></td><td>Object Storage (Swift) provides persistant object storage for files and media which can be shared globally or kept private for adhoc storage.</td></tr>
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-stats"></span> Telemetry</div></td><td>Telemetry (Ceilometer) delivers metering and statistic measurements against OpenStack core components.  This is ideal for customer billing, account and reporting of resources. OpenStack4j implementation fully supports all major operations.</td></tr>
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-align-justify"></span> Orchestration</div></td><td>Orchestration (Heat) is a service that you can use to orchestrate multiple composite cloud applications.  Using OpenStack4j you can control Stacks, Templates, Resources and Events.</td></tr>
+<tr><td><div class="imageLabel"><span class="glyphicon glyphicon-align-justify"></span> DNS</div></td><td>DNS (Designate) is a multi-tenant DNSaaS service for OpenStack. Using OpenStack4j you can control Zones and Recordsets.</td></tr>
 </table>
 
 # Why should I use OpenStack4j?
