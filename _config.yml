@@ -4,9 +4,9 @@ paginate: 10
 name: OpenStack4j
 baseurl: ''
 markdown: kramdown
-version: 3.0.3
-snapshot-version: 3.0.4-SNAPSHOT
-withdeps-version: 3.0.3-withdeps
+version: 3.1.0
+snapshot-version: 3.1.1-SNAPSHOT
+withdeps-version: 3.1.0-withdeps
 maintenance-version: 2.20
 url: http://www.openstack4j.com
 
