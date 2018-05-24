@@ -371,4 +371,4 @@ attribute of path that is used to evaluate the HTTP response to a monitor probe.
 ### Deleting
 
 {:.prettyprint .lang-java}
-	ActionResponse resp = os.networking().loadbalancers().healthMonitor().delete(healthMonitorId);
+	ActionResponse resp = os.networking().lbaasV2().healthMonitor().delete(healthMonitorId);
