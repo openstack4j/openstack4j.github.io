@@ -34,7 +34,7 @@ Using version **3.0.0+** of OpenStack4j offers support for the Identity (Keyston
 	<dependency>
 	  <groupId>com.github.openstack4j.core</groupId>
 	  <artifactId>openstack4j</artifactId>
-	  <version>3.0.0</version>
+	  <version>{{ site.version }}</version>
 	</dependency>
 
 **With Dependencies (all in one jar)**
@@ -43,7 +43,7 @@ Using version **3.0.0+** of OpenStack4j offers support for the Identity (Keyston
 	<dependency>
 	  <groupId>com.github.openstack4j.core</groupId>
 	  <artifactId>openstack4j</artifactId>
-	  <version>3.0.0</version>
+	  <version>{{ site.version }}</version>
 	  <classifier>withdeps</classifier>
 	</dependency>
 
