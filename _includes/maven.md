@@ -9,7 +9,7 @@ Starting with version **3.0.0+** OpenStack4j now has the ability to choose the u
 
 {:.prettyprint .lang-xml}
 	<dependency>
-	  <groupId>org.pacesys</groupId>
+	  <groupId>com.github.openstack4j.core</groupId>
 	  <artifactId>openstack4j</artifactId>
 	  <version>{{ site.version }}</version>
 	</dependency>
@@ -18,7 +18,7 @@ Starting with version **3.0.0+** OpenStack4j now has the ability to choose the u
 
 {:.prettyprint .lang-xml}
 	<dependency>
-	  <groupId>org.pacesys</groupId>
+	  <groupId>com.github.openstack4j.core</groupId>
 	  <artifactId>openstack4j</artifactId>
 	  <version>{{ site.version }}</version>
 	  <classifier>withdeps</classifier>
@@ -32,7 +32,7 @@ Using version **3.0.0+** of OpenStack4j offers support for the Identity (Keyston
 
 {:.prettyprint .lang-xml}
 	<dependency>
-	  <groupId>org.pacesys</groupId>
+	  <groupId>com.github.openstack4j.core</groupId>
 	  <artifactId>openstack4j</artifactId>
 	  <version>3.0.0</version>
 	</dependency>
@@ -41,7 +41,7 @@ Using version **3.0.0+** of OpenStack4j offers support for the Identity (Keyston
 
 {:.prettyprint .lang-xml}
 	<dependency>
-	  <groupId>org.pacesys</groupId>
+	  <groupId>com.github.openstack4j.core</groupId>
 	  <artifactId>openstack4j</artifactId>
 	  <version>3.0.0</version>
 	  <classifier>withdeps</classifier>
@@ -55,7 +55,7 @@ Using version **3.0.0+** of OpenStack4j offers support for the Identity (Keyston
 
 {:.prettyprint .lang-xml}
 	<dependency>
-	  <groupId>org.pacesys</groupId>
+	  <groupId>com.github.openstack4j.core</groupId>
 	  <artifactId>openstack4j-core</artifactId>
 	  <version>{{ site.version }}</version>
 	</dependency>
@@ -64,7 +64,7 @@ Using version **3.0.0+** of OpenStack4j offers support for the Identity (Keyston
 
 {:.prettyprint .lang-xml}
 	<dependency>
-	  <groupId>org.pacesys.openstack4j.connectors</groupId>
+	  <groupId>com.github.openstack4j.core.connectors</groupId>
 	  <artifactId>[ connector artifactId ]</artifactId>
 	  <version>{{ site.version }}</version>
 	</dependency>
@@ -100,9 +100,9 @@ Snapshots are not sync'd with maven central.  To allow Maven to properly resolve
 	  <version>1.0.0-SNAPSHOT</version>
 	  <dependencies>
 	    <dependency>
-	        <groupId>org.pacesys</groupId>
+	        <groupId>com.github.openstack4j.core</groupId>
 	        <artifactId>openstack4j</artifactId>
-		    <version>{{ site.snapshot-version }}</version>
+		      <version>{{ site.snapshot-version }}</version>
 	      </dependency>
 	  </dependencies>
 	</project>

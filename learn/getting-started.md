@@ -17,19 +17,6 @@ This chapter will guide you through setup and some basic examples to get you goi
 {% endcapture %}
 {{ md | markdownify }}
 
-## Non-Maven Users
-
-If you do not use Maven you can download from one of the links below and add the library to your class path.
-
-<table class="table table-striped">
-  <tr><th><strong>Version</strong></th><th><strong>Type</strong></th><th><strong>Link</strong></th></tr>
-  <tr><td>{{ site.version }}</td><td>Stable/Release</td><td><a class="btn btn-success btn-small" href="http://search.maven.org/#artifactdetails%7Corg.pacesys%7Copenstack4j%7C{{ site.version }}%7Cjar" target="_blank">Download</a></td></tr>
-  <tr><td>{{ site.snapshot-version }}</td><td>Beta/Latest Features</td><td><a class="btn btn-warning btn-small" href="https://oss.sonatype.org/content/repositories/snapshots/org/pacesys/openstack4j/{{ site.snapshot-version }}/" target="_blank">Download</a></td></tr>
-  <tr><td>{{ site.withdeps-version }}</td><td>Single Jar (With Dependencies)</td><td><a class="btn btn-warning btn-small" href="https://oss.sonatype.org/content/repositories/snapshots/org/pacesys/openstack4j/{{ site.snapshot-version }}/" target="_blank">Download</a></td></tr>
-  <tr><td>2.20</td><td>Maintenance</td><td><a class="btn btn-warning btn-small" href="https://oss.sonatype.org/content/repositories/snapshots/org/pacesys/openstack4j/2.20/" target="_blank">Download</a></td></tr>
-</table>
-<br>
-
 ### Required Runtime Dependencies
 
 OpenStack4j requires some runtime dependencies in order to run.  The easiest is to use the "-withdeps" version which has everything included.  Otherwise refer to pom for most recent changes. In a later release we will be adding a slight modular approach allowing options to use Jersey 1 vs 2 and possibly another popular connector.  For now refer to the needed dependencies for runtime if your not using the "-withdeps" jar.
@@ -94,8 +81,6 @@ OpenStack4j requires some runtime dependencies in order to run.  The easiest is 
   <tr><td>Gauva</td><td>14.01+</td></tr>
   <tr><td>JSR-305</td><td>NA</td></tr>
 </table>
-
-
 
 
 ## Lets Play!
@@ -179,15 +164,15 @@ V2 authentication in OpenStack4j 3.x is done the following way:
                         .credentials("userId", "secret")
                         .scopeToDomain(Identifier.byId(domainIdentifier))
                         .authenticate();
-			
-    # Scoping to a project just by name isn't possible as the project name is only unique within a domain. 
-    # You can either use this as the id of the project is unique across domains  			
+
+    # Scoping to a project just by name isn't possible as the project name is only unique within a domain.
+    # You can either use this as the id of the project is unique across domains
     OSClientV3 os = OSFactory.builderV3()
                         .endpoint("http://127.0.0.1:5000/v3")
                         .credentials("userId", "secret")
                         .scopeToProject(Identifier.byName(projectName), Identifier.byName(domainName))
                         .authenticate();
-    
+
     # Or alternatively
     OSClientV3 os = OSFactory.builderV3()
                         .endpoint("http://127.0.0.1:5000/v3")
@@ -245,8 +230,8 @@ Logging of HTTP communication can be enabled via
 Once authenticated, OpenStack services obtain their respective endpoint from a catalog using a default Resolver.
 This logic can be overridden by defining a custom ServiceVersionResolver
 
-{:.prettyprint .lang-java} 
-    
+{:.prettyprint .lang-java}
+
     // define custom ServiceVersionResolver
     final ServiceVersionResolver resolver = new ServiceVersionResolver() {
         @Override
@@ -255,16 +240,16 @@ This logic can be overridden by defining a custom ServiceVersionResolver
             return endpoint;
         }
     };
-     
-    // apply resolver to client 
-    OSClient.withConfig(Config.newConfig().withResolver(resolver)) 
+
+    // apply resolver to client
+    OSClient.withConfig(Config.newConfig().withResolver(resolver))
 
 #### Endpoint URL Resolver ####
 
 Resolving and endpoint URL is by default based on the Service Type and Facing perspective. The default logic can be overridden by a custom EndpointURLResolver
 
 {:.prettyprint .lang-java}
-    
+
     // define a custom EndpointURLResolver
     final EndpointURLResolver endpointUrlResolver = new EndpointURLResolver() {
       @Override
@@ -282,4 +267,3 @@ Resolving and endpoint URL is by default based on the Service Type and Facing pe
 
     // apply resolver to client
     OSClient.withConfig(Config.newConfig().withEndpointURLResolver(resolver));
-
