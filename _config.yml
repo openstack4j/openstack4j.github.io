@@ -16,3 +16,5 @@ exclude: [support, Dockerfile]
 pkgs:
   all:
     nginx
+
+theme: jekyll-theme-cayman
