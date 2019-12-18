@@ -8,7 +8,7 @@ version: 3.1.0
 snapshot-version: 3.1.1-SNAPSHOT
 withdeps-version: 3.1.0-withdeps
 maintenance-version: 2.20
-url: http://www.openstack4j.com
+url: https://openstack4j.github.io/
 
 gems: [jekyll-paginate]
 

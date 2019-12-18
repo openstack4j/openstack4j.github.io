@@ -1,6 +1,6 @@
 # OpenStack4j's Website
 
-This is the source to OpenStack4j.com.   We use Jekyll to generate the static content for this site.  
+This is the source to https://openstack4j.github.io/.   We use Jekyll to generate the static content for this site.
 
 ### Pre-requisites
 
