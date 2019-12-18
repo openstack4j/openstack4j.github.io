@@ -16,7 +16,7 @@ GEM
       highline (~> 1.6.11)
     concurrent-ruby (1.1.5)
     fast-stemmer (1.0.2)
-    ffi (1.9.3)
+    ffi (1.11.3)
     gemoji (1.5.0)
     github-pages (16)
       RedCloth (= 4.2.9)
