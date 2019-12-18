@@ -21,68 +21,6 @@ This chapter will guide you through setup and some basic examples to get you goi
 
 OpenStack4j requires some runtime dependencies in order to run.  The easiest is to use the "-withdeps" version which has everything included.  Otherwise refer to pom for most recent changes. In a later release we will be adding a slight modular approach allowing options to use Jersey 1 vs 2 and possibly another popular connector.  For now refer to the needed dependencies for runtime if your not using the "-withdeps" jar.
 
-#### OpenStack4j 3.0.x Global Dependencies
-
-<table class="table table-striped">
-  <tr><th><strong>Name</strong></th><th><strong>Version</strong></th></tr>
-  <tr><td>openstack4j-core</td><td>3.0.0</td></tr>
-  <tr><td>jackson-annotations</td><td>2.4.0</td></tr>
-  <tr><td>jackson-core</td><td>2.4.1.1</td></tr>
-  <tr><td>jackson-databind</td><td>2.4.1.3</td></tr>
-  <tr><td>guava</td><td>17.0</td></tr>
-</table>
-
-#### OpenStack4j 3.0.x Connector Specific Dependencies
-<br>
-**JERSEY**
-
-<table class="table table-striped">
-  <tr><th><strong>Name</strong></th><th><strong>Version</strong></th></tr>
-  <tr><td>hk2-api</td><td>2.3.0-b05</td></tr>
-  <tr><td>hk2-locator</td><td>2.3.0-b05</td></tr>
-  <tr><td>hk2-utils</td><td>2.3.0-b05</td></tr>
-  <tr><td>jackson-jaxrs-base</td><td>2.3.2</td></tr>
-  <tr><td>jackson-jaxrs-json-provider</td><td>2.3.2</td></tr>
-  <tr><td>javax.annotation-api</td><td>1.2</td></tr>
-  <tr><td>javax.inject</td><td>2.3.0-b05</td></tr>
-  <tr><td>javax.ws.rs-api</td><td>2.0</td></tr>
-  <tr><td>jersey-client</td><td>2.10.1</td></tr>
-  <tr><td>jersey-common</td><td>2.10.1</td></tr>
-  <tr><td>jersey-guava</td><td>2.10/1</td></tr>
-  <tr><td>jersey-media-json-jackson</td><td>2.11</td></tr>
-  <tr><td>openstack4j-jersey2</td><td>3.0.0</td></tr>
-</table>
-
-**HTTPCLIENT**
-
-<table class="table table-striped">
-  <tr><th><strong>Name</strong></th><th><strong>Version</strong></th></tr>
-  <tr><td>commons-logging</td><td>1.1.3</td></tr>
-  <tr><td>httpclient</td><td>4.3.1</td></tr>
-  <tr><td>httpcore</td><td>4.3</td></tr>
-  <tr><td>openstack4j-httpclient</td><td>3.0.0</td></tr>
-</table>
-
-**OKHTTP**
-
-<table class="table table-striped">
-  <tr><th><strong>Name</strong></th><th><strong>Version</strong></th></tr>
-  <tr><td>okhttp</td><td>2.1.0</td></tr>
-  <tr><td>okio</td><td>1.0.1</td></tr>
-  <tr><td>openstack4j-okhttp</td><td>3.0.0</td></tr>
-</table>
-
-#### OpenStack4j 3.0.x Runtime Dependencies
-
-<table class="table table-striped">
-  <tr><th><strong>Name</strong></th><th><strong>Version</strong></th></tr>
-  <tr><td>Jersey</td><td>2.0</td></tr>
-  <tr><td>Jackson</td><td>1.9.13</td></tr>
-  <tr><td>Gauva</td><td>14.01+</td></tr>
-  <tr><td>JSR-305</td><td>NA</td></tr>
-</table>
-
-
 ## Lets Play!
 
 Let's test your OpenStack deployment with the API.  For advance coverage of the API please refer to the service of interest on the left navigation pane.
