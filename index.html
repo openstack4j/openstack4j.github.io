@@ -27,25 +27,6 @@ title: Fluent OpenStack client for Java
     <div class="header-bottom"></div>
 </div>
 
-<!-- Clouds we Support -->
-<div class="container">
-    <div class="row-fluid style=" margin: -40px 0px 10px 0px;
-    "">
-    <div class="section-divider">
-        <span class="text">Public/Private OpenStack Cloud Support</span>
-    </div>
-</div>
-<div class="row-fluid">
-    <div class="span12">
-        <ul class="cloud-inline">
-            <li><img src="/assets/img/openstack.png" alt="OpenStack" title="OpenStack" class="cloud-img"></li>
-            <li><h5><b>Hosted and sponsored by:</b></h5><img src="/assets/img/rackspace.png" alt="Rackspace"
-                                                             title="Rackspace" class="cloud-img"></li>
-        </ul>
-    </div>
-</div>
-</div>
-
 <!-- Info -->
 
 <div class="row-fluid">
@@ -58,8 +39,7 @@ title: Fluent OpenStack client for Java
 <div class="row-fluid">
     <div class="container about-section">
         <div class="row-fluid">
-		<span class="span12">
-		OpenStack4j is an open source OpenStack client which allows provisioning and control of an OpenStack system. The library and has been broken out into several major API abstractions:
+		<span class="span12">OpenStack4j is an open source OpenStack client which allows provisioning and control of an OpenStack system.
 		<br><br>
 		</span>
         </div>
@@ -186,21 +166,20 @@ title: Fluent OpenStack client for Java
                 </div>
 
                 <div class="panel-body">
-			<pre class=".prettyprint .lang-java">
-// V2 authentication
-OSClientV2 os = OSFactory.builderV2()
-                  .endpoint("http://127.0.0.1:5000/v2.0")
-                  .credentials("admin","secret")
-                  .tenantName("admin")
-                  .authenticate();
+                    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// V2 authentication</span>
+<span class="nc">OSClientV2</span> <span class="n">os</span> <span class="o">=</span> <span class="nc">OSFactory</span><span class="o">.</span><span class="na">builderV2</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">endpoint</span><span class="o">(</span><span class="s">"http://127.0.0.1:5000/v2.0"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">credentials</span><span class="o">(</span><span class="s">"admin"</span><span class="o">, </span><span class="s">"secret"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">tenantName</span><span class="o">(</span><span class="s">"admin"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">authenticate</span><span class="o">();</span>
 
-// V3 authentication
-OSClientV3 os = OSFactory.builderV3()
-                  .endpoint("http://127.0.0.1:5000/v3")
-                  .credentials("admin", "secret", Identifier.byName("Default"))
-                  .scopeToProject(Identifier.byName("admin"))
-                  .authenticate();
-			</pre>
+<span class="c1">// V3 authentication</span>
+<span class="nc">OSClientV3</span> <span class="n">os</span> <span class="o">=</span> <span class="nc">OSFactory</span><span class="o">.</span><span class="na">builderV3</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">endpoint</span><span class="o">(</span><span class="s">"http://127.0.0.1:5000/v3"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">credentials</span><span class="o">(</span><span class="s">"admin"</span><span class="o">,</span> <span class="s">"secret"</span><span class="o">,</span> <span class="nc">Identifier</span><span class="o">.</span><span class="na">byName</span><span class="o">(</span><span class="s">"Default"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">scopeToProject</span><span class="o">(</span><span class="nc">Identifier</span><span class="o">.</span><span class="na">byName</span><span class="o">(</span><span class="s">"admin"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">authenticate</span><span class="o">();</span>
+</code></pre></div></div>
                 </div>
             </div>
         </div>
@@ -209,20 +188,19 @@ OSClientV3 os = OSFactory.builderV3()
                 <div class="panel-heading"><span class="glyphicon glyphicon-cog"/><strong>Compute</strong></span>
                 </div>
                 <div class="panel-body">
-			<pre class=".prettyprint .lang-java">
-// Create a Server Model Object
-Server server = Builders.server()
-                        .name("Ubuntu 2")
-                        .flavor("large")
-                        .image("imageId")
-                        .build();
+                    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create a Server Model Object</span>
+<span class="nc">Server</span> <span class="n">server</span> <span class="o">=</span> <span class="nc">Builders</span><span class="o">.</span><span class="na">server</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"Ubuntu 2"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">flavor</span><span class="o">(</span><span class="s">"large"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">image</span><span class="o">(</span><span class="s">"imageId"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 
-// Boot the Server
-Server server = os.compute().servers().boot(server);
+<span class="c1">// Boot the Server</span>
+<span class="nc">Server</span> <span class="n">server</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">compute</span><span class="o">().</span><span class="na">servers</span><span class="o">().</span><span class="na">boot</span><span class="o">(</span><span class="n">server</span><span class="o">);</span>
 
-// Create a Snapshot
-os.compute().servers().createSnapshot("id", "name");
-			</pre>
+<span class="c1">// Create a Snapshot</span>
+<span class="n">os</span><span class="o">.</span><span class="na">compute</span><span class="o">().</span><span class="na">servers</span><span class="o">().</span><span class="na">createSnapshot</span><span class="o">(</span><span class="s">"id"</span><span class="o">,</span> <span class="s">"name"</span><span class="o">);</span>
+</code></pre></div></div>
                 </div>
             </div>
         </div>
@@ -236,16 +214,15 @@ os.compute().servers().createSnapshot("id", "name");
                 </div>
 
                 <div class="panel-body">
-			<pre class=".prettyprint .lang-java">
-// Create an Image
-Image image = os.images().create(Builders.image()
-                .name("Cirros 0.3.0 x64")
-                .isPublic(true)
-                .containerFormat(ContainerFormat.BARE)
-                .diskFormat(DiskFormat.QCOW2)
-                .build()
-                ), Payloads.create(new File("cirros.img")));
-			</pre>
+                    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create an Image</span>
+<span class="nc">Image</span> <span class="n">image</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">images</span><span class="o">().</span><span class="na">create</span><span class="o">(</span><span class="nc">Builders</span><span class="o">.</span><span class="na">image</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"Cirros 0.3.0 x64"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">isPublic</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">containerFormat</span><span class="o">(</span><span class="nc">ContainerFormat</span><span class="o">.</span><span class="na">BARE</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">diskFormat</span><span class="o">(</span><span class="nc">DiskFormat</span><span class="o">.</span><span class="na">QCOW2</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">()</span>
+        <span class="o">),</span> <span class="nc">Payloads</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="s">"cirros.img"</span><span class="o">)));</span>
+</code></pre></div></div>
                 </div>
             </div>
         </div>
@@ -255,15 +232,14 @@ Image image = os.images().create(Builders.image()
                 </div>
 
                 <div class="panel-body">
-			<pre class=".prettyprint .lang-java">
-// Create a Port
-Port port = os.networking().port()
-              .create(Builders.port()
-              .name("port1")
-              .networkId("networkId")
-              .fixedIp("52.51.1.253", "subnetId")
-              .build());
-			</pre>
+                    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create a Port</span>
+<span class="nc">Port</span> <span class="n">port</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="na">networking</span><span class="o">().</span><span class="na">port</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="nc">Builders</span><span class="o">.</span><span class="na">port</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"port1"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">networkId</span><span class="o">(</span><span class="s">"networkId"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">fixedIp</span><span class="o">(</span><span class="s">"52.51.1.253"</span><span class="o">,</span> <span class="s">"subnetId"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">());</span>
+</code></pre></div></div>
                 </div>
             </div>
         </div>
