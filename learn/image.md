@@ -21,26 +21,28 @@ If an image (template) is created without uploading the media then it is what is
 
 To create and upload the image media in a single call see the example below:
 
-{:.prettyprint .lang-java}
-	// Create a Payload - we will use URL in this example
-	Payload<URL> payload = Payloads.create(new URL("https://some/url/cirros-0.3.0-x86_64-disk.img"));
-	
-	Image image = os.images().create(Builders.image()
-	                .name("Cirros 0.3.0 x64")
-	                .isPublic(true)
-	                .containerFormat(ContainerFormat.BARE)
-	                .diskFormat(DiskFormat.QCOW2)
-	                .build()
-	                ), payload);
+```java
+// Create a Payload - we will use URL in this example
+Payload<URL> payload = Payloads.create(new URL("https://some/url/cirros-0.3.0-x86_64-disk.img"));
+
+Image image = os.images().create(Builders.image()
+        .name("Cirros 0.3.0 x64")
+        .isPublic(true)
+        .containerFormat(ContainerFormat.BARE)
+        .diskFormat(DiskFormat.QCOW2)
+        .build()
+        ), payload);
+```
 
 #### Reserve an Image
 
-{:.prettyprint .lang-java}
-	Image image = os.images().reserve(Builders.image()
-	                .name("Cirros 0.3.0 x64")
-	                .isPublic(true)
-	                .build());
-	
+```java
+Image image = os.images().reserve(Builders.image()
+        .name("Cirros 0.3.0 x64")
+        .isPublic(true)
+        .build());
+```
+
 	
 #### Uploading Image Data
 
@@ -48,16 +50,18 @@ To upload image data/media see the examples below.
 
 **Uploading an Updating an image object already assigned**
 
-{:.prettyprint .lang-java}
-	image = os.images().upload(image.getId(), 
-	                           Payloads.create(new File("/path/to/vmimage.img")), 
-	                           image.builder().containerFormat(ContainerFormat.BARE).diskFormat(DiskFormat.QCOW2));
+```java
+image = os.images().upload(image.getId(), 
+        Payloads.create(new File("/path/to/vmimage.img")), 
+        image.builder().containerFormat(ContainerFormat.BARE).diskFormat(DiskFormat.QCOW2));
+```
 	
 
 **Uploading only the image data without updating**
 
-{:.prettyprint .lang-java}
-	os.images().upload("imageId", Payloads.create(new File("/path/to/vmimage.img"), null);
+```java
+os.images().upload("imageId", Payloads.create(new File("/path/to/vmimage.img"), null);
+```
 	
 ## Updating, Deleting and Querying
 
@@ -65,27 +69,28 @@ To upload image data/media see the examples below.
 
 To update an image like changing it's name or other template data see the example below.
 
-{:.prettyprint .lang-java}
-	os.images().update(image.toBuilder()
-	           .name("New VM Image Name").minDisk(1024).property("personal-distro", "true"));
+```java
+os.images().update(image.toBuilder()
+        .name("New VM Image Name").minDisk(1024).property("personal-distro", "true"));
+```
 	
 #### Delete an Image
 
 To permanently delete an image see the example below.
 
- {:.prettyprint .lang-java}
-	os.images().delete("imageId");
+ ```java
+os.images().delete("imageId");
+```
 
 #### Querying for Images
 
-{:.prettyprint .lang-java}
-	// List all Images
-	List<? extends Image> images = os.images().list();
-		
-	// Get an Image by ID
-	Image image = os.images().get("imageId");
-	
-
+```java
+// List all Images
+List<? extends Image> images = os.images().list();
+    
+// Get an Image by ID
+Image image = os.images().get("imageId");
+```	
 
 ## Image Memberships
 
@@ -93,17 +98,18 @@ Image memberships are a way to share a private image with other tenants.  Those 
 
 **Finding all Memberships for an Image**
 
-{:.prettyprint .lang-java}
-	List<? extends ImageMember> members = os.images().listMembers("imageId");
-		
+```java
+List<? extends ImageMember> members = os.images().listMembers("imageId");
+```
+
 **Adding a Member (authorizing a tenant for a private image)**
 
-{:.prettyprint .lang-java}
-	os.images().addMember("imageId", "tenantId");
+```java
+os.images().addMember("imageId", "tenantId");
+```
 	
 **Removing a Member (revoking a tenant)**
 
-{:.prettyprint .lang-java}
-	os.images().removeMember("imageId", "tenantId");
-	
-
+```java
+os.images().removeMember("imageId", "tenantId");
+```

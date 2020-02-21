@@ -17,58 +17,61 @@ For more information see: [http://docs.openstack.org/api/openstack-compute/2/con
 
 **Lists registered DNS domains published by the DNS drivers**
 
-{:.prettyprint .lang-java}
-	List<? extends DomainEntry> domains = os.compute().floatingIPDNS().domains().list();
+```java
+List<? extends DomainEntry> domains = os.compute().floatingIPDNS().domains().list();
+```
 	
 **Creating or Updating a Public Domain Entry**
 
-{:.prettyprint .lang-java}
-	DomainEntry domain = os.compute().floatingIPDNS().domains().createPublic("openstack4j.com", "project1");
+```java
+DomainEntry domain = os.compute().floatingIPDNS().domains().createPublic("openstack4j.com", "project1");
+```
 
 **Creating or Updating a Private Domain Entry**
 
-{:.prettyprint .lang-java}
-	DomainEntry domain = os.compute().floatingIPDNS().domains().createPrivate("openstack4j.com", "zone1");
+```java
+DomainEntry domain = os.compute().floatingIPDNS().domains().createPrivate("openstack4j.com", "zone1");
+```
 
 **Deleting a Domain Entry**
 
-{:.prettyprint .lang-java}
-	ActionResponse resp = os.compute().floatingIPDNS().domains().delete("openstack4j.com");
-
+```java
+ActionResponse resp = os.compute().floatingIPDNS().domains().delete("openstack4j.com");
+```
 
 ### Managing DNS Entries
 
 **Finds a unique DNS entry for a specified domain and name**
 
-{:.prettyprint .lang-java}
-	List<? extends DNSEntry> entries = os.compute().floatingIPDNS()
-                                                   .entries()
-                                                   .listByName("openstack4j.com", "name");
+```java
+List<? extends DNSEntry> entries = os.compute().floatingIPDNS()
+        .entries().listByName("openstack4j.com", "name");
+```
 
 **Lists DNS entries for a specified domain and IP**
 
-{:.prettyprint .lang-java}
-	List<? extends DNSEntry> entries = os.compute().floatingIPDNS()
-                                                   .entries()
-                                                   .listByIP("openstack4j.com", "10.0.0.200");
+```java
+List<? extends DNSEntry> entries = os.compute().floatingIPDNS()
+        .entries().listByIP("openstack4j.com", "10.0.0.200");
+```
 
 **Creating a DNS Entry**
 
-{:.prettyprint .lang-java}
-	DNSEntry entry = os.compute().floatingIPDNS()
-	                             .entries()
-	                             .create("openstack4j.com", "name", "10.0.0.200", DNSRecordType.A);
+```java
+DNSEntry entry = os.compute().floatingIPDNS()
+        .entries().create("openstack4j.com", "name", "10.0.0.200", DNSRecordType.A);
+```
 	
 **Modifying a records IP Address**
 
-{:.prettyprint .lang-java}
-	DNSEntry entry = os.compute().floatingIPDNS()
-                                 .entries()
-                                 .modifyIP("openstack4j.com", "name", "10.0.0.201");
+```java
+DNSEntry entry = os.compute().floatingIPDNS()
+        .entries().modifyIP("openstack4j.com", "name", "10.0.0.201");
+```
 
 **Deleting a DNS Entry**
 
-{:.prettyprint .lang-java}
-	ActionResponse resp = os.compute().floatingIPDNS()
-                                      .entries()
-                                      .delete("openstack4j.com", "name");
+```java
+ActionResponse resp = os.compute().floatingIPDNS()
+        .entries().delete("openstack4j.com", "name");
+```

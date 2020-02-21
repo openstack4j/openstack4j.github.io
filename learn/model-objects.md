@@ -19,26 +19,27 @@ Here are some examples:
 
 **Creating a new Model Object**
 
-{:.prettyprint .lang-java}
-	Tenant tenant = Builders.identityV2().tenant().name("My Tenant").description("low usage tenant").build();
-	
-	Image image = Builders.image().name("Ubuntu 12.04 LTS").diskFormat(DiskFormat.QCOW2).minDisk(1024).build();
-	
-	Router router = Builders.router()
-	                          .name("ext_net")
-	                          .tenant(tenant)
-	                          .adminStateUp(true)
-	                          .route("10.0.1.0/24", "10.1.1.1")
-	                          .build();
+```java
+Tenant tenant = Builders.identityV2().tenant().name("My Tenant").description("low usage tenant").build();
+
+Image image = Builders.image().name("Ubuntu 12.04 LTS").diskFormat(DiskFormat.QCOW2).minDisk(1024).build();
+
+Router router = Builders.router()
+        .name("ext_net")
+        .tenant(tenant)
+        .adminStateUp(true)
+        .route("10.0.1.0/24", "10.1.1.1")
+        .build();
+```
 	
 **Updating a Model Object that was retrieved or previously created (built)**
 
-{:.prettyprint .lang-java}
-	tenant.builder().name("New Tenant Name");
-	
-	image.builder().name("New Image Name").minRam(2048);
-	
-	router.builder().tenantId("newTenantId");
+```java
+tenant.builder().name("New Tenant Name");
+
+image.builder().name("New Image Name").minRam(2048);
+
+router.builder().tenantId("newTenantId");
+```
 
 As you can see in the above examples any `Buildable` can be created via `Builders` and mutated via `Object.builder()`
-

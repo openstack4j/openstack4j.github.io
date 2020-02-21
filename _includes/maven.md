@@ -7,22 +7,24 @@ Starting with version **3.0.0+** OpenStack4j now has the ability to choose the u
 
 #### Default Setup (Using Jersey2 as the connector choice)
 
-{:.prettyprint .lang-xml}
-	<dependency>
-	  <groupId>com.github.openstack4j.core</groupId>
-	  <artifactId>openstack4j</artifactId>
-	  <version>{{ site.version }}</version>
-	</dependency>
+```xml
+<dependency>
+  <groupId>com.github.openstack4j.core</groupId>
+  <artifactId>openstack4j</artifactId>
+  <version>{{ site.version }}</version>
+</dependency>
+```
 
 **With Dependencies (all in one jar)**
 
-{:.prettyprint .lang-xml}
-	<dependency>
-	  <groupId>com.github.openstack4j.core</groupId>
-	  <artifactId>openstack4j</artifactId>
-	  <version>{{ site.version }}</version>
-	  <classifier>withdeps</classifier>
-	</dependency>
+```xml
+<dependency>
+  <groupId>com.github.openstack4j.core</groupId>
+  <artifactId>openstack4j</artifactId>
+  <version>{{ site.version }}</version>
+  <classifier>withdeps</classifier>
+</dependency>
+```
 
 <br>
 
@@ -30,22 +32,24 @@ Using version **3.0.0+** of OpenStack4j offers support for the Identity (Keyston
 
 #### Default Setup (Using Jersey2 as the connector choice)
 
-{:.prettyprint .lang-xml}
-	<dependency>
-	  <groupId>com.github.openstack4j.core</groupId>
-	  <artifactId>openstack4j</artifactId>
-	  <version>{{ site.version }}</version>
-	</dependency>
+```xml
+<dependency>
+  <groupId>com.github.openstack4j.core</groupId>
+  <artifactId>openstack4j</artifactId>
+  <version>{{ site.version }}</version>
+</dependency>
+```
 
 **With Dependencies (all in one jar)**
 
-{:.prettyprint .lang-xml}
-	<dependency>
-	  <groupId>com.github.openstack4j.core</groupId>
-	  <artifactId>openstack4j</artifactId>
-	  <version>{{ site.version }}</version>
-	  <classifier>withdeps</classifier>
-	</dependency>
+```xml
+<dependency>
+  <groupId>com.github.openstack4j.core</groupId>
+  <artifactId>openstack4j</artifactId>
+  <version>{{ site.version }}</version>
+  <classifier>withdeps</classifier>
+</dependency>
+```
 
 <br>
 
@@ -53,21 +57,23 @@ Using version **3.0.0+** of OpenStack4j offers support for the Identity (Keyston
 
 **1. Declare the openstack4j core dependency in your POM**
 
-{:.prettyprint .lang-xml}
-	<dependency>
-	  <groupId>com.github.openstack4j.core</groupId>
-	  <artifactId>openstack4j-core</artifactId>
-	  <version>{{ site.version }}</version>
-	</dependency>
+```xml
+<dependency>
+  <groupId>com.github.openstack4j.core</groupId>
+  <artifactId>openstack4j-core</artifactId>
+  <version>{{ site.version }}</version>
+</dependency>
+```
 
 **2. Declare a connector**
 
-{:.prettyprint .lang-xml}
-	<dependency>
-	  <groupId>com.github.openstack4j.core.connectors</groupId>
-	  <artifactId>[ connector artifactId ]</artifactId>
-	  <version>{{ site.version }}</version>
-	</dependency>
+```xml
+<dependency>
+  <groupId>com.github.openstack4j.core.connectors</groupId>
+  <artifactId>[ connector artifactId ]</artifactId>
+  <version>{{ site.version }}</version>
+</dependency>
+```
 
 <div class="alert alert-info connectors"><b>Valid artifactId's are:</b> <code>openstack4j-jersey2</code>, <code>openstack4j-jersey2-jdk16 [OS4J 2.0.X Only]</code>, <code>openstack4j-resteasy</code>, <code>openstack4j-okhttp</code> and <code>openstack4j-httpclient</code></div>
 
@@ -79,32 +85,33 @@ Usage of snapshots is the same as above except for the `version` tag.  Copy any 
 
 Snapshots are not sync'd with maven central.  To allow Maven to properly resolve the latest snapshot you will need to add the sonatype repository:
 
-{:.prettyprint .lang-xml}
-	<repositories>
-	    <repository>
-	      <id>st-snapshots</id>
-	      <name>sonatype-snapshots</name>
-	      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-	    </repository>
-	</repositories>
-
+```xml
+<repositories>
+  <repository>
+    <id>st-snapshots</id>
+    <name>sonatype-snapshots</name>
+    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+  </repository>
+</repositories>
+```
 
 **Example Maven project setup**
 
-{:.prettyprint .lang-xml}
-	<?xml version="1.0" encoding="UTF-8"?>
-	<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	  <modelVersion>4.0.0</modelVersion>
-	  <groupId>com.mycompany.cloudapp</groupId>
-	  <artifactId>my-cloudapp</artifactId>
-	  <version>1.0.0-SNAPSHOT</version>
-	  <dependencies>
-	    <dependency>
-	        <groupId>com.github.openstack4j.core</groupId>
-	        <artifactId>openstack4j</artifactId>
-		      <version>{{ site.snapshot-version }}</version>
-	      </dependency>
-	  </dependencies>
-	</project>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mycompany.cloudapp</groupId>
+  <artifactId>my-cloudapp</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <dependencies>
+    <dependency>
+      <groupId>com.github.openstack4j.core</groupId>
+      <artifactId>openstack4j</artifactId>
+      <version>{{ site.snapshot-version }}</version>
+    </dependency>
+  </dependencies>
+</project>
+```
 
 If you are not familiar with Apache Maven but would like to try it, when we recommend reading [Maven in 5 Minutes](http://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)

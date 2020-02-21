@@ -49,6 +49,6 @@ To find your API key, first navigate to the Cloud Control Panel, then click on y
 
 Once you have these pieces of information, you can pass them into the SDK:
 
-{:.prettyprint .lang-java}
-	List<? extends Extension> extensions = os.compute().listExtensions();
-
+```java
+List<? extends Extension> extensions = os.compute().listExtensions();
+```

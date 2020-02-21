@@ -22,39 +22,42 @@ When an image (template) is created it is in what is known as a reserved state. 
 
 Image will be in queued state until image data is uploaded.
 
-{:.prettyprint .lang-java}
-	Image image = os.imagesV2().create(
-		Builders.imageV2()
-			.name("Cirros 0.3.0 x64")
-			.containerFormat(ContainerFormat.BARE)
-			.visibility(Image.ImageVisibility.PUBLIC)
-			.diskFormat(DiskFormat.QCOW2)
-			.minDisk(0)
-			.minRam(0)
-			.build()
-	);
+```java
+Image image = os.imagesV2().create(
+    Builders.imageV2()
+        .name("Cirros 0.3.0 x64")
+        .containerFormat(ContainerFormat.BARE)
+        .visibility(Image.ImageVisibility.PUBLIC)
+        .diskFormat(DiskFormat.QCOW2)
+        .minDisk(0)
+        .minRam(0)
+        .build()
+);
+```
 
 #### Upload Image Data
 
 Payloads can be created with URLs, files, or input streams.
 
-{:.prettyprint .lang-java}
-	// Create a Payload - we will use URL in this example
-	Payload<URL> payload = Payloads.create(new URL("https://some/url/cirros-0.3.0-x86_64-disk.img"));
+```java
+// Create a Payload - we will use URL in this example
+Payload<URL> payload = Payloads.create(new URL("https://some/url/cirros-0.3.0-x86_64-disk.img"));
 
-	// Get image object to use, or send null
-	Image image = os.imagesV2().get("imageId");
+// Get image object to use, or send null
+Image image = os.imagesV2().get("imageId");
 
-	ActionResponse upload = os.imagesV2.upload(
-		image.getId(),
-		payload,
-		image);
+ActionResponse upload = os.imagesV2.upload(
+    image.getId(),
+    payload,
+    image);
+```
 
 #### Download Image data
 
-{:.prettyprint .lang-java}					 
-	 File file = new File(new URI("file:///some/path/to/image.iso"));
-	 ActionResponse download = os.imagesV2().download(image.getId(), file);
+```java					 
+ File file = new File(new URI("file:///some/path/to/image.iso"));
+ ActionResponse download = os.imagesV2().download(image.getId(), file);
+```
 
 ## Updating, Deleting and Querying
 
@@ -63,33 +66,36 @@ Update an image by providing a changed image object, or a json patch object.
 
 **Use Original Image**
 
-{:.prettyprint .lang-java}
-	Image image = os.imagesV2().update(
-		originalImage.toBuilder().
-			containerFormat(ContainerFormat.BARE)
-			.name("New Name")
-			.build()
-	);
+```java
+Image image = os.imagesV2().update(
+    originalImage.toBuilder().
+        containerFormat(ContainerFormat.BARE)
+        .name("New Name")
+        .build()
+);
+```
 
 **Use Json Patch Operation**
 
-{:.prettyprint .lang-java}
-	Image updatedImage = os.imagesV2().update("imageId",
-		Builders.imageUpdateV2().ops(
-			new PatchOperation(
-				PatchOperation.OperationType.REPLACE,
-				"/container_format",
-				ContainerFormat.BARE
-			)
-		).build()
-	);
+```java
+Image updatedImage = os.imagesV2().update("imageId",
+    Builders.imageUpdateV2().ops(
+        new PatchOperation(
+            PatchOperation.OperationType.REPLACE,
+            "/container_format",
+            ContainerFormat.BARE
+        )
+    ).build()
+);
+```
 
 #### Delete an Image
 
 Permanently delete image.
 
- {:.prettyprint .lang-java}
-	os.imagesV2().delete("imageId");
+ ```java
+os.imagesV2().delete("imageId");
+```
 
 #### Querying for Images
 
@@ -97,13 +103,15 @@ Pagination for images is done with url parameters as described <a href ="http://
 
 **List all Images**
 
-{:.prettyprint .lang-java}
-	List<? extends Image> images = os.imagesV2().list();
+```java
+List<? extends Image> images = os.imagesV2().list();
+```
 
 **Get Image by Id**
 
-{:.prettyprint .lang-java}
-	Image image = os.imagesV2().get("imageId");
+```java
+Image image = os.imagesV2().get("imageId");
+```
 
 ## Activating, Deactivating and Tagging
 
@@ -113,13 +121,15 @@ You can't download a deactivated image. Additionally, only administrative users 
 
 **Deactivate Image**
 
-{:.prettyprint .lang-java}
-	os.imagesV2().deactivate("imageId");
+```java
+os.imagesV2().deactivate("imageId");
+```
 
 **Activate Image**
 
-{:.prettyprint .lang-java}
-	os.imagesV2.activate("imageid");
+```java
+os.imagesV2.activate("imageid");
+```
 
 #### Image Tags
 
@@ -127,14 +137,15 @@ Image tags are strings.
 
 **Add Tag**
 
-{:.prettyprint .lang-java}
-	os.imagesV2().updateTag("imageId", "tag");
+```java
+os.imagesV2().updateTag("imageId", "tag");
+```
 
 **Remove Tag**
 
-{:.prettyprint .lang-java}
-	os.imagesV2().deleteTag("imageId", "tag");
-
+```java
+os.imagesV2().deleteTag("imageId", "tag");
+```
 
 ## Image Memberships
 
@@ -144,28 +155,33 @@ Image memberships are a way to share a private image with other tenants.  Those 
 
 **Get All Members**
 
-{:.prettyprint .lang-java}
-	List<? extends Member> members = os.imagesV2().listMembers("imageId");
+```java
+List<? extends Member> members = os.imagesV2().listMembers("imageId");
+```
 
 **Get a Single Member**
 
-{:.prettyprint .lang-java}
-	Member member = os.imagesV2().getMember("imageId", "memberId");
+```java
+Member member = os.imagesV2().getMember("imageId", "memberId");
+```
 
 #### Create a Member (authorizing a tenant for a private image)
 
-{:.prettyprint .lang-java}
-	Member member = os.imagesV2().createMember("imageId", "memberId");
+```java
+Member member = os.imagesV2().createMember("imageId", "memberId");
+```
 
 #### Updating a Member
 
-{:.prettyprint .lang-java}
-	Member member = os.imagesV2().updateMember("imageId", "memberId", Member.MemberStatus.ACCEPTED));
+```java
+Member member = os.imagesV2().updateMember("imageId", "memberId", Member.MemberStatus.ACCEPTED));
+```
 
 #### Removing a Member (revoking a tenant)
 
-{:.prettyprint .lang-java}
-	os.imagesV2().deleteMember("imageId", "memberId");
+```java
+os.imagesV2().deleteMember("imageId", "memberId");
+```
 
 ## Tasks
 
@@ -175,35 +191,39 @@ Image memberships are a way to share a private image with other tenants.  Those 
 
 Here the json object for input is created using a HashMap, but it can be any valid json object.
 
-{:.prettyprint .lang-java}
-	// Create json object for input
-	Map<String, Object> input = new HashMap<String, Object>();
+```java
+// Create json object for input
+Map<String, Object> input = new HashMap<String, Object>();
 
-	// Fill with the input
+// Fill with the input
 
-	// Create task
-	  Task task1 = os.imagesV2().tasks().create(
-			Builders.taskBuilder()
-				.type("import")
-				.input(input)
-				.build()
-		);
+// Create task
+Task task1 = os.imagesV2().tasks().create(
+    Builders.taskBuilder()
+        .type("import")
+        .input(input)
+        .build()
+    );
+```
 
 #### List Tasks
 
 **List all Tasks**
 
-{:.prettyprint .lang-java}
-	List<? extends Task> tasks = os.imagesV2().tasks().list();
+```java
+List<? extends Task> tasks = os.imagesV2().tasks().list();
+```
 
 **List all Tasks with Filtering**
 
-{:.prettyprint .lang-java}
-	Map<String, String> params = new HashMap<String, String>();
-	params.put("id","taskId");
-	List<? extends Task> list = os.imagesV2().tasks().list(params);
+```java
+Map<String, String> params = new HashMap<String, String>();
+params.put("id","taskId");
+List<? extends Task> list = os.imagesV2().tasks().list(params);
+```
 
 #### Show Task Details
 
-{:.prettyprint .lang-java}
-	Task task = os.imagesV2().tasks().get("taskId");
+```java
+Task task = os.imagesV2().tasks().get("taskId");
+```

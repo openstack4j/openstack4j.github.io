@@ -39,119 +39,119 @@ Since OpenStack4j both version 3.0.0 version 2 and 3 of the Identity API are sup
 #### Version 2 Authentication
 <div class="alert alert-warning"><b>NOTE: </b>   OpenStack4j 3.0.0 introduced some breaking changes.
 <br/> The Identity V2 API is no longer available with the OSClient but only with the new <b>OSClientV2</b>.<br>
-</b></a></div>
+</div>
 
 In previous OpenStack4j versions (2.x) V2 authentication was done by:
-{:.prettyprint .lang-java}
+```java
+import org.openstack4j.api.OSClient;
+import org.openstack4j.openstack.OSFactory;
 
-    import org.openstack4j.api.OSClient;
-    import org.openstack4j.openstack.OSFactory;
-
-    OSClient os = OSFactory.builder()
-                .endpoint("http://127.0.0.1:5000/v2.0")
-                .credentials("admin", "test")
-                .tenantName("admin")
-                .authenticate();
+OSClient os = OSFactory.builder()
+        .endpoint("http://127.0.0.1:5000/v2.0")
+        .credentials("admin", "test")
+        .tenantName("admin")
+        .authenticate();
+```
 
 V2 authentication in OpenStack4j 3.x is done the following way:
 
-{:.prettyprint .lang-java}
+```java
+import org.openstack4j.api.OSClient.OSClientV2;
+import org.openstack4j.openstack.OSFactory;
 
-    import org.openstack4j.api.OSClient.OSClientV2;
-    import org.openstack4j.openstack.OSFactory;
-
-	OSClientV2 os = OSFactory.builderV2()
-	                       .endpoint("http://127.0.0.1:5000/v2.0")
-	                       .credentials("admin","sample")
-	                       .tenantName("admin")
-	                       .authenticate();
-
+OSClientV2 os = OSFactory.builderV2()
+        .endpoint("http://127.0.0.1:5000/v2.0")
+        .credentials("admin","sample")
+        .tenantName("admin")
+        .authenticate();
+```
 
 #### Version 3 Authentication
 <div class="alert alert-warning"><b>NOTE: </b>   OpenStack4j 3.0.0 introduced some breaking changes.
 <br/> The Identity V3 API is only available with the new <b>OSClientV3</b>.<br>
-</b></a></div>
+</div>
 
-{:.prettyprint .lang-java}
+```java
+import org.openstack4j.api.OSClient.OSClientV3;
+import org.openstack4j.openstack.OSFactory;
+import org.openstack4j.model.common.Identifier;
 
-    import org.openstack4j.api.OSClient.OSClientV3;
-    import org.openstack4j.openstack.OSFactory;
-    import org.openstack4j.model.common.Identifier;
+// use Identifier.byId("domainId") or Identifier.byName("example-domain")
+Identifier domainIdentifier = Identifier.byId("domainId");
 
-    # use Identifier.byId("domainId") or Identifier.byName("example-domain")
-	Identifier domainIdentifier = Identifier.byId("domainId");
+// unscoped authentication
+// as the username is not unique across domains you need to provide the domainIdentifier
+OSClientV3 os = OSFactory.builderV3()
+        .endpoint("http://127.0.0.1:5000/v3")
+        .credentials("admin","sample", domainIdentifier)
+        .authenticate();
 
-    # unscoped authentication
-    # as the username is not unique across domains you need to provide the domainIdentifier
-	OSClientV3 os = OSFactory.builderV3()
-	                       .endpoint("http://127.0.0.1:5000/v3")
-	                       .credentials("admin","sample", domainIdentifier)
-	                       .authenticate();
+// project scoped authentication
+OSClientV3 os = OSFactory.builderV3()
+        .endpoint("http://127.0.0.1:5000/v3")
+        .credentials("admin", "secret", Identifier.byName("example-domain"))
+        .scopeToProject(Identifier.byId(projectIdentifier))
+        .authenticate();
 
-    # project scoped authentication
-    OSClientV3 os = OSFactory.builderV3()
-                        .endpoint("http://127.0.0.1:5000/v3")
-                        .credentials("admin", "secret", Identifier.byName("example-domain"))
-                        .scopeToProject(Identifier.byId(projectIdentifier))
-                        .authenticate();
+// domain scoped authentication
+// using the unique userId does not require a domainIdentifier
+OSClientV3 os = OSFactory.builderV3()
+        .endpoint("http://127.0.0.1:5000/v3")
+        .credentials("userId", "secret")
+        .scopeToDomain(Identifier.byId(domainIdentifier))
+        .authenticate();
 
-    # domain scoped authentication
-    # using the unique userId does not require a domainIdentifier
-    OSClientV3 os = OSFactory.builderV3()
-                        .endpoint("http://127.0.0.1:5000/v3")
-                        .credentials("userId", "secret")
-                        .scopeToDomain(Identifier.byId(domainIdentifier))
-                        .authenticate();
+// Scoping to a project just by name isn't possible as the project name is only unique within a domain.
+// You can either use this as the id of the project is unique across domains
+OSClientV3 os = OSFactory.builderV3()
+        .endpoint("http://127.0.0.1:5000/v3")
+        .credentials("userId", "secret")
+        .scopeToProject(Identifier.byName(projectName), Identifier.byName(domainName))
+        .authenticate();
 
-    # Scoping to a project just by name isn't possible as the project name is only unique within a domain.
-    # You can either use this as the id of the project is unique across domains
-    OSClientV3 os = OSFactory.builderV3()
-                        .endpoint("http://127.0.0.1:5000/v3")
-                        .credentials("userId", "secret")
-                        .scopeToProject(Identifier.byName(projectName), Identifier.byName(domainName))
-                        .authenticate();
-
-    # Or alternatively
-    OSClientV3 os = OSFactory.builderV3()
-                        .endpoint("http://127.0.0.1:5000/v3")
-                        .credentials("userId", "secret")
-                        .scopeToDomain(Identifier.byName(domainName))
-                        .authenticate();
+// Or alternatively
+OSClientV3 os = OSFactory.builderV3()
+        .endpoint("http://127.0.0.1:5000/v3")
+        .credentials("userId", "secret")
+        .scopeToDomain(Identifier.byName(domainName))
+        .authenticate();
+```
 
 ### Run some Queries
 
 Now that we have successfully authenticated and have a client we will show you a few basic examples of grabbing data from the various services.  These are high level and for full CRUD and management calls please refer to each individual service guide.
 
-{:.prettyprint .lang-java}
-	// Find all Users
-	List<? extends User> users = os.identity().users().list();
+```java
+// Find all Users
+List<? extends User> users = os.identity().users().list();
 
-	// List all Tenants
-	List<? extends Tenant> tenants = os.identity().tenants().list();
+// List all Tenants
+List<? extends Tenant> tenants = os.identity().tenants().list();
 
-	// Find all Compute Flavors
-	List<? extends Flavor> flavors = os.compute().flavors().list();
+// Find all Compute Flavors
+List<? extends Flavor> flavors = os.compute().flavors().list();
 
-	// Find all running Servers
-	List<? extends Server> servers = os.compute().servers().list();
+// Find all running Servers
+List<? extends Server> servers = os.compute().servers().list();
 
-	// Suspend a Server
-	os.compute().servers().action("serverId", Action.SUSPEND);
+// Suspend a Server
+os.compute().servers().action("serverId", Action.SUSPEND);
 
-	// List all Networks
-	List<? extends Network> networks = os.networking().network().list();
+// List all Networks
+List<? extends Network> networks = os.networking().network().list();
 
-	// List all Subnets
-	List<? extends Subnet> subnets = os.networking().subnet().list();
+// List all Subnets
+List<? extends Subnet> subnets = os.networking().subnet().list();
 
-	// List all Routers
-	List<? extends Router> routers = os.networking().router().list();
+// List all Routers
+List<? extends Router> routers = os.networking().router().list();
 
-	// List all Images (Glance)
-	List<? extends Image> images = os.images().list();
+// List all Images (Glance)
+List<? extends Image> images = os.images().list();
 
-	// Download the Image Data
-	InputStream is = os.images().getAsStream("imageId");
+// Download the Image Data
+InputStream is = os.images().getAsStream("imageId");
+```
 
 As you can see in the examples above we have exercised a small portion of the following services (Identity, Computer, Network and Image).
 
@@ -159,49 +159,49 @@ As you can see in the examples above we have exercised a small portion of the fo
 
 #### Logging ####
 Logging of HTTP communication can be enabled via
-{:.prettyprint .lang-java}
-
-    OSFactory.enableHttpLoggingFilter(true);
+```java
+OSFactory.enableHttpLoggingFilter(true);
+```
 
 #### Resolver ####
 
 Once authenticated, OpenStack services obtain their respective endpoint from a catalog using a default Resolver.
 This logic can be overridden by defining a custom ServiceVersionResolver
 
-{:.prettyprint .lang-java}
+```java
+// define custom ServiceVersionResolver
+final ServiceVersionResolver resolver = new ServiceVersionResolver() {
+    @Override
+    public Service resolve(ServiceType type, SortedSet<? extends Service> services) {
+        // resolver logic; possibly ext. default logic
+        return endpoint;
+    }
+};
 
-    // define custom ServiceVersionResolver
-    final ServiceVersionResolver resolver = new ServiceVersionResolver() {
-        @Override
-        public Service resolve(ServiceType type, SortedSet<? extends Service> services) {
-            // resolver logic; possibly ext. default logic
-            return endpoint;
-        }
-    };
-
-    // apply resolver to client
-    OSClient.withConfig(Config.newConfig().withResolver(resolver))
+// apply resolver to client
+OSClient.withConfig(Config.newConfig().withResolver(resolver))
+```
 
 #### Endpoint URL Resolver ####
 
 Resolving and endpoint URL is by default based on the Service Type and Facing perspective. The default logic can be overridden by a custom EndpointURLResolver
 
-{:.prettyprint .lang-java}
+```java
+// define a custom EndpointURLResolver
+final EndpointURLResolver endpointUrlResolver = new EndpointURLResolver() {
+  @Override
+  public String findURLV3(URLResolverParams arg0) {
+    // logic for V3
+    return null;
+  }
 
-    // define a custom EndpointURLResolver
-    final EndpointURLResolver endpointUrlResolver = new EndpointURLResolver() {
-      @Override
-      public String findURLV3(URLResolverParams arg0) {
-        // logic for V3
-        return null;
-      }
+  @Override
+  public String findURLV2(URLResolverParams arg0) {
+    // logic for V2
+    return null;
+  }
+};
 
-      @Override
-      public String findURLV2(URLResolverParams arg0) {
-        // logic for V2
-        return null;
-      }
-    };
-
-    // apply resolver to client
-    OSClient.withConfig(Config.newConfig().withEndpointURLResolver(resolver));
+// apply resolver to client
+OSClient.withConfig(Config.newConfig().withEndpointURLResolver(resolver));
+```

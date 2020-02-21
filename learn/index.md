@@ -47,7 +47,6 @@ All Exceptions are unchecked and are broken up into 5 categories (All extend Res
 <li><strong>ConnectionException</strong> - I/O or HTTP based communication failure</li>
 <li><strong>ResponseException</strong> - Base exception is for all other failures (communication).</li>
 </ul>
-</p>
 </td>
 </tr>
 </table>

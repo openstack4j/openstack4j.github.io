@@ -17,10 +17,9 @@ A meter is a category of measurements.  Think of it as a metric on KPI.  For a f
 
 To retrieve all known meters see the example below:
 
-{:.prettyprint .lang-java}
-	List<? extends Meter> meters = os.telemetry().meters().list();
-	
-
+```java
+List<? extends Meter> meters = os.telemetry().meters().list();
+```
 
 ## Samples
 
@@ -30,10 +29,9 @@ A sample represents a single numeric datapoint, driving a Meter that represents 
 
 To obtain a list of current Sample Data you must provide the meter name you wish to query for.  See the example below:
 
-{:.prettyprint .lang-java}
-	List<? extends Sample> samples = os.telemetry().meters().samples("cpu_util");
-
-
+```java
+List<? extends Sample> samples = os.telemetry().meters().samples("cpu_util");
+```
 	
 ## Statistics
 
@@ -43,12 +41,14 @@ Statistics are computed based on samples. They can be computed against all curre
 
 The example below will query for all samples and compute the statistics against them for the specified meter.
 
-{:.prettyprint .lang-java}
-	List<? extends Statistics> stats = os.telemetry().meters().statistics("cpu_util");
+```java
+List<? extends Statistics> stats = os.telemetry().meters().statistics("cpu_util");
+```
 
 #### Get computed Statistics for a Meter based on a Time Period
 
 To get a computation based on a query you can pass in the period.  The period is defined in seconds.  See the example below
 
-{:.prettyprint .lang-java}
-	List<? extends Statistics> stats = os.telemetry().meters().statistics("cpu_util", 320);
+```java
+List<? extends Statistics> stats = os.telemetry().meters().statistics("cpu_util", 320);
+```

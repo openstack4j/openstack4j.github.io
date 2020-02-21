@@ -23,99 +23,89 @@ In OpenStack4j flavors can be created with a builder or a service call specifyin
 
 **Creating a Flavor with the Builder**
 
-{:.prettyprint .lang-java}
-	Flavor flavor = Builders.flavor()
-	                        .name("Large Resources Template")
-	                        .ram(4096)
-	                        .vcpus(6)
-	                        .disk(120)
-	                        .rxtxFavor(1.2f)
-	                        .build();
-	
-	flavor = os.compute().flavors().create(flavor);
+```java
+Flavor flavor = Builders.flavor()
+        .name("Large Resources Template")
+        .ram(4096)
+        .vcpus(6)
+        .disk(120)
+        .rxtxFavor(1.2f)
+        .build();
+
+flavor = os.compute().flavors().create(flavor);
+```
 
 **Creating a Flavor via method parameters**
 
-{:.prettyprint .lang-java}
-	Flavor flavor = os.compute().flavors()
-	                  .create("name", ram, vcpus, disk, ephemeral, swap, rxtxFactor, isPublic);
-	
+```java
+Flavor flavor = os.compute().flavors()
+        .create("name", ram, vcpus, disk, ephemeral, swap, rxtxFactor, isPublic);
+```	
 
 #### Querying for Flavors
 
 Below are examples of how to query/find Flavors.
 
-{:.prettyprint .lang-java}
-	// Find all Flavors
-	List<Flavor> flavors = os.compute().flavors().list();
-		
-	// Find a Flavor by ID
-	Flavor flavor = os.compute().flavors().get("flavorId");
-	
+```java
+// Find all Flavors
+List<Flavor> flavors = os.compute().flavors().list();
+    
+// Find a Flavor by ID
+Flavor flavor = os.compute().flavors().get("flavorId");
+```
+
 #### Deleting a Flavor
 
-{:.prettyprint .lang-java}
-	os.compute().flavors().delete("flavorId");
+```java
+os.compute().flavors().delete("flavorId");
+```
 
 ## Images (via Nova)
 
 Compute supports basic Image operations which is mainly read only lookups and metadata support.  For full image management please refer to the [Image Service (Glance)](/learn/image).
-
-#### Querying for Images
-
-{:.prettyprint .lang-java}
-	// List all Images (detailed @see #list(boolean detailed) for brief)
-	List<? extends Image> images = os.compute().images().list();
-		
-	// Get an Image by ID
-	Image img = os.compute().images().get("imageId");
-
-#### Deleting an Image
-
-{:.prettyprint .lang-java}
-	os.compute().images().delete("imageId");
 	
 #### MetaData Operations
 
 Metadata is extended key/value based data that can be stored against images.  This can be useful for keeping extra information against a particular image.
 
-{:.prettyprint .lang-java}
-	// Get
-	Map<String, String> md = os.compute().images().getMetaData("imageId");
+```java
+// Get
+Map<String, String> md = os.compute().images().getMetaData("imageId");
 
-	// Set
-	Map<String, String> md = os.compute().images().setMetaData("imageId", newMetaMap);
+// Set
+Map<String, String> md = os.compute().images().setMetaData("imageId", newMetaMap);
 
-	// Delete Keys
-	os.compute().images().deleteMetaData("imageId", "key1", key2", ...//);
-
+// Delete Keys
+os.compute().images().deleteMetaData("imageId", "key1", key2", ...//);
+```
 
 ## Quota-Sets and Limits
 
-{:.prettyprint .lang-java}
-	// Quota-Set for a specific Tenant
-	QuotaSet qs = os.compute().quotaSets().get(tenant.getId());
+```java
+// Quota-Set for a specific Tenant
+QuotaSet qs = os.compute().quotaSets().get(tenant.getId());
 
-	// Quota-Set for a specific Tenant and User
-	QuotaSet qs = os.compute().quotaSets().get(tenant.getId(), user.getId());
+// Quota-Set for a specific Tenant and User
+QuotaSet qs = os.compute().quotaSets().get(tenant.getId(), user.getId());
 
-	// Limits (Rate Limit and Absolute)
-	Limits limits = os.compute().quotaSets().limits();
-
+// Limits (Rate Limit and Absolute)
+Limits limits = os.compute().quotaSets().limits();
+```
 
 ## Simple Tenant Usage (os-simple-tenant-usage)
 
-{:.prettyprint .lang-java}
-	// Tenant Usage for All Tenants
-	List<? extends SimpleTenantUsage> tenantUsages = os.compute().quotaSets().listTenantUsages();
+```java
+// Tenant Usage for All Tenants
+List<? extends SimpleTenantUsage> tenantUsages = os.compute().quotaSets().listTenantUsages();
 
-	// Tenant Usage (detailed) for specific Tenant
-	SimpleTenantUsage usage = os.compute().quotaSets().getTenantUsage("tenantId");
-	
+// Tenant Usage (detailed) for specific Tenant
+SimpleTenantUsage usage = os.compute().quotaSets().getTenantUsage("tenantId");
+```
+
 ## Extensions
 
 Extensions are add-ons to the core OpenStack deployment. Sometimes it is important to determine if the deployment has an enhanced feature set available. To get a list of installed extensions against Nova see the example below.
 
-{:.prettyprint .lang-java}
-	List<? extends Extension> extensions = os.compute().listExtensions();
-
+```java
+List<? extends Extension> extensions = os.compute().listExtensions();
+```

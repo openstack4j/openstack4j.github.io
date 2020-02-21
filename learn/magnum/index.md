@@ -17,90 +17,105 @@ Magnum is an OpenStack API service developed by the OpenStack Containers Team ma
 Baymodel acts as a template that defines options such as the container orchestration engine, keypair and image for use when Magnum is creating Bay using the given Baymodel.
 
 **List baymodels**
-{:.prettyprint .lang-java}
-	List<? extends Baymodel> res = os.magnum().listBaymodels();
+```java
+List<? extends Baymodel> res = os.magnum().listBaymodels();
+```
 
 **Creating a baymodel**
-{:.prettyprint .lang-java}
-	Baymodel res = os.magnum().createBaymodel(baymodel);
+```java
+Baymodel res = os.magnum().createBaymodel(baymodel);
+```
 
 **Delete a baymodel**
-{:.prettyprint .lang-java}
-	Baymodel res = os.magnum().deleteBaymodel(baymodelId);
+```java
+Baymodel res = os.magnum().deleteBaymodel(baymodelId);
+```
 
 **Show a baymodel**
-{:.prettyprint .lang-java}
-	Baymodel res = os.magnum().showBaymodel(baymodelId);
+```java
+Baymodel res = os.magnum().showBaymodel(baymodelId);
+```
 
 **Update a baymodel**
-{:.prettyprint .lang-java}
-	Baymodel res = os.magnum().updateBaymodel(baymodelId, ops);
+```java
+Baymodel res = os.magnum().updateBaymodel(baymodelId, ops);
+```
 
 ## Bay
 
 **List bays**
-{:.prettyprint .lang-java}
-	List<? extends Bay> res = os.magnum().listBays();
+```java
+List<? extends Bay> res = os.magnum().listBays();
+```
 
 **Create a bay**
-{:.prettyprint .lang-java}
-	Bay res = os.magnum().createBay(bay);
+```java
+Bay res = os.magnum().createBay(bay);
+```
 
 **Delete a bay**
-{:.prettyprint .lang-java}
-	ActionResponse res = os.magnum().deleteBay(bayId);
+```java
+ActionResponse res = os.magnum().deleteBay(bayId);
+```
 
 **Show a bay**
-{:.prettyprint .lang-java}
-	Bay res = os.magnum().showBay(baymodelId);
-
+```java
+Bay res = os.magnum().showBay(baymodelId);
+```
 
 ## Container
 
 **List containers**
-{:.prettyprint .lang-java}
-	List<? extends Container> res = os.magnum().showBay(baymodelId);
+```java
+List<? extends Container> res = os.magnum().showBay(baymodelId);
+```
 
 **Create a container**
-{:.prettyprint .lang-java}
-	Container res = os.magnum().createContainer(container);
+```java
+Container res = os.magnum().createContainer(container);
+```
 
 **Delete a container**
-{:.prettyprint .lang-java}
-	ActionResponse res = os.magnum().deleteContainer(uuid);
-
+```java
+ActionResponse res = os.magnum().deleteContainer(uuid);
+```
 
 **Get logs of a container**
-{:.prettyprint .lang-java}
-	String res = os.magnum().getContainerLogs(id);
-
+```java
+String res = os.magnum().getContainerLogs(id);
+```
 
 **Start a container**
-{:.prettyprint .lang-java}
-	Container res = os.magnum().startContainer(id);
+```java
+Container res = os.magnum().startContainer(id);
+```
 
 **Stop a container**
-{:.prettyprint .lang-java}
-	Container res = os.magnum().stopContainer(id);
+```java
+Container res = os.magnum().stopContainer(id);
+```
 
 **Reboot a container**
-{:.prettyprint .lang-java}
-	Container res = os.magnum().rebootContainer(id);
+```java
+Container res = os.magnum().rebootContainer(id);
+```
 
 **Pause a container**
-{:.prettyprint .lang-java}
-	Container res = os.magnum().pauseContainer(id);
+```java
+Container res = os.magnum().pauseContainer(id);
+```
 
 **Unpause a container**
-{:.prettyprint .lang-java}
-	Container res = os.magnum().unpauseContainer(id);
+```java
+Container res = os.magnum().unpauseContainer(id);
+```
 
 **Execute a command in a container**
-{:.prettyprint .lang-java}
-	String res = os.magnum().execCmdInContainer(id, cmd);
+```java
+String res = os.magnum().execCmdInContainer(id, cmd);
+```
 
 **Show a container**
-{:.prettyprint .lang-java}
-	Container res = os.magnum().showContainer(id);
-
-
+```java
+Container res = os.magnum().showContainer(id);
+```

@@ -19,33 +19,37 @@ To create and launch a stack see the example below:
 
 **Using a Builder**
 
-{:.prettyprint .lang-java}
-	Stack stack = os.heat().stacks().create(Builders.stack()
-                                              .name("Stack Name")
-                                              .jsonTemplate(template)
-                                              .parameters(params)
-                                              .timeoutMins(5).build());
-
+```java
+Stack stack = os.heat().stacks().create(Builders.stack()
+        .name("Stack Name")
+        .jsonTemplate(template)
+        .parameters(params)
+        .timeoutMins(5).build());
+```
 
 **Calling with arguments**
 
-{:.prettyprint .lang-java}
-    Stack stack = os.heat().stacks().create(name, template, params, disableRollback, timeoutMins);
+```java
+Stack stack = os.heat().stacks().create(name, template, params, disableRollback, timeoutMins);
+```
 
 #### Deleting a Stack
 
-{:.prettyprint .lang-java}
-    os.heat().stacks().delete(stackName, id);
+```java
+os.heat().stacks().delete(stackName, id);
+```
 
 #### Finding details about a Stack
 
-{:.prettyprint .lang-java}
-    Stack stack = os.heat().stacks().getDetails(stackName, id);
+```java
+Stack stack = os.heat().stacks().getDetails(stackName, id);
+```
 
 #### List available Stacks
 
-{:.prettyprint .lang-java}
-    List<? extends Stack> stacks = os.heat().stacks().list();
+```java
+List<? extends Stack> stacks = os.heat().stacks().list();
+```
 
 ## Templates
 
@@ -58,14 +62,15 @@ There are two ways to validate a template.  You can validate the template in Str
 
 **Input as a String**
 
-{:.prettyprint .lang-java}
-   String result = os.heat().templates().validateTemplate(templateString);
+```java
+String result = os.heat().templates().validateTemplate(templateString);
+```
 
 **Input as a Template**
 
-{:.prettyprint .lang-java}
-    String result = os.heat().templates().validateTemplate(template);
-
+```java
+String result = os.heat().templates().validateTemplate(template);
+```
 	
 ## Resources
 
@@ -73,14 +78,15 @@ Below are methods for finding resources associated with Stacks
 
 #### Finding a Resource
 
-{:.prettyprint .lang-java}
-    Resource resource = os.heat().resources().show(stackName, id, resourceName);
+```java
+Resource resource = os.heat().resources().show(stackName, id, resourceName);
+```
 
 #### Listing Resources for a Given Stack
 
-{:.prettyprint .lang-java}
-    List<? extends Resource> resources = os.heat().resources().list(stackName, id);
-
+```java
+List<? extends Resource> resources = os.heat().resources().list(stackName, id);
+```
 
 ## Events
 
@@ -90,16 +96,18 @@ Events are useful for detecting errors or deployment problems within a Stack. Be
 
 **All Events for a Stack**
 
-{:.prettyprint .lang-java}
-    List<? extends Event> events = os.heat().events().list(stackName, id);
+```java
+List<? extends Event> events = os.heat().events().list(stackName, id);
+```
 
 **All Events for a Stack and corresponding Resource**
 
-{:.prettyprint .lang-java}
-    List<? extends Event> events = os.heat().events().list(stackName, id, resourceName);
+```java
+List<? extends Event> events = os.heat().events().list(stackName, id, resourceName);
+```
 
 #### Looking up an Event
 
-{:.prettyprint .lang-java}
-    Event event = os.heat().events().show(stackName, id, resourceName, eventId);
-
+```java
+Event event = os.heat().events().show(stackName, id, resourceName, eventId);
+```

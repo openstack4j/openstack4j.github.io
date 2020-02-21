@@ -13,3 +13,6 @@ plugins: [jekyll-paginate]
 pkgs:
   all:
     nginx
+
+kramdown:
+  input: GFM
