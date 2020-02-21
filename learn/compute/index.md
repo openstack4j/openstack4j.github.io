@@ -76,7 +76,7 @@ Map<String, String> md = os.compute().images().getMetaData("imageId");
 Map<String, String> md = os.compute().images().setMetaData("imageId", newMetaMap);
 
 // Delete Keys
-os.compute().images().deleteMetaData("imageId", "key1", key2", ...//);
+os.compute().images().deleteMetaData("imageId", "key1", "key2", ...//);
 ```
 
 ## Quota-Sets and Limits

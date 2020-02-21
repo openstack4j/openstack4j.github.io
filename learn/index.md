@@ -28,7 +28,7 @@ OpenStack4j is broken out into several major API abstractions as Java libraries.
 # Why should I use OpenStack4j?
 
 OpenStack is a large system to manage. We have made it easy by providing a simplistic fluent API and intelligent error handling.  Some of the areas we have
-focussed on to make your experience with OpenStack easy with less boiler-plate code are:
+focused on to make your experience with OpenStack easy with less boiler-plate code are:
 
 <table class="table table-striped">
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-ok"></span> Expected Results</div></td><td>All API calls that return a single object will be null if no data is found. Calls that return a List/Collection will return an empty list if not found.</td></tr>
@@ -38,7 +38,7 @@ focussed on to make your experience with OpenStack easy with less boiler-plate c
 <tr><td><div class="imageLabel"><span class="glyphicon glyphicon-warning-sign"></span> Exception Handling</div></td>
 <td>
 Checked exceptions will never be thrown for <strong><font color="red">404 (Not Found)</font></strong> See above for standards. Based on the OpenStack specifications of errors all exceptions extend a common unchecked ResponseException. Server and Client exceptions also have an enumerated type fully classifying the exact reason for failure allowing your application to report appropriately. 
-<p><br>
+<br>
 All Exceptions are unchecked and are broken up into 5 categories (All extend ResponseException):
 <ul>
 <li><strong>ServerResponseException</strong> - thrown if error codes are between 500 and 600.</li>

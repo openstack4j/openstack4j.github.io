@@ -75,7 +75,7 @@ Using version **3.0.0+** of OpenStack4j offers support for the Identity (Keyston
 </dependency>
 ```
 
-<div class="alert alert-info connectors"><b>Valid artifactId's are:</b> <code>openstack4j-jersey2</code>, <code>openstack4j-jersey2-jdk16 [OS4J 2.0.X Only]</code>, <code>openstack4j-resteasy</code>, <code>openstack4j-okhttp</code> and <code>openstack4j-httpclient</code></div>
+<div class="alert alert-info connectors"><b>Valid artifactId's are:</b> <code>openstack4j-jersey2</code>, <code>openstack4j-resteasy</code>, <code>openstack4j-okhttp</code>, <code>openstack4j-http-connector</code> and <code>openstack4j-httpclient</code></div>
 
 ### Snapshots (Current Development)
 

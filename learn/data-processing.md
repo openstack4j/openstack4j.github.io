@@ -235,12 +235,12 @@ List<? extends NodeGroupTemplate> ngtemplates = os.sahara().nodeGroupTemplates()
 **Finding a Node Group Template by ID**
 
 ```java
-NodeGroupTemplate ngtemplate = 	os.sahara().nodeGroupTemplates().get(templateId);
+NodeGroupTemplate ngtemplate = os.sahara().nodeGroupTemplates().get(templateId);
 ```
 
 ### Creating a Node Group Template
 
-```java	
+```java
 NodeGroupTemplate ngtemplate = os.sahara().nodeGroupTemplates()
         .create(Builders.nodeGroupTemplate()
                 .name("master")
