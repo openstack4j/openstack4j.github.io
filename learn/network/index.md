@@ -175,3 +175,22 @@ List<Router> = os.networking().router().list();
 // Get a Router by ID
 Router router = os.networking().router().get("routerId");
 ```
+
+## Floating IP addresses
+
+Floating IPs makes services from internal networks available in an external network.
+
+#### Creating and attaching Floating IPs
+
+A Floating IP address can be created and associated with server atomically.
+
+```java
+// Identify server port based on the server ID and the private network
+Port port = os.networking().port().list(
+        PortListOptions.create().deviceId(server.getId()).networkId("private-network-id")
+).get(0);
+
+// Create floating IP in the public network
+NetFloatingIP fip = Builders.netFloatingIP().portId(port.getId()).floatingNetworkId("public-network-id").build();
+fip = os.networking().floatingip().create(fip);
+```
